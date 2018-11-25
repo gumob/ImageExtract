@@ -95,25 +95,6 @@ platform :ios do
     ##########################################
     desc "Create documentation"
     lane :create_doc do |options|
-#         appledoc(
-#             project_name: project_name,
-#             project_company: project_company,
-#             company_id: company_id,
-#             project_version: get_info_plist_value(path: info_plist_framework, key: 'CFBundleShortVersionString'),
-#             input: [
-#                 "Source/ImageExtract.swift",
-#             ],
-#             output: "Doc/",
-#             ignore: [
-#                 "Carthage",
-#                 "Pods"
-#             ],
-#             create_html: true,
-#             create_docset: true,
-#             clean_output: true,
-#             options: "--keep-intermediate-files --search-undocumented-doc",
-#             warnings: "--warn-missing-output-path --warn-missing-company-id"
-#         )
         jazzy(config: ".jazzy.yml")
     end
 
@@ -131,9 +112,12 @@ platform :ios do
     desc "Run iOS Tests"
     lane :test_ios do |options|
         xcclean
-        run_tests(
+        scan(
             scheme: scheme_iOS,
-            devices: ["iPhone X"],
+            devices: [
+#             "iPhone X",
+            "iPhone 6 (10.3.1)",
+            ],
             code_coverage: true
         )
         coverage
@@ -143,7 +127,7 @@ platform :ios do
     desc "Run tvOS Tests"
     lane :test_tvos do |options|
         xcclean
-        run_tests(
+        scan(
             scheme: scheme_tvOS,
             devices: ["Apple TV"],
             code_coverage: true
@@ -153,7 +137,7 @@ platform :ios do
     desc "Run macOS Tests"
     lane :test_macos do |options|
         xcclean
-        run_tests(
+        scan(
             scheme: scheme_macOS,
             destination: "platform=macOS",
             code_coverage: true
