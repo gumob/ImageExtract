@@ -1,0 +1,39 @@
+module: ImageExtract
+
+author: Gumob
+author_url: http://gumob.com
+github_url: https://github.com/gumob/ImageExtract
+copyright: 'Copyright © 2018 Gumob. All rights reserved.'
+
+min_acl: public
+clean: true
+readme: "README.md"
+output: "Docs/html"
+documentation: USAGE.md
+skip_undocumented: true
+hide_documentation_coverage: true
+# theme: fullwidth
+theme: "Docs/themes/fullwidth-ex"
+
+source_directory: Source
+umbrella_header: "Source/ImageExtract.h"
+xcodebuild_arguments:
+  - -project
+  - ../ImageExtract.xcodeproj
+  - -scheme
+  - ImageExtract-iOS
+exclude:
+  - Source/Extension.swift
+custom_categories:
+  - name: Classes
+    children:
+      - ImageExtract
+  - name: Protocls
+    children:
+      - ImageRequestConvertible
+  - name: Enumerations
+    children:
+      - ImageChunkSize
+  - name: Guides
+    children:
+      - USAGE.md
