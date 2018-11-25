@@ -511,13 +511,13 @@
 		A783DD2021A7814700A0242F /* muxread.c in Sources */ = {isa = PBXBuildFile; fileRef = A783DA1021A77CF400A0242F /* muxread.c */; };
 		A783DD2121A7814800A0242F /* muxread.c in Sources */ = {isa = PBXBuildFile; fileRef = A783DA1021A77CF400A0242F /* muxread.c */; };
 		A783DD2221A7814B00A0242F /* muxread.c in Sources */ = {isa = PBXBuildFile; fileRef = A783DA1021A77CF400A0242F /* muxread.c */; };
-		A783DD2321A782E800A0242F /* liblibwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D89021A779D800A0242F /* liblibwebp.a */; };
+		A783DD2321A782E800A0242F /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D89021A779D800A0242F /* libwebp.a */; };
 		A783DD2521A782EF00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2421A782EE00A0242F /* Foundation.framework */; };
 		A783DD2721A782FE00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2621A782FE00A0242F /* Foundation.framework */; };
-		A783DD2821A7830400A0242F /* liblibwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D89B21A77A0000A0242F /* liblibwebp.a */; };
+		A783DD2821A7830400A0242F /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D89B21A77A0000A0242F /* libwebp.a */; };
 		A783DD2A21A7831A00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2921A7831A00A0242F /* Foundation.framework */; };
-		A783DD2B21A7831F00A0242F /* liblibwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8A621A77A0D00A0242F /* liblibwebp.a */; };
-		A783DD2D21A7833800A0242F /* liblibwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8B121A77C3900A0242F /* liblibwebp.a */; };
+		A783DD2B21A7831F00A0242F /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8A621A77A0D00A0242F /* libwebp.a */; };
+		A783DD2D21A7833800A0242F /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8B121A77C3900A0242F /* libwebp.a */; };
 		A783DD2F21A7833F00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2E21A7833F00A0242F /* Foundation.framework */; };
 		A783DD3621A7B8DC00A0242F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3521A7B8DC00A0242F /* Error.swift */; };
 		A783DD3721A7B8DC00A0242F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3521A7B8DC00A0242F /* Error.swift */; };
@@ -650,10 +650,10 @@
 		A783D87221A5B00700A0242F /* TestImage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestImage.json; sourceTree = "<group>"; };
 		A783D87B21A777A700A0242F /* CWebP-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CWebP-umbrella.h"; sourceTree = "<group>"; };
 		A783D87C21A777A700A0242F /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		A783D89021A779D800A0242F /* liblibwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A783D89B21A77A0000A0242F /* liblibwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A783D8A621A77A0D00A0242F /* liblibwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A783D8B121A77C3900A0242F /* liblibwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A783D89021A779D800A0242F /* libwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A783D89B21A77A0000A0242F /* libwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A783D8A621A77A0D00A0242F /* libwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A783D8B121A77C3900A0242F /* libwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A783DA1021A77CF400A0242F /* muxread.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = muxread.c; sourceTree = "<group>"; };
 		A783DA1121A77CF400A0242F /* muxinternal.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = muxinternal.c; sourceTree = "<group>"; };
 		A783DA1221A77CF400A0242F /* libwebpmux.rc */ = {isa = PBXFileReference; lastKnownFileType = text; path = libwebpmux.rc; sourceTree = "<group>"; };
@@ -855,7 +855,7 @@
 			files = (
 				A783DD2A21A7831A00A0242F /* Foundation.framework in Frameworks */,
 				A783D86921A5482100A0242F /* UIKit.framework in Frameworks */,
-				A783DD2B21A7831F00A0242F /* liblibwebp.a in Frameworks */,
+				A783DD2B21A7831F00A0242F /* libwebp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,7 +893,7 @@
 			files = (
 				A783DD2521A782EF00A0242F /* Foundation.framework in Frameworks */,
 				A783D86521A5480700A0242F /* UIKit.framework in Frameworks */,
-				A783DD2321A782E800A0242F /* liblibwebp.a in Frameworks */,
+				A783DD2321A782E800A0242F /* libwebp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,7 +911,7 @@
 			files = (
 				A783DD2F21A7833F00A0242F /* Foundation.framework in Frameworks */,
 				A783D86B21A54A7400A0242F /* AppKit.framework in Frameworks */,
-				A783DD2D21A7833800A0242F /* liblibwebp.a in Frameworks */,
+				A783DD2D21A7833800A0242F /* libwebp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,7 +929,7 @@
 			files = (
 				A783DD2721A782FE00A0242F /* Foundation.framework in Frameworks */,
 				A783D86721A5481B00A0242F /* UIKit.framework in Frameworks */,
-				A783DD2821A7830400A0242F /* liblibwebp.a in Frameworks */,
+				A783DD2821A7830400A0242F /* libwebp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1253,10 +1253,10 @@
 				A7A0ED42219EC3E3004FBE05 /* ImageExtract.framework */,
 				A7A0ED4A219EC3E3004FBE05 /* ImageExtract-tvOSTests.xctest */,
 				A783D85821A542B300A0242F /* ImageExtract.framework */,
-				A783D89021A779D800A0242F /* liblibwebp.a */,
-				A783D89B21A77A0000A0242F /* liblibwebp.a */,
-				A783D8A621A77A0D00A0242F /* liblibwebp.a */,
-				A783D8B121A77C3900A0242F /* liblibwebp.a */,
+				A783D89021A779D800A0242F /* libwebp.a */,
+				A783D89B21A77A0000A0242F /* libwebp.a */,
+				A783D8A621A77A0D00A0242F /* libwebp.a */,
+				A783D8B121A77C3900A0242F /* libwebp.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1407,7 +1407,7 @@
 			);
 			name = "libwebp-iOS";
 			productName = "libwebp-iOS";
-			productReference = A783D89021A779D800A0242F /* liblibwebp.a */;
+			productReference = A783D89021A779D800A0242F /* libwebp.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		A783D89A21A77A0000A0242F /* libwebp-tvOS */ = {
@@ -1425,7 +1425,7 @@
 			);
 			name = "libwebp-tvOS";
 			productName = "libwebp-tvOS";
-			productReference = A783D89B21A77A0000A0242F /* liblibwebp.a */;
+			productReference = A783D89B21A77A0000A0242F /* libwebp.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		A783D8A521A77A0D00A0242F /* libwebp-watchOS */ = {
@@ -1443,7 +1443,7 @@
 			);
 			name = "libwebp-watchOS";
 			productName = "libwebp-watchOS";
-			productReference = A783D8A621A77A0D00A0242F /* liblibwebp.a */;
+			productReference = A783D8A621A77A0D00A0242F /* libwebp.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		A783D8B021A77C3900A0242F /* libwebp-macOS */ = {
@@ -1461,7 +1461,7 @@
 			);
 			name = "libwebp-macOS";
 			productName = "libwebp-macOS";
-			productReference = A783D8B121A77C3900A0242F /* liblibwebp.a */;
+			productReference = A783D8B121A77C3900A0242F /* libwebp.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		A7A0ECDC219EB279004FBE05 /* ImageExtract-iOS */ = {
@@ -2374,6 +2374,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
+				EXECUTABLE_PREFIX = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = libwebp;
@@ -2390,6 +2391,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
+				EXECUTABLE_PREFIX = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = libwebp;
@@ -2405,6 +2407,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
+				EXECUTABLE_PREFIX = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = libwebp;
 				SDKROOT = appletvos;
@@ -2421,6 +2424,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
+				EXECUTABLE_PREFIX = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = libwebp;
 				SDKROOT = appletvos;
@@ -2437,6 +2441,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
+				EXECUTABLE_PREFIX = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = libwebp;
 				SDKROOT = watchos;
@@ -2453,6 +2458,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
+				EXECUTABLE_PREFIX = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = libwebp;
 				SDKROOT = watchos;
@@ -2470,7 +2476,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_PREFIX = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = libwebp;
 				SDKROOT = macosx;
@@ -2485,7 +2491,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_PREFIX = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = libwebp;
 				SDKROOT = macosx;
