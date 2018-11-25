@@ -1,0 +1,638 @@
+{
+    "png": [
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/png/png-0.png",
+            "size": [
+                2048,
+                1363
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/png/png-marble24.png",
+            "size": [
+                1419,
+                1001
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/png/png-marble8.png",
+            "size": [
+                1419,
+                1001
+            ]
+        }
+    ],
+    "jpg": [
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-globe.jpg",
+            "size": [
+                930,
+                957
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-gedrp3v2.jpg",
+            "size": [
+                820,
+                820
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-xing.jpg",
+            "size": [
+                240,
+                164
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mg00n037.jpg",
+            "size": [
+                964,
+                960
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-gmarbles.jpg",
+            "size": [
+                1419,
+                1001
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d_b.jpg",
+            "size": [
+                644,
+                768
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mg15s052.jpg",
+            "size": [
+                956,
+                960
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mg00n052.jpg",
+            "size": [
+                964,
+                960
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-exif-0.jpg",
+            "size": [
+                2048,
+                1363
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-blk.jpg",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mars2.jpg",
+            "size": [
+                727,
+                737
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mars1.jpg",
+            "size": [
+                728,
+                735
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-grn.jpg",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-jfif-800x600.jpg",
+            "size": [
+                800,
+                600
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mg00n082.jpg",
+            "size": [
+                964,
+                960
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mg15s082.jpg",
+            "size": [
+                956,
+                960
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-red.jpg",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mg15s067.jpg",
+            "size": [
+                956,
+                960
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mg00n067.jpg",
+            "size": [
+                964,
+                960
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-blu.jpg",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-gtdr.jpg",
+            "size": [
+                637,
+                344
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-gtdrp3v2.jpg",
+            "size": [
+                820,
+                820
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-yel.jpg",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-mg15n037.jpg",
+            "size": [
+                956,
+                960
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-gsdrp3v2.jpg",
+            "size": [
+                820,
+                820
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-globe1.jpg",
+            "size": [
+                582,
+                597
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-jfif-0.jpg",
+            "size": [
+                2048,
+                1363
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-wht.jpg",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-marbles.jpg",
+            "size": [
+                1419,
+                1001
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d.jpg",
+            "size": [
+                562,
+                660
+            ]
+        }
+    ],
+    "gif": [
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-wfpc01.gif",
+            "size": [
+                640,
+                320
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-wfpc02.gif",
+            "size": [
+                540,
+                480
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-wfpc03.gif",
+            "size": [
+                515,
+                480
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-wfpc06.gif",
+            "size": [
+                630,
+                480
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-wfpc04.gif",
+            "size": [
+                550,
+                480
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-wfpc05.gif",
+            "size": [
+                640,
+                200
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-gmarbles.gif",
+            "size": [
+                1419,
+                1001
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-0.gif",
+            "size": [
+                2048,
+                1363
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-animated-0.gif",
+            "size": [
+                640,
+                640
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-animated-1.gif",
+            "size": [
+                640,
+                640
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-animated-3.gif",
+            "size": [
+                640,
+                640
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-animated-2.gif",
+            "size": [
+                640,
+                640
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/gif/gif-marbles.gif",
+            "size": [
+                1419,
+                1001
+            ]
+        }
+    ],
+    "tif": [
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-g4s.tif",
+            "size": [
+                2464,
+                3248
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-g4.tif",
+            "size": [
+                2464,
+                3248
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-xing-t24.tif",
+            "size": [
+                240,
+                164
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-g32ds.tif",
+            "size": [
+                2464,
+                3248
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-flag-t24.tif",
+            "size": [
+                124,
+                124
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-g31d.tif",
+            "size": [
+                2464,
+                3248
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-ccitt-2.tif",
+            "size": [
+                1728,
+                2376
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-gmarbles.tif",
+            "size": [
+                1419,
+                1001
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-marbibm.tif",
+            "size": [
+                1419,
+                1001
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-ccitt-3.tif",
+            "size": [
+                1728,
+                2376
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-ccitt-1.tif",
+            "size": [
+                1728,
+                2376
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-ccitt-4.tif",
+            "size": [
+                1728,
+                2376
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-g31ds.tif",
+            "size": [
+                2464,
+                3248
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-ccitt-5.tif",
+            "size": [
+                1728,
+                2376
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-ccitt-7.tif",
+            "size": [
+                1728,
+                2376
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-ccitt-6.tif",
+            "size": [
+                1728,
+                2376
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-marbles.tif",
+            "size": [
+                1419,
+                1001
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-ccitt-8.tif",
+            "size": [
+                1728,
+                2376
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/tif/tif-g32d.tif",
+            "size": [
+                2464,
+                3248
+            ]
+        }
+    ],
+    "bmp": [
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-land.bmp",
+            "size": [
+                1024,
+                768
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-blu.bmp",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-red.bmp",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-xing-b24.bmp",
+            "size": [
+                240,
+                164
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-wht.bmp",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-tru256.bmp",
+            "size": [
+                256,
+                64
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-yel.bmp",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-flag-b24.bmp",
+            "size": [
+                124,
+                124
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-ray.bmp",
+            "size": [
+                800,
+                600
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-land2.bmp",
+            "size": [
+                1024,
+                768
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-land3.bmp",
+            "size": [
+                640,
+                480
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-marbles.bmp",
+            "size": [
+                1419,
+                1001
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-grn.bmp",
+            "size": [
+                200,
+                144
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-venus.bmp",
+            "size": [
+                300,
+                150
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/bmp/bmp-blk.bmp",
+            "size": [
+                200,
+                144
+            ]
+        }
+    ],
+    "webp": [
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/webp/webp-vp8l-with-icc-exif-xmp.webp",
+            "size": [
+                1200,
+                800
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/webp/webp-vp8x-with-icc.webp",
+            "size": [
+                1200,
+                800
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/webp/webp-vp8x-with-icc-exif-xmp.webp",
+            "size": [
+                1200,
+                800
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/webp/webp-vp8l-1.webp",
+            "size": [
+                6000,
+                4000
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/webp/webp-vp8-0.webp",
+            "size": [
+                2048,
+                1363
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/webp/webp-vp8-1.webp",
+            "size": [
+                6000,
+                4000
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/webp/webp-vp8l-0.webp",
+            "size": [
+                6000,
+                4000
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/webp/webp-vp8l-with-icc.webp",
+            "size": [
+                1200,
+                800
+            ]
+        },
+        {
+            "url": "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/webp/webp-vp8x-0.webp",
+            "size": [
+                6000,
+                4000
+            ]
+        }
+    ],
+    "invalid_ext": []
+}
