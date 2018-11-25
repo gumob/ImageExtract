@@ -544,6 +544,18 @@
 		A7A1433D219F011F003FB96A /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7A1433E219F0120003FB96A /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7A1433F219F0121003FB96A /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6967721AAFFF70045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; };
+		A7C6967821AAFFF70045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; };
+		A7C6967921AAFFF70045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; };
+		A7C6967A21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; };
+		A7C6967B21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; };
+		A7C6967C21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; };
+		A7C6967D21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; };
+		A7C6967E21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; };
+		A7C6967F21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; };
+		A7C6968021AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; };
+		A7C6968121AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; };
+		A7C6968221AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; };
 		DFABE0131D3EDC406AFC41C9 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
 		DFABE09C016245135824DB0E /* ImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE0ED9775FA71C1D52165 /* ImageDecoder.swift */; };
 		DFABE30DE6D4A793F3928571 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
@@ -585,6 +597,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = A7A0ED41219EC3E3004FBE05;
 			remoteInfo = "ImageExtract-tvOS";
+		};
+		A7C6968521AB01150045DD50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7A0ECD4219EB279004FBE05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A783D88F21A779D800A0242F;
+			remoteInfo = "libwebp-iOS";
+		};
+		A7C6968721AB01180045DD50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7A0ECD4219EB279004FBE05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A783D89A21A77A0000A0242F;
+			remoteInfo = "libwebp-tvOS";
+		};
+		A7C6968921AB011D0045DD50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7A0ECD4219EB279004FBE05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A783D8A521A77A0D00A0242F;
+			remoteInfo = "libwebp-watchOS";
+		};
+		A7C6968B21AB01210045DD50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7A0ECD4219EB279004FBE05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A783D8B021A77C3900A0242F;
+			remoteInfo = "libwebp-macOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1299,8 +1339,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A783D86221A5441C00A0242F /* ImageExtract.h in Headers */,
 				A783D88021A777CA00A0242F /* CWebP-umbrella.h in Headers */,
+				A783D86221A5441C00A0242F /* ImageExtract.h in Headers */,
+				A7C6967B21AAFFF80045DD50 /* encode.h in Headers */,
+				A7C6967A21AAFFF80045DD50 /* decode.h in Headers */,
+				A7C6967C21AAFFF80045DD50 /* types.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1348,8 +1391,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7A1433D219F011F003FB96A /* ImageExtract.h in Headers */,
 				A783D87D21A777B400A0242F /* CWebP-umbrella.h in Headers */,
+				A7A1433D219F011F003FB96A /* ImageExtract.h in Headers */,
+				A7C6968121AAFFF80045DD50 /* encode.h in Headers */,
+				A7C6968021AAFFF80045DD50 /* decode.h in Headers */,
+				A7C6968221AAFFF80045DD50 /* types.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1359,6 +1405,9 @@
 			files = (
 				A7A1433E219F0120003FB96A /* ImageExtract.h in Headers */,
 				A783D87E21A777BD00A0242F /* CWebP-umbrella.h in Headers */,
+				A7C6967821AAFFF70045DD50 /* encode.h in Headers */,
+				A7C6967721AAFFF70045DD50 /* decode.h in Headers */,
+				A7C6967921AAFFF70045DD50 /* types.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1368,6 +1417,9 @@
 			files = (
 				A7A1433F219F0121003FB96A /* ImageExtract.h in Headers */,
 				A783D87F21A777C400A0242F /* CWebP-umbrella.h in Headers */,
+				A7C6967E21AAFFF80045DD50 /* encode.h in Headers */,
+				A7C6967D21AAFFF80045DD50 /* decode.h in Headers */,
+				A7C6967F21AAFFF80045DD50 /* types.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1386,6 +1438,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A7C6968A21AB011D0045DD50 /* PBXTargetDependency */,
 			);
 			name = "ImageExtract-watchOS";
 			productName = "ImageExtract-watchOS";
@@ -1476,6 +1529,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A7C6968621AB01150045DD50 /* PBXTargetDependency */,
 			);
 			name = "ImageExtract-iOS";
 			productName = ImageExtract;
@@ -1512,6 +1566,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A7C6968C21AB01210045DD50 /* PBXTargetDependency */,
 			);
 			name = "ImageExtract-macOS";
 			productName = "ImageExtract-macOS";
@@ -1548,6 +1603,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A7C6968821AB01180045DD50 /* PBXTargetDependency */,
 			);
 			name = "ImageExtract-tvOS";
 			productName = "ImageExtract-tvOS";
@@ -2303,6 +2359,26 @@
 			target = A7A0ED41219EC3E3004FBE05 /* ImageExtract-tvOS */;
 			targetProxy = A7A0ED4C219EC3E3004FBE05 /* PBXContainerItemProxy */;
 		};
+		A7C6968621AB01150045DD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A783D88F21A779D800A0242F /* libwebp-iOS */;
+			targetProxy = A7C6968521AB01150045DD50 /* PBXContainerItemProxy */;
+		};
+		A7C6968821AB01180045DD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A783D89A21A77A0000A0242F /* libwebp-tvOS */;
+			targetProxy = A7C6968721AB01180045DD50 /* PBXContainerItemProxy */;
+		};
+		A7C6968A21AB011D0045DD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A783D8A521A77A0D00A0242F /* libwebp-watchOS */;
+			targetProxy = A7C6968921AB011D0045DD50 /* PBXContainerItemProxy */;
+		};
+		A7C6968C21AB01210045DD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A783D8B021A77C3900A0242F /* libwebp-macOS */;
+			targetProxy = A7C6968B21AB01210045DD50 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -2317,7 +2393,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2332,7 +2408,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
@@ -2348,7 +2424,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2363,7 +2439,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
@@ -2635,7 +2711,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2651,7 +2727,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
 			};
 			name = Debug;
 		};
@@ -2666,7 +2742,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2681,7 +2757,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
 			};
 			name = Release;
 		};
@@ -2739,7 +2815,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2755,7 +2831,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
 			};
 			name = Debug;
 		};
@@ -2772,7 +2848,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2787,7 +2863,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_VERSION = 4.2;
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
 			};
 			name = Release;
 		};
@@ -2848,7 +2924,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2866,7 +2942,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
 			};
 			name = Debug;
 		};
@@ -2881,7 +2957,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2898,7 +2974,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
 			};
 			name = Release;
 		};
