@@ -1,0 +1,204 @@
+default_platform(:ios)
+
+#
+# Workaround for following error while executing `pod lib lint` and `pod trunk push`
+#
+# EXPANDED_CODE_SIGN_IDENTITY: unbound variable
+# Command PhaseScriptExecution failed with a nonzero exit code
+#
+# For more information is available at
+# https://github.com/CocoaPods/CocoaPods/issues/8000#issuecomment-434488071
+#
+ENV["EXPANDED_CODE_SIGN_IDENTITY"] = ""
+ENV["EXPANDED_CODE_SIGN_IDENTITY_NAME"] = ""
+ENV["EXPANDED_PROVISIONING_PROFILE"] = ""
+
+project_name = ENV["PROJECT_NAME"]
+project_company = ENV["PROJECT_COMPANY"]
+company_id = ENV["COMPANY_ID"]
+
+default_xcodeproj = ENV["DEFAULT_XCODEPROJ"]
+default_podspec = ENV["DEFAULT_PODSPEC"]
+
+scheme_iOS = ENV["SCHEME_IOS"]
+scheme_watchOS = ENV["SCHEME_WATCHOS"]
+scheme_macOS = ENV["SCHEME_MACOS"]
+scheme_tvOS = ENV["SCHEME_TVOS"]
+
+scheme_iOSTests = ENV["SCHEME_TEST_IOS"]
+scheme_macOSTests = ENV["SCHEME_TEST_MACOS"]
+scheme_tvOSTests = ENV["SCHEME_TEST_TVOS"]
+
+info_plist_framework = ENV["INFO_PLIST_FRAMEWORK"]
+info_plist_test = ENV["INFO_PLIST_TEST"]
+
+platform :ios do
+
+    desc "Prebuild"
+    lane :prebuild do
+        tests
+        build_carthage
+        lint_cocoapods
+    end
+
+    ##########################################
+    # Versioning
+    ##########################################
+
+    desc "Set version number"
+    lane :set_version do
+        current_app_version = get_info_plist_value(path: info_plist_framework, key: 'CFBundleShortVersionString')
+        new_app_version = prompt(
+          text: "Please enter version number (Current: #{current_app_version}): ",
+          ci_input: current_app_version
+        )
+        regexp = Regexp.new("[0-9]+\.[0-9]+\.[0-9]+")
+        matched = regexp.match(new_app_version)
+        if matched then
+            set_info_plist_value(path: info_plist_framework, key: 'CFBundleShortVersionString', value: new_app_version)
+            set_info_plist_value(path: info_plist_test, key: 'CFBundleShortVersionString', value: new_app_version)
+            version_bump_podspec(path: default_podspec, version_number: new_app_version)
+            UI.message("Changed version from #{current_app_version} to #{new_app_version} ")
+        else
+            UI.error("Invalid version number. #{new_app_version}")
+        end
+    end
+
+    desc "Bump version number"
+    lane :bump_version do
+        bump_type = UI.select("Select version position to be upgraded: ", ["patch", "minor", "major"])
+        current_app_version = get_info_plist_value(path: info_plist_framework, key: 'CFBundleShortVersionString')
+        current_app_versions = current_app_version.split(".")
+        current_app_version_patch = current_app_versions[2].to_i
+        current_app_version_minor = current_app_versions[1].to_i
+        current_app_version_major = current_app_versions[0].to_i
+        UI.message(current_app_versions)
+        if bump_type == "patch" then
+            current_app_version_patch += 1
+        elsif bump_type == "minor" then
+            current_app_version_patch = 0
+            current_app_version_minor += 1
+        elsif bump_type == "major" then
+            current_app_version_patch = 0
+            current_app_version_minor = 0
+            current_app_version_major += 1
+        end
+        new_app_version = [current_app_version_major, current_app_version_minor, current_app_version_patch].join(".")
+        set_info_plist_value(path: info_plist_framework, key: 'CFBundleShortVersionString', value: new_app_version)
+        set_info_plist_value(path: info_plist_test, key: 'CFBundleShortVersionString', value: new_app_version)
+        version_bump_podspec(path: default_podspec, version_number: new_app_version)
+        UI.message("Changed version from #{current_app_version_major} to #{new_app_version} ")
+    end
+
+    ##########################################
+    # Appledoc
+    ##########################################
+    desc "Create documentation"
+    lane :create_doc do |options|
+#         appledoc(
+#             project_name: project_name,
+#             project_company: project_company,
+#             company_id: company_id,
+#             project_version: get_info_plist_value(path: info_plist_framework, key: 'CFBundleShortVersionString'),
+#             input: [
+#                 "Source/ImageExtract.swift",
+#             ],
+#             output: "Doc/",
+#             ignore: [
+#                 "Carthage",
+#                 "Pods"
+#             ],
+#             create_html: true,
+#             create_docset: true,
+#             clean_output: true,
+#             options: "--keep-intermediate-files --search-undocumented-doc",
+#             warnings: "--warn-missing-output-path --warn-missing-company-id"
+#         )
+        jazzy(config: ".jazzy.yml")
+    end
+
+    ##########################################
+    # Test
+    ##########################################
+
+    desc "Run All Tests"
+    lane :test_all do |options|
+        test_macos
+        test_tvos
+        test_ios
+    end
+
+    desc "Run iOS Tests"
+    lane :test_ios do |options|
+        xcclean
+        run_tests(
+            scheme: scheme_iOS,
+            devices: ["iPhone X"],
+            code_coverage: true
+        )
+        coverage
+        lint
+    end
+
+    desc "Run tvOS Tests"
+    lane :test_tvos do |options|
+        xcclean
+        run_tests(
+            scheme: scheme_tvOS,
+            devices: ["Apple TV"],
+            code_coverage: true
+        )
+    end
+
+    desc "Run macOS Tests"
+    lane :test_macos do |options|
+        xcclean
+        run_tests(
+            scheme: scheme_macOS,
+            destination: "platform=macOS",
+            code_coverage: true
+        )
+    end
+
+    desc "Run Coverage"
+    lane :coverage do |options|
+        slather(
+            html: true,
+            verbose: true,
+        )
+    end
+
+    desc "Run Swiftlint"
+    lane :lint do |options|
+        swiftlint(
+            mode: :lint,
+            path: "Source/",
+            config_file: ".swiftlint.yml",
+            ignore_exit_status: true
+        )
+    end
+
+    ##########################################
+    # Package Manager
+    ##########################################
+
+    desc "Build Carthage"
+    lane :build_carthage do |options|
+        carthage(
+            command: "build",
+            verbose: true,
+            no_skip_current: true
+        )
+    end
+
+    desc "Lint Cocoapods"
+    lane :lint_cocoapods do |options|
+        pod_lib_lint(verbose: true)
+    end
+
+    desc "Push Cocoapods"
+    lane :push_cocoapods do |options|
+        pod_lib_lint(verbose: true)
+        pod_push(path: default_podspec)
+    end
+end
