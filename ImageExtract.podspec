@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license                = { :type => "MIT", :file => "LICENSE" }
   s.author                 = { "gumob" => "hello@gumob.com" }
   s.requires_arc           = true
-  s.source                 = { :git => "https://github.com/gumob/ImageExtract.git", :tag => "#{s.version}" }
+  s.source                 = { :git => "https://github.com/gumob/ImageExtract.git", :tag => "#{s.version}", :submodules => true }
   s.source_files           = "Source/*.{swift}"
   s.ios.deployment_target  = "9.0"
   s.tvos.deployment_target = "10.0"
@@ -15,4 +15,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target  = "10.11"
   s.swift_version          = '4.2'
 
+  s.subspec 'libwebp' do |v|
+    v.source_files = 'Submodule/libwebp/src/**/*.{h,c}'
+  end
 end
