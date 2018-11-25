@@ -49,7 +49,7 @@ pod 'ImageExtract'
 
 ## Usage
 
-Read the [usage](https://gumob.github.io/ImageExtract/usage.html) and the [API reference]https://gumob.github.io/ImageExtract/Classes/ImageExtract.html) for detailed information.
+Read the [usage](https://gumob.github.io/ImageExtract/usage.html) and the [API reference](https://gumob.github.io/ImageExtract/Classes/ImageExtract.html) for detailed information.
 
 ### Initialization
 
