@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>USAGE  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="USAGE  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          ImageExtract Docs
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/gumob/ImageExtract">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">ImageExtract Reference</a>
+      <img class="carat" src="img/carat.png" />
+      USAGE  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ImageExtract.html">ImageExtract</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocls.html">Protocls</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enumerations.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/ImageChunkSize.html">ImageChunkSize</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other Guides.html">Other Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="usage.html">USAGE</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='usage' class='heading'>Usage</h1>
+<h2 id='initialization' class='heading'>Initialization</h2>
+
+<p>Just import ImageExtract framework</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">ImageExtract</span>
+</code></pre>
+<h2 id='synchronous-and-asynchronous-request' class='heading'>Synchronous and asynchronous request</h2>
+
+<p>Get the size of an image synchronously:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span>
+<span class="k">let</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
+</code></pre>
+
+<p>Get the size of an image asynchronously:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='conform-to-imagerequestconvertible' class='heading'>Conform to ImageRequestConvertible</h2>
+
+<p>Request with String:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Request with URL:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://example.com/image.jpg"</span><span class="p">)</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Request with URLRequest:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://example.com/image.jpg"</span><span class="p">)</span><span class="o">!</span>
+<span class="k">let</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='cancel-asynchronous-requests' class='heading'>Cancel asynchronous requests</h2>
+
+<p>Create the list of urls:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">urls</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"https://example.com/image-0.jpg"</span><span class="p">,</span>
+    <span class="s">"https://example.com/image-1.jpg"</span><span class="p">,</span>
+    <span class="s">"https://example.com/image-2.jpg"</span><span class="p">,</span>
+    <span class="s">"https://example.com/image-3.jpg"</span><span class="p">,</span>
+    <span class="s">"https://example.com/image-4.jpg"</span><span class="p">,</span>
+    <span class="s">"https://example.com/image-5.jpg"</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>Cancel all requests:</p>
+<pre class="highlight swift"><code><span class="c1">// Requests asynchronously</span>
+<span class="k">for</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="k">in</span> <span class="n">url</span> <span class="p">{</span>
+    <span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt">ImageChunkSize</span><span class="o">.</span><span class="n">large</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>  <span class="c1">// (0.0, 0.0)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Cancel</span>
+<span class="nf">print</span><span class="p">(</span><span class="kt">ImageExtract</span><span class="o">.</span><span class="n">queueCount</span><span class="p">)</span> <span class="c1">// 6</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">cancelAllQueues</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="kt">ImageExtract</span><span class="o">.</span><span class="n">queueCount</span><span class="p">)</span> <span class="c1">// 0</span>
+</code></pre>
+
+<p><font color="Red">If you cancel requests, a completion handler is called immediately and returns zero.</font></p>
+
+<p>Cancel a specific request:</p>
+<pre class="highlight swift"><code><span class="c1">// Requests asynchronously</span>
+<span class="k">for</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="k">in</span> <span class="n">url</span> <span class="p">{</span>
+    <span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt">ImageChunkSize</span><span class="o">.</span><span class="n">large</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0) or (0.0, 0.0)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Cancel</span>
+<span class="k">let</span> <span class="nv">urlToCancel</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">urls</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="c1">// https://example.com/image-2.jpg</span>
+<span class="nf">print</span><span class="p">(</span><span class="kt">ImageExtract</span><span class="o">.</span><span class="n">queueCount</span><span class="p">)</span> <span class="c1">// 6</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">cancelQueue</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="n">urlToCancel</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="kt">ImageExtract</span><span class="o">.</span><span class="n">queueCount</span><span class="p">)</span> <span class="c1">// 5</span>
+</code></pre>
+
+<p><font color="Red">If you cancel a request, a completion handler is called immediately and returns zero.</font></p>
+<h2 id='extra-arguments' class='heading'>Extra arguments</h2>
+
+<p>Specify chunk size:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/large-header-image.jpg"</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt">ImageChunkSize</span><span class="o">.</span><span class="n">large</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Download all data including bitmap if it fails to extract the size of an image from chunk data:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/large-header-image.jpg"</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">downloadOnFailure</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Get the resized size of an image with the desired width:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span> <span class="c1">// Original size is (800.0, 600.0)</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">preferredWidth</span><span class="p">:</span> <span class="mi">640</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (640.0, 480.0)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Get the resized size of an image with the desired width restricting the maximum height:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span> <span class="c1">// Original size is (800.0, 600.0)</span>
+<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">preferredWidth</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="nv">maxHeight</span><span class="p">:</span> <span class="mi">240</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (320.0, 240.0)</span>
+<span class="p">}</span>
+</code></pre>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>Copyright © 2018 Gumob. All rights reserved.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
