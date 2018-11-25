@@ -2,7 +2,7 @@
 
 ## Initialization
 
-Just import ImageExtract framework
+Just import ImageExtract framework:
 ```swift
 import ImageExtract
 ```

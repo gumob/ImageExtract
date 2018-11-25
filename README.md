@@ -18,6 +18,14 @@ ImageExtract supports multiple platforms
 - watchOS 3.0 or later
 - Swift 4.2
 
+## Supported image format
+
+- JPEG
+- PNG
+- GIF
+- BMP
+- WebP
+
 ## Installation
 
 ### Carthage
@@ -41,11 +49,11 @@ pod 'ImageExtract'
 
 ## Usage
 
-Read [USAGE.md](https://github.com/gumob/ImageExtract/blob/master/USAGE.md) and [API Doc](https://gumob.github.io/ImageExtract/) for detailed information.
+Read the [usage](https://gumob.github.io/ImageExtract/usage.html) and the [API reference]https://gumob.github.io/ImageExtract/Classes/ImageExtract.html) for detailed information.
 
 ### Initialization
 
-Just import ImageExtract framework
+Just import ImageExtract framework:
 ```swift
 import ImageExtract
 ```

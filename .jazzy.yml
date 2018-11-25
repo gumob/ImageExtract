@@ -9,7 +9,7 @@ min_acl: public
 clean: true
 readme: "README.md"
 output: "docs"
-documentation: USAGE.md
+documentation: "USAGE.md"
 skip_undocumented: true
 hide_documentation_coverage: true
 # theme: fullwidth
@@ -36,4 +36,4 @@ custom_categories:
       - ImageChunkSize
   - name: Guides
     children:
-      - USAGE.md
+      - USAGE
