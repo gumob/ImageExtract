@@ -11,9 +11,9 @@ Pod::Spec.new do |s|
     s.source                    = { :git => "https://github.com/gumob/ImageExtract.git", :tag => "#{s.version}", :submodules => true }
     s.source_files              = ["Source/*.{swift}"]
     # s.public_header_files      = "Source/ImageExtract.h"
-    # s.private_header_files     = "Modules/CWebP/CWebP-umbrella.h"
-    # s.preserve_paths           = 'Modules/CWebP/module.modulemap'
-    # s.module_map               = 'Modules/CWebP/module.modulemap'
+    # s.private_header_files     = "Module/CWebP/CWebP-umbrella.h"
+    # s.preserve_paths           = 'Module/CWebP/module.modulemap'
+    # s.module_map               = 'Module/CWebP/module.modulemap'
 
     ios_deployment_target       = "9.0"
     tvos_deployment_target      = "10.0"
