@@ -1315,9 +1315,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7213ED721AB993B0019C38B /* types.h in Headers */,
-				A7213ED621AB993B0019C38B /* encode.h in Headers */,
 				A7213ED521AB993B0019C38B /* decode.h in Headers */,
+				A7213ED621AB993B0019C38B /* encode.h in Headers */,
+				A7213ED721AB993B0019C38B /* types.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1325,9 +1325,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7213ECE21AB993A0019C38B /* types.h in Headers */,
-				A7213ECD21AB993A0019C38B /* encode.h in Headers */,
 				A7213ECC21AB993A0019C38B /* decode.h in Headers */,
+				A7213ECD21AB993A0019C38B /* encode.h in Headers */,
+				A7213ECE21AB993A0019C38B /* types.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1335,9 +1335,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7213ED121AB993A0019C38B /* types.h in Headers */,
-				A7213ED021AB993A0019C38B /* encode.h in Headers */,
 				A7213ECF21AB993A0019C38B /* decode.h in Headers */,
+				A7213ED021AB993A0019C38B /* encode.h in Headers */,
+				A7213ED121AB993A0019C38B /* types.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1345,9 +1345,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7213ED421AB993A0019C38B /* types.h in Headers */,
-				A7213ED321AB993A0019C38B /* encode.h in Headers */,
 				A7213ED221AB993A0019C38B /* decode.h in Headers */,
+				A7213ED321AB993A0019C38B /* encode.h in Headers */,
+				A7213ED421AB993A0019C38B /* types.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1355,8 +1355,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C6967B21AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6967A21AAFFF80045DD50 /* decode.h in Headers */,
+				A7C6967B21AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6967C21AAFFF80045DD50 /* types.h in Headers */,
 				A783D88021A777CA00A0242F /* CWebP-umbrella.h in Headers */,
 			);
@@ -1366,8 +1366,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C6968121AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6968021AAFFF80045DD50 /* decode.h in Headers */,
+				A7C6968121AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6968221AAFFF80045DD50 /* types.h in Headers */,
 				A783D87D21A777B400A0242F /* CWebP-umbrella.h in Headers */,
 			);
@@ -1377,8 +1377,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C6967821AAFFF70045DD50 /* encode.h in Headers */,
 				A7C6967721AAFFF70045DD50 /* decode.h in Headers */,
+				A7C6967821AAFFF70045DD50 /* encode.h in Headers */,
 				A7C6967921AAFFF70045DD50 /* types.h in Headers */,
 				A783D87E21A777BD00A0242F /* CWebP-umbrella.h in Headers */,
 			);
@@ -1388,8 +1388,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C6967E21AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6967D21AAFFF80045DD50 /* decode.h in Headers */,
+				A7C6967E21AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6967F21AAFFF80045DD50 /* types.h in Headers */,
 				A783D87F21A777C400A0242F /* CWebP-umbrella.h in Headers */,
 			);
