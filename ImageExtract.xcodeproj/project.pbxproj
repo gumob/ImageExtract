@@ -555,7 +555,7 @@
 		A7C6967F21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A7C6968021AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A7C6968121AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6968221AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; };
+		A7C6968221AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		DFABE0131D3EDC406AFC41C9 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
 		DFABE09C016245135824DB0E /* ImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE0ED9775FA71C1D52165 /* ImageDecoder.swift */; };
 		DFABE30DE6D4A793F3928571 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
@@ -1257,9 +1257,9 @@
 				A783D87921A777A700A0242F /* Module */,
 				A783D99B21A77CF400A0242F /* Submodule */,
 				A72140C021ABA6560019C38B /* Resource */,
+				A783D86321A5480600A0242F /* Frameworks */,
 				A7A14317219F0075003FB96A /* Tests */,
 				A7A0ECDE219EB279004FBE05 /* Products */,
-				A783D86321A5480600A0242F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
