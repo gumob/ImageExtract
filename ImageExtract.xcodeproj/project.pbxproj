@@ -2374,7 +2374,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Debug;
 		};
@@ -2390,7 +2390,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Release;
 		};
@@ -2405,7 +2405,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
@@ -2421,7 +2421,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
@@ -2438,7 +2438,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Debug;
 		};
@@ -2454,7 +2454,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Release;
 		};
@@ -2469,7 +2469,7 @@
 				PRODUCT_NAME = webp;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Debug;
 		};
@@ -2484,7 +2484,7 @@
 				PRODUCT_NAME = webp;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Release;
 		};
@@ -2515,7 +2515,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
@@ -2546,7 +2546,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
@@ -2703,7 +2703,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Debug;
 		};
@@ -2733,7 +2733,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Release;
 		};
@@ -2808,7 +2808,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Debug;
 		};
@@ -2840,7 +2840,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Module";
 				SWIFT_VERSION = 4.2;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Release;
 		};
@@ -2920,7 +2920,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Debug;
 		};
@@ -2952,7 +2952,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
 			};
 			name = Release;
 		};
