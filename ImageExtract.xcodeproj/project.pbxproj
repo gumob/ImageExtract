@@ -499,6 +499,9 @@
 		A72140AF21AB9B9F0019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7213EA621AB97AC0019C38B /* libwebp.a */; };
 		A72140B121AB9BAF0019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7213EB121AB97E90019C38B /* libwebp.a */; };
 		A72140B221AB9BBB0019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7213E9B21AB979D0019C38B /* libwebp.a */; };
+		A72140C621ABA68C0019C38B /* TestImage.json in Resources */ = {isa = PBXBuildFile; fileRef = A72140C521ABA68C0019C38B /* TestImage.json */; };
+		A72140C721ABA68C0019C38B /* TestImage.json in Resources */ = {isa = PBXBuildFile; fileRef = A72140C521ABA68C0019C38B /* TestImage.json */; };
+		A72140C821ABA68C0019C38B /* TestImage.json in Resources */ = {isa = PBXBuildFile; fileRef = A72140C521ABA68C0019C38B /* TestImage.json */; };
 		A77CE44C21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
 		A77CE44D21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
 		A77CE44E21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
@@ -511,9 +514,6 @@
 		A783D86E21A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
 		A783D86F21A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
 		A783D87021A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
-		A783D87621A6C18C00A0242F /* TestImage.json in Resources */ = {isa = PBXBuildFile; fileRef = A783D87221A5B00700A0242F /* TestImage.json */; };
-		A783D87721A6C18E00A0242F /* TestImage.json in Resources */ = {isa = PBXBuildFile; fileRef = A783D87221A5B00700A0242F /* TestImage.json */; };
-		A783D87821A6C19000A0242F /* TestImage.json in Resources */ = {isa = PBXBuildFile; fileRef = A783D87221A5B00700A0242F /* TestImage.json */; };
 		A783D87D21A777B400A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; };
 		A783D87E21A777BD00A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; };
 		A783D87F21A777C400A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; };
@@ -684,6 +684,7 @@
 		A7213E9B21AB979D0019C38B /* libwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7213EA621AB97AC0019C38B /* libwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7213EB121AB97E90019C38B /* libwebp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwebp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72140C521ABA68C0019C38B /* TestImage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestImage.json; sourceTree = "<group>"; };
 		A77CE44B21A29F90009AFD9B /* ImageExtract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageExtract.swift; sourceTree = "<group>"; };
 		A783D85821A542B300A0242F /* ImageExtract.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageExtract.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A783D86421A5480600A0242F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -691,7 +692,6 @@
 		A783D86821A5482100A0242F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		A783D86A21A54A7400A0242F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		A783D86C21A54CA800A0242F /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		A783D87221A5B00700A0242F /* TestImage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestImage.json; sourceTree = "<group>"; };
 		A783D87B21A777A700A0242F /* CWebP-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CWebP-umbrella.h"; sourceTree = "<group>"; };
 		A783D87C21A777A700A0242F /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		A783DA1021A77CF400A0242F /* muxread.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = muxread.c; sourceTree = "<group>"; };
@@ -974,6 +974,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A72140C021ABA6560019C38B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A72140C521ABA68C0019C38B /* TestImage.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		A783D86321A5480600A0242F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -987,14 +995,6 @@
 				A783D86421A5480600A0242F /* UIKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A783D87121A5B00700A0242F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A783D87221A5B00700A0242F /* TestImage.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		A783D87921A777A700A0242F /* Module */ = {
@@ -1256,7 +1256,7 @@
 				A7A1431D219F00CA003FB96A /* Source */,
 				A783D87921A777A700A0242F /* Module */,
 				A783D99B21A77CF400A0242F /* Submodule */,
-				A783D87121A5B00700A0242F /* Resources */,
+				A72140C021ABA6560019C38B /* Resource */,
 				A7A14317219F0075003FB96A /* Tests */,
 				A7A0ECDE219EB279004FBE05 /* Products */,
 				A783D86321A5480600A0242F /* Frameworks */,
@@ -1702,7 +1702,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A783D87621A6C18C00A0242F /* TestImage.json in Resources */,
+				A72140C621ABA68C0019C38B /* TestImage.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1717,7 +1717,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A783D87721A6C18E00A0242F /* TestImage.json in Resources */,
+				A72140C821ABA68C0019C38B /* TestImage.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1732,7 +1732,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A783D87821A6C19000A0242F /* TestImage.json in Resources */,
+				A72140C721ABA68C0019C38B /* TestImage.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
