@@ -11,10 +11,10 @@
 		A712B87321AA5FCA00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
 		A712B87421AA5FCA00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
 		A712B87521AA5FCB00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
-		A7213E8521AB8DB50019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; };
-		A7213E8621AB8DC30019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; };
-		A7213E8821AB8DDF0019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; };
-		A7213E8921AB8DEF0019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; };
+		A7213E8521AB8DB50019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7213E8621AB8DC30019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7213E8821AB8DDF0019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7213E8921AB8DEF0019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7213ECC21AB993A0019C38B /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7213ECD21AB993A0019C38B /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7213ECE21AB993A0019C38B /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -514,10 +514,10 @@
 		A783D86E21A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
 		A783D86F21A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
 		A783D87021A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
-		A783D87D21A777B400A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; };
-		A783D87E21A777BD00A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; };
-		A783D87F21A777C400A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; };
-		A783D88021A777CA00A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; };
+		A783D87D21A777B400A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A783D87E21A777BD00A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A783D87F21A777C400A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A783D88021A777CA00A0242F /* CWebP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A783D87B21A777A700A0242F /* CWebP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A783DD2521A782EF00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2421A782EE00A0242F /* Foundation.framework */; };
 		A783DD2721A782FE00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2621A782FE00A0242F /* Foundation.framework */; };
 		A783DD2A21A7831A00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2921A7831A00A0242F /* Foundation.framework */; };
@@ -544,18 +544,18 @@
 		A7A0ECE7219EB279004FBE05 /* ImageExtract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A0ECDD219EB279004FBE05 /* ImageExtract.framework */; };
 		A7A0ED3A219EC0FD004FBE05 /* ImageExtract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A0ED14219EB6C8004FBE05 /* ImageExtract.framework */; };
 		A7A0ED65219EC8D1004FBE05 /* ImageExtract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A0ED42219EC3E3004FBE05 /* ImageExtract.framework */; };
-		A7C6967721AAFFF70045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6967821AAFFF70045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6967921AAFFF70045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6967A21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6967B21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6967C21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6967D21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6967E21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6967F21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6968021AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6968121AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7C6968221AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6967721AAFFF70045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6967821AAFFF70045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6967921AAFFF70045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6967A21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6967B21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6967C21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6967D21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6967E21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6967F21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6968021AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6968121AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7C6968221AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFABE0131D3EDC406AFC41C9 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
 		DFABE09C016245135824DB0E /* ImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE0ED9775FA71C1D52165 /* ImageDecoder.swift */; };
 		DFABE30DE6D4A793F3928571 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
@@ -1373,8 +1373,8 @@
 			files = (
 				A7C6968121AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6968021AAFFF80045DD50 /* decode.h in Headers */,
-				A7213E8521AB8DB50019C38B /* common_sse41.h in Headers */,
 				A7C6968221AAFFF80045DD50 /* types.h in Headers */,
+				A7213E8521AB8DB50019C38B /* common_sse41.h in Headers */,
 				A783D87D21A777B400A0242F /* CWebP-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
