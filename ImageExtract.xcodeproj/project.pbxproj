@@ -573,28 +573,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A72140B321AB9BCA0019C38B /* PBXContainerItemProxy */ = {
+		A7467D3221AC24C30006696F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A7A0ECD4219EB279004FBE05 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A7213E8F21AB978C0019C38B;
 			remoteInfo = "webp-iOS";
 		};
-		A72140B521AB9BD30019C38B /* PBXContainerItemProxy */ = {
+		A7467D3421AC24C80006696F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A7A0ECD4219EB279004FBE05 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A7213E9A21AB979D0019C38B;
 			remoteInfo = "webp-watchOS";
 		};
-		A72140B721AB9BDF0019C38B /* PBXContainerItemProxy */ = {
+		A7467D3821AC24D10006696F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A7A0ECD4219EB279004FBE05 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A7213EA521AB97AC0019C38B;
 			remoteInfo = "webp-tvOS";
 		};
-		A72140B921AB9BE50019C38B /* PBXContainerItemProxy */ = {
+		A7467D3A21AC24D90006696F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A7A0ECD4219EB279004FBE05 /* Project object */;
 			proxyType = 1;
@@ -1482,7 +1482,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A72140B621AB9BD30019C38B /* PBXTargetDependency */,
+				A7467D3521AC24C80006696F /* PBXTargetDependency */,
 			);
 			name = "ImageExtract-watchOS";
 			productName = "ImageExtract-watchOS";
@@ -1501,7 +1501,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A72140B421AB9BCA0019C38B /* PBXTargetDependency */,
+				A7467D3321AC24C30006696F /* PBXTargetDependency */,
 			);
 			name = "ImageExtract-iOS";
 			productName = ImageExtract;
@@ -1538,7 +1538,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A72140BA21AB9BE50019C38B /* PBXTargetDependency */,
+				A7467D3B21AC24D90006696F /* PBXTargetDependency */,
 			);
 			name = "ImageExtract-macOS";
 			productName = "ImageExtract-macOS";
@@ -1575,7 +1575,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A72140B821AB9BDF0019C38B /* PBXTargetDependency */,
+				A7467D3921AC24D10006696F /* PBXTargetDependency */,
 			);
 			name = "ImageExtract-tvOS";
 			productName = "ImageExtract-tvOS";
@@ -2316,25 +2316,25 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A72140B421AB9BCA0019C38B /* PBXTargetDependency */ = {
+		A7467D3321AC24C30006696F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A7213E8F21AB978C0019C38B /* webp-iOS */;
-			targetProxy = A72140B321AB9BCA0019C38B /* PBXContainerItemProxy */;
+			targetProxy = A7467D3221AC24C30006696F /* PBXContainerItemProxy */;
 		};
-		A72140B621AB9BD30019C38B /* PBXTargetDependency */ = {
+		A7467D3521AC24C80006696F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A7213E9A21AB979D0019C38B /* webp-watchOS */;
-			targetProxy = A72140B521AB9BD30019C38B /* PBXContainerItemProxy */;
+			targetProxy = A7467D3421AC24C80006696F /* PBXContainerItemProxy */;
 		};
-		A72140B821AB9BDF0019C38B /* PBXTargetDependency */ = {
+		A7467D3921AC24D10006696F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A7213EA521AB97AC0019C38B /* webp-tvOS */;
-			targetProxy = A72140B721AB9BDF0019C38B /* PBXContainerItemProxy */;
+			targetProxy = A7467D3821AC24D10006696F /* PBXContainerItemProxy */;
 		};
-		A72140BA21AB9BE50019C38B /* PBXTargetDependency */ = {
+		A7467D3B21AC24D90006696F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A7213EB021AB97E90019C38B /* webp-macOS */;
-			targetProxy = A72140B921AB9BE50019C38B /* PBXContainerItemProxy */;
+			targetProxy = A7467D3A21AC24D90006696F /* PBXContainerItemProxy */;
 		};
 		A7A0ECE9219EB279004FBE05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
