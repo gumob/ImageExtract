@@ -68,13 +68,13 @@ install:
   - ./install-swiftlint.sh;
 
 script:
-  - set -o pipefail
-  - swift -version
+  - set -o pipefail;
+  - swift -version;
 
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-    xcodebuild -version;
-    xcodebuild -showsdks;
-    fi
+  - xcrun simctl list;
+  - xcodebuild -version;
+  - xcodebuild -showsdks;
+  - xcodebuild -list;
 
   - if [ "$RUN_TESTS" == "YES" ]; then
     xcodebuild clean test -project "$PROJ" -scheme "$SCHEME" -destination "$DESTINATION" -enableCodeCoverage YES | xcpretty -c;
@@ -91,3 +91,6 @@ after_success:
   - if [ "$COVERAGE" == "YES" ]; then
     bash <(curl -s https://codecov.io/bash) -J 'ImageExtract' -cF "$CODECOV_FLAG";
     fi
+
+notifications:
+  email: false
