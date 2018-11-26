@@ -1410,10 +1410,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7213E9421AB978D0019C38B /* Build configuration list for PBXNativeTarget "webp-iOS" */;
 			buildPhases = (
-				A7213EC921AB99270019C38B /* Headers */,
 				A7213E8C21AB978C0019C38B /* Sources */,
 				A7213E8D21AB978C0019C38B /* Frameworks */,
 				A7213E8E21AB978C0019C38B /* CopyFiles */,
+				A7213EC921AB99270019C38B /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1428,10 +1428,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7213E9F21AB979D0019C38B /* Build configuration list for PBXNativeTarget "webp-watchOS" */;
 			buildPhases = (
-				A7213ECA21AB992D0019C38B /* Headers */,
 				A7213E9721AB979D0019C38B /* Sources */,
 				A7213E9821AB979D0019C38B /* Frameworks */,
 				A7213E9921AB979D0019C38B /* CopyFiles */,
+				A7213ECA21AB992D0019C38B /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1446,10 +1446,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7213EAA21AB97AC0019C38B /* Build configuration list for PBXNativeTarget "webp-tvOS" */;
 			buildPhases = (
-				A7213ECB21AB99310019C38B /* Headers */,
 				A7213EA221AB97AC0019C38B /* Sources */,
 				A7213EA321AB97AC0019C38B /* Frameworks */,
 				A7213EA421AB97AC0019C38B /* CopyFiles */,
+				A7213ECB21AB99310019C38B /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1464,10 +1464,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7213EB221AB97E90019C38B /* Build configuration list for PBXNativeTarget "webp-macOS" */;
 			buildPhases = (
-				A7213EAD21AB97E90019C38B /* Headers */,
 				A7213EAE21AB97E90019C38B /* Sources */,
 				A7213EAF21AB97E90019C38B /* Frameworks */,
 				A72140A321AB9A4C0019C38B /* CopyFiles */,
+				A7213EAD21AB97E90019C38B /* Headers */,
 			);
 			buildRules = (
 			);
