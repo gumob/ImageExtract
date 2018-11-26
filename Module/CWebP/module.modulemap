@@ -1,3 +1,6 @@
 module CWebP [system] {
     umbrella header "CWebP-umbrella.h"
+    
+    export *
+    module * { export * }
 }
