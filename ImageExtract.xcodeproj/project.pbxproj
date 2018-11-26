@@ -11,6 +11,10 @@
 		A712B87321AA5FCA00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
 		A712B87421AA5FCA00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
 		A712B87521AA5FCB00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
+		A7213E7C21AB801C0019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D89021A779D800A0242F /* libwebp.a */; };
+		A7213E7D21AB80260019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D89B21A77A0000A0242F /* libwebp.a */; };
+		A7213E7E21AB80300019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8A621A77A0D00A0242F /* libwebp.a */; };
+		A7213E8121AB80510019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8B121A77C3900A0242F /* libwebp.a */; };
 		A77CE44C21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
 		A77CE44D21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
 		A77CE44E21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
@@ -511,13 +515,9 @@
 		A783DD2021A7814700A0242F /* muxread.c in Sources */ = {isa = PBXBuildFile; fileRef = A783DA1021A77CF400A0242F /* muxread.c */; };
 		A783DD2121A7814800A0242F /* muxread.c in Sources */ = {isa = PBXBuildFile; fileRef = A783DA1021A77CF400A0242F /* muxread.c */; };
 		A783DD2221A7814B00A0242F /* muxread.c in Sources */ = {isa = PBXBuildFile; fileRef = A783DA1021A77CF400A0242F /* muxread.c */; };
-		A783DD2321A782E800A0242F /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D89021A779D800A0242F /* libwebp.a */; };
 		A783DD2521A782EF00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2421A782EE00A0242F /* Foundation.framework */; };
 		A783DD2721A782FE00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2621A782FE00A0242F /* Foundation.framework */; };
-		A783DD2821A7830400A0242F /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D89B21A77A0000A0242F /* libwebp.a */; };
 		A783DD2A21A7831A00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2921A7831A00A0242F /* Foundation.framework */; };
-		A783DD2B21A7831F00A0242F /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8A621A77A0D00A0242F /* libwebp.a */; };
-		A783DD2D21A7833800A0242F /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8B121A77C3900A0242F /* libwebp.a */; };
 		A783DD2F21A7833F00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2E21A7833F00A0242F /* Foundation.framework */; };
 		A783DD3621A7B8DC00A0242F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3521A7B8DC00A0242F /* Error.swift */; };
 		A783DD3721A7B8DC00A0242F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3521A7B8DC00A0242F /* Error.swift */; };
@@ -893,9 +893,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7213E7E21AB80300019C38B /* libwebp.a in Frameworks */,
 				A783DD2A21A7831A00A0242F /* Foundation.framework in Frameworks */,
 				A783D86921A5482100A0242F /* UIKit.framework in Frameworks */,
-				A783DD2B21A7831F00A0242F /* libwebp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,9 +931,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7213E7C21AB801C0019C38B /* libwebp.a in Frameworks */,
 				A783DD2521A782EF00A0242F /* Foundation.framework in Frameworks */,
 				A783D86521A5480700A0242F /* UIKit.framework in Frameworks */,
-				A783DD2321A782E800A0242F /* libwebp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,9 +949,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7213E8121AB80510019C38B /* libwebp.a in Frameworks */,
 				A783DD2F21A7833F00A0242F /* Foundation.framework in Frameworks */,
 				A783D86B21A54A7400A0242F /* AppKit.framework in Frameworks */,
-				A783DD2D21A7833800A0242F /* libwebp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -967,9 +967,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7213E7D21AB80260019C38B /* libwebp.a in Frameworks */,
 				A783DD2721A782FE00A0242F /* Foundation.framework in Frameworks */,
 				A783D86721A5481B00A0242F /* UIKit.framework in Frameworks */,
-				A783DD2821A7830400A0242F /* libwebp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1445,74 +1445,74 @@
 			productReference = A783D85821A542B300A0242F /* ImageExtract.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A783D88F21A779D800A0242F /* libwebp-iOS */ = {
+		A783D88F21A779D800A0242F /* webp-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A783D89421A779D800A0242F /* Build configuration list for PBXNativeTarget "libwebp-iOS" */;
+			buildConfigurationList = A783D89421A779D800A0242F /* Build configuration list for PBXNativeTarget "webp-iOS" */;
 			buildPhases = (
-				A783DAD721A77E1B00A0242F /* Headers */,
 				A783D88C21A779D800A0242F /* Sources */,
 				A783D88D21A779D800A0242F /* Frameworks */,
 				A783D88E21A779D800A0242F /* CopyFiles */,
+				A783DAD721A77E1B00A0242F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "libwebp-iOS";
+			name = "webp-iOS";
 			productName = "libwebp-iOS";
 			productReference = A783D89021A779D800A0242F /* libwebp.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		A783D89A21A77A0000A0242F /* libwebp-tvOS */ = {
+		A783D89A21A77A0000A0242F /* webp-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A783D89F21A77A0000A0242F /* Build configuration list for PBXNativeTarget "libwebp-tvOS" */;
+			buildConfigurationList = A783D89F21A77A0000A0242F /* Build configuration list for PBXNativeTarget "webp-tvOS" */;
 			buildPhases = (
-				A783DADE21A77E3400A0242F /* Headers */,
 				A783D89721A77A0000A0242F /* Sources */,
 				A783D89821A77A0000A0242F /* Frameworks */,
 				A783D89921A77A0000A0242F /* CopyFiles */,
+				A783DADE21A77E3400A0242F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "libwebp-tvOS";
+			name = "webp-tvOS";
 			productName = "libwebp-tvOS";
 			productReference = A783D89B21A77A0000A0242F /* libwebp.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		A783D8A521A77A0D00A0242F /* libwebp-watchOS */ = {
+		A783D8A521A77A0D00A0242F /* webp-watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A783D8AA21A77A0D00A0242F /* Build configuration list for PBXNativeTarget "libwebp-watchOS" */;
+			buildConfigurationList = A783D8AA21A77A0D00A0242F /* Build configuration list for PBXNativeTarget "webp-watchOS" */;
 			buildPhases = (
-				A783DAE521A77E4900A0242F /* Headers */,
 				A783D8A221A77A0D00A0242F /* Sources */,
 				A783D8A321A77A0D00A0242F /* Frameworks */,
 				A783D8A421A77A0D00A0242F /* CopyFiles */,
+				A783DAE521A77E4900A0242F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "libwebp-watchOS";
+			name = "webp-watchOS";
 			productName = "libwebp-watchOS";
 			productReference = A783D8A621A77A0D00A0242F /* libwebp.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		A783D8B021A77C3900A0242F /* libwebp-macOS */ = {
+		A783D8B021A77C3900A0242F /* webp-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A783D8B221A77C3A00A0242F /* Build configuration list for PBXNativeTarget "libwebp-macOS" */;
+			buildConfigurationList = A783D8B221A77C3A00A0242F /* Build configuration list for PBXNativeTarget "webp-macOS" */;
 			buildPhases = (
-				A783D8AD21A77C3900A0242F /* Headers */,
 				A783D8AE21A77C3900A0242F /* Sources */,
 				A783D8AF21A77C3900A0242F /* Frameworks */,
 				A783DACC21A77D3600A0242F /* CopyFiles */,
+				A783D8AD21A77C3900A0242F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "libwebp-macOS";
+			name = "webp-macOS";
 			productName = "libwebp-macOS";
 			productReference = A783D8B121A77C3900A0242F /* libwebp.a */;
 			productType = "com.apple.product-type.library.static";
@@ -1695,10 +1695,10 @@
 				A7A0ECE5219EB279004FBE05 /* ImageExtract-iOSTests */,
 				A7A0ED49219EC3E3004FBE05 /* ImageExtract-tvOSTests */,
 				A7A0ED1B219EB6C9004FBE05 /* ImageExtract-macOSTests */,
-				A783D88F21A779D800A0242F /* libwebp-iOS */,
-				A783D89A21A77A0000A0242F /* libwebp-tvOS */,
-				A783D8A521A77A0D00A0242F /* libwebp-watchOS */,
-				A783D8B021A77C3900A0242F /* libwebp-macOS */,
+				A783D88F21A779D800A0242F /* webp-iOS */,
+				A783D89A21A77A0000A0242F /* webp-tvOS */,
+				A783D8A521A77A0D00A0242F /* webp-watchOS */,
+				A783D8B021A77C3900A0242F /* webp-macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -2361,22 +2361,22 @@
 		};
 		A7C6968621AB01150045DD50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A783D88F21A779D800A0242F /* libwebp-iOS */;
+			target = A783D88F21A779D800A0242F /* webp-iOS */;
 			targetProxy = A7C6968521AB01150045DD50 /* PBXContainerItemProxy */;
 		};
 		A7C6968821AB01180045DD50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A783D89A21A77A0000A0242F /* libwebp-tvOS */;
+			target = A783D89A21A77A0000A0242F /* webp-tvOS */;
 			targetProxy = A7C6968721AB01180045DD50 /* PBXContainerItemProxy */;
 		};
 		A7C6968A21AB011D0045DD50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A783D8A521A77A0D00A0242F /* libwebp-watchOS */;
+			target = A783D8A521A77A0D00A0242F /* webp-watchOS */;
 			targetProxy = A7C6968921AB011D0045DD50 /* PBXContainerItemProxy */;
 		};
 		A7C6968C21AB01210045DD50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A783D8B021A77C3900A0242F /* libwebp-macOS */;
+			target = A783D8B021A77C3900A0242F /* webp-macOS */;
 			targetProxy = A7C6968B21AB01210045DD50 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2450,10 +2450,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_PREFIX = lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = libwebp;
+				PRODUCT_NAME = webp;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2467,10 +2467,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_PREFIX = lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = libwebp;
+				PRODUCT_NAME = webp;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2483,9 +2483,9 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_PREFIX = lib;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = libwebp;
+				PRODUCT_NAME = webp;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -2500,9 +2500,9 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_PREFIX = lib;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = libwebp;
+				PRODUCT_NAME = webp;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -2517,9 +2517,9 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_PREFIX = lib;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = libwebp;
+				PRODUCT_NAME = webp;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -2534,9 +2534,9 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_PREFIX = lib;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = libwebp;
+				PRODUCT_NAME = webp;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -2552,9 +2552,9 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_PREFIX = lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_NAME = libwebp;
+				PRODUCT_NAME = webp;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
@@ -2567,9 +2567,9 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 767KBW5V62;
-				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_PREFIX = lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_NAME = libwebp;
+				PRODUCT_NAME = webp;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Submodule/libwebp/**";
@@ -3035,7 +3035,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A783D89421A779D800A0242F /* Build configuration list for PBXNativeTarget "libwebp-iOS" */ = {
+		A783D89421A779D800A0242F /* Build configuration list for PBXNativeTarget "webp-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A783D89521A779D800A0242F /* Debug */,
@@ -3044,7 +3044,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A783D89F21A77A0000A0242F /* Build configuration list for PBXNativeTarget "libwebp-tvOS" */ = {
+		A783D89F21A77A0000A0242F /* Build configuration list for PBXNativeTarget "webp-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A783D8A021A77A0000A0242F /* Debug */,
@@ -3053,7 +3053,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A783D8AA21A77A0D00A0242F /* Build configuration list for PBXNativeTarget "libwebp-watchOS" */ = {
+		A783D8AA21A77A0D00A0242F /* Build configuration list for PBXNativeTarget "webp-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A783D8AB21A77A0D00A0242F /* Debug */,
@@ -3062,7 +3062,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A783D8B221A77C3A00A0242F /* Build configuration list for PBXNativeTarget "libwebp-macOS" */ = {
+		A783D8B221A77C3A00A0242F /* Build configuration list for PBXNativeTarget "webp-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A783D8B321A77C3A00A0242F /* Debug */,

@@ -6,6 +6,6 @@
 //  Copyright © 2018 Gumob. All rights reserved.
 //
 
-#include <libwebp/encode.h>
-#include <libwebp/decode.h>
-#include <libwebp/types.h>
+#include <webp/encode.h>
+#include <webp/decode.h>
+#include <webp/types.h>
