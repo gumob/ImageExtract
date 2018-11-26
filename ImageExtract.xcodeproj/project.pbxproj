@@ -544,18 +544,18 @@
 		A7A1433D219F011F003FB96A /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7A1433E219F0120003FB96A /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7A1433F219F0121003FB96A /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A7C6967721AAFFF70045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; };
-		A7C6967821AAFFF70045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; };
-		A7C6967921AAFFF70045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; };
-		A7C6967A21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; };
-		A7C6967B21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; };
-		A7C6967C21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; };
-		A7C6967D21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; };
-		A7C6967E21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; };
-		A7C6967F21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; };
-		A7C6968021AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; };
-		A7C6968121AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; };
-		A7C6968221AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; };
+		A7C6967721AAFFF70045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6967821AAFFF70045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6967921AAFFF70045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6967A21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6967B21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6967C21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6967D21AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6967E21AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6967F21AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6968021AAFFF80045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6968121AAFFF80045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7C6968221AAFFF80045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		DFABE0131D3EDC406AFC41C9 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
 		DFABE09C016245135824DB0E /* ImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE0ED9775FA71C1D52165 /* ImageDecoder.swift */; };
 		DFABE30DE6D4A793F3928571 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
@@ -1340,10 +1340,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A783D88021A777CA00A0242F /* CWebP-umbrella.h in Headers */,
-				A783D86221A5441C00A0242F /* ImageExtract.h in Headers */,
 				A7C6967B21AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6967A21AAFFF80045DD50 /* decode.h in Headers */,
 				A7C6967C21AAFFF80045DD50 /* types.h in Headers */,
+				A783D86221A5441C00A0242F /* ImageExtract.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1392,10 +1392,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A783D87D21A777B400A0242F /* CWebP-umbrella.h in Headers */,
-				A7A1433D219F011F003FB96A /* ImageExtract.h in Headers */,
 				A7C6968121AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6968021AAFFF80045DD50 /* decode.h in Headers */,
 				A7C6968221AAFFF80045DD50 /* types.h in Headers */,
+				A7A1433D219F011F003FB96A /* ImageExtract.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1404,10 +1404,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7A1433E219F0120003FB96A /* ImageExtract.h in Headers */,
-				A783D87E21A777BD00A0242F /* CWebP-umbrella.h in Headers */,
 				A7C6967821AAFFF70045DD50 /* encode.h in Headers */,
 				A7C6967721AAFFF70045DD50 /* decode.h in Headers */,
 				A7C6967921AAFFF70045DD50 /* types.h in Headers */,
+				A783D87E21A777BD00A0242F /* CWebP-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1416,10 +1416,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7A1433F219F0121003FB96A /* ImageExtract.h in Headers */,
-				A783D87F21A777C400A0242F /* CWebP-umbrella.h in Headers */,
 				A7C6967E21AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6967D21AAFFF80045DD50 /* decode.h in Headers */,
 				A7C6967F21AAFFF80045DD50 /* types.h in Headers */,
+				A783D87F21A777C400A0242F /* CWebP-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1430,10 +1430,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A783D85F21A542B300A0242F /* Build configuration list for PBXNativeTarget "ImageExtract-watchOS" */;
 			buildPhases = (
-				A783D85321A542B300A0242F /* Headers */,
 				A783D85421A542B300A0242F /* Sources */,
 				A783D85521A542B300A0242F /* Frameworks */,
 				A783D85621A542B300A0242F /* Resources */,
+				A783D85321A542B300A0242F /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1521,10 +1521,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7A0ECF1219EB279004FBE05 /* Build configuration list for PBXNativeTarget "ImageExtract-iOS" */;
 			buildPhases = (
-				A7A0ECD8219EB279004FBE05 /* Headers */,
 				A7A0ECD9219EB279004FBE05 /* Sources */,
 				A7A0ECDA219EB279004FBE05 /* Frameworks */,
 				A7A0ECDB219EB279004FBE05 /* Resources */,
+				A7A0ECD8219EB279004FBE05 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1558,10 +1558,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7A0ED25219EB6C9004FBE05 /* Build configuration list for PBXNativeTarget "ImageExtract-macOS" */;
 			buildPhases = (
-				A7A0ED0F219EB6C8004FBE05 /* Headers */,
 				A7A0ED10219EB6C8004FBE05 /* Sources */,
 				A7A0ED11219EB6C8004FBE05 /* Frameworks */,
 				A7A0ED12219EB6C8004FBE05 /* Resources */,
+				A7A0ED0F219EB6C8004FBE05 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1595,10 +1595,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7A0ED53219EC3E3004FBE05 /* Build configuration list for PBXNativeTarget "ImageExtract-tvOS" */;
 			buildPhases = (
-				A7A0ED3D219EC3E3004FBE05 /* Headers */,
 				A7A0ED3E219EC3E3004FBE05 /* Sources */,
 				A7A0ED3F219EC3E3004FBE05 /* Frameworks */,
 				A7A0ED40219EC3E3004FBE05 /* Resources */,
+				A7A0ED3D219EC3E3004FBE05 /* Headers */,
 			);
 			buildRules = (
 			);
