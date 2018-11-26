@@ -15,11 +15,14 @@
 		A7213E7D21AB80260019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D89B21A77A0000A0242F /* libwebp.a */; };
 		A7213E7E21AB80300019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8A621A77A0D00A0242F /* libwebp.a */; };
 		A7213E8121AB80510019C38B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D8B121A77C3900A0242F /* libwebp.a */; };
+		A7213E8521AB8DB50019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; };
+		A7213E8621AB8DC30019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; };
+		A7213E8821AB8DDF0019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; };
+		A7213E8921AB8DEF0019C38B /* common_sse41.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DABE21A77CF500A0242F /* common_sse41.h */; };
 		A77CE44C21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
 		A77CE44D21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
 		A77CE44E21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
 		A783D86121A5432300A0242F /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
-		A783D86221A5441C00A0242F /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A783D86521A5480700A0242F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D86421A5480600A0242F /* UIKit.framework */; };
 		A783D86721A5481B00A0242F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D86621A5481B00A0242F /* UIKit.framework */; };
 		A783D86921A5482100A0242F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D86821A5482100A0242F /* UIKit.framework */; };
@@ -541,9 +544,6 @@
 		A7A0ECE7219EB279004FBE05 /* ImageExtract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A0ECDD219EB279004FBE05 /* ImageExtract.framework */; };
 		A7A0ED3A219EC0FD004FBE05 /* ImageExtract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A0ED14219EB6C8004FBE05 /* ImageExtract.framework */; };
 		A7A0ED65219EC8D1004FBE05 /* ImageExtract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A0ED42219EC3E3004FBE05 /* ImageExtract.framework */; };
-		A7A1433D219F011F003FB96A /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A7A1433E219F0120003FB96A /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A7A1433F219F0121003FB96A /* ImageExtract.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A14326219F00CA003FB96A /* ImageExtract.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7C6967721AAFFF70045DD50 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3F21A77CF400A0242F /* decode.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A7C6967821AAFFF70045DD50 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3E21A77CF400A0242F /* encode.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A7C6967921AAFFF70045DD50 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A783DA3B21A77CF400A0242F /* types.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -1339,11 +1339,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A783D88021A777CA00A0242F /* CWebP-umbrella.h in Headers */,
 				A7C6967B21AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6967A21AAFFF80045DD50 /* decode.h in Headers */,
 				A7C6967C21AAFFF80045DD50 /* types.h in Headers */,
-				A783D86221A5441C00A0242F /* ImageExtract.h in Headers */,
+				A7213E8921AB8DEF0019C38B /* common_sse41.h in Headers */,
+				A783D88021A777CA00A0242F /* CWebP-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1391,11 +1391,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A783D87D21A777B400A0242F /* CWebP-umbrella.h in Headers */,
 				A7C6968121AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6968021AAFFF80045DD50 /* decode.h in Headers */,
+				A7213E8521AB8DB50019C38B /* common_sse41.h in Headers */,
 				A7C6968221AAFFF80045DD50 /* types.h in Headers */,
-				A7A1433D219F011F003FB96A /* ImageExtract.h in Headers */,
+				A783D87D21A777B400A0242F /* CWebP-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1403,10 +1403,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7A1433E219F0120003FB96A /* ImageExtract.h in Headers */,
 				A7C6967821AAFFF70045DD50 /* encode.h in Headers */,
 				A7C6967721AAFFF70045DD50 /* decode.h in Headers */,
 				A7C6967921AAFFF70045DD50 /* types.h in Headers */,
+				A7213E8821AB8DDF0019C38B /* common_sse41.h in Headers */,
 				A783D87E21A777BD00A0242F /* CWebP-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1415,10 +1415,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7A1433F219F0121003FB96A /* ImageExtract.h in Headers */,
 				A7C6967E21AAFFF80045DD50 /* encode.h in Headers */,
 				A7C6967D21AAFFF80045DD50 /* decode.h in Headers */,
 				A7C6967F21AAFFF80045DD50 /* types.h in Headers */,
+				A7213E8621AB8DC30019C38B /* common_sse41.h in Headers */,
 				A783D87F21A777C400A0242F /* CWebP-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2393,7 +2393,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2424,7 +2424,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2711,7 +2711,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2742,7 +2742,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2815,7 +2815,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2848,7 +2848,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2924,7 +2924,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2957,7 +2957,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
