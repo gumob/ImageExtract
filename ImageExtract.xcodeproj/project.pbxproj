@@ -696,11 +696,8 @@
 		A783D87C21A777A700A0242F /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		A783DA1021A77CF400A0242F /* muxread.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = muxread.c; sourceTree = "<group>"; };
 		A783DA1121A77CF400A0242F /* muxinternal.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = muxinternal.c; sourceTree = "<group>"; };
-		A783DA1221A77CF400A0242F /* libwebpmux.rc */ = {isa = PBXFileReference; lastKnownFileType = text; path = libwebpmux.rc; sourceTree = "<group>"; };
-		A783DA1321A77CF400A0242F /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		A783DA1421A77CF400A0242F /* anim_encode.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = anim_encode.c; sourceTree = "<group>"; };
 		A783DA1521A77CF400A0242F /* animi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = animi.h; sourceTree = "<group>"; };
-		A783DA1621A77CF400A0242F /* libwebpmux.pc.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = libwebpmux.pc.in; sourceTree = "<group>"; };
 		A783DA1721A77CF400A0242F /* muxedit.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = muxedit.c; sourceTree = "<group>"; };
 		A783DA1821A77CF400A0242F /* muxi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = muxi.h; sourceTree = "<group>"; };
 		A783DA1D21A77CF400A0242F /* bit_writer_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bit_writer_utils.c; sourceTree = "<group>"; };
@@ -718,7 +715,6 @@
 		A783DA2921A77CF400A0242F /* huffman_encode_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = huffman_encode_utils.c; sourceTree = "<group>"; };
 		A783DA2A21A77CF400A0242F /* random_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = random_utils.h; sourceTree = "<group>"; };
 		A783DA2B21A77CF400A0242F /* rescaler_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rescaler_utils.h; sourceTree = "<group>"; };
-		A783DA2C21A77CF400A0242F /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		A783DA2D21A77CF400A0242F /* quant_levels_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = quant_levels_utils.c; sourceTree = "<group>"; };
 		A783DA2E21A77CF400A0242F /* quant_levels_dec_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = quant_levels_dec_utils.c; sourceTree = "<group>"; };
 		A783DA2F21A77CF400A0242F /* bit_reader_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bit_reader_utils.c; sourceTree = "<group>"; };
@@ -751,7 +747,6 @@
 		A783DA4D21A77CF400A0242F /* frame_enc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = frame_enc.c; sourceTree = "<group>"; };
 		A783DA4E21A77CF400A0242F /* syntax_enc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = syntax_enc.c; sourceTree = "<group>"; };
 		A783DA4F21A77CF400A0242F /* cost_enc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cost_enc.h; sourceTree = "<group>"; };
-		A783DA5021A77CF400A0242F /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		A783DA5121A77CF400A0242F /* predictor_enc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = predictor_enc.c; sourceTree = "<group>"; };
 		A783DA5221A77CF400A0242F /* config_enc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = config_enc.c; sourceTree = "<group>"; };
 		A783DA5321A77CF400A0242F /* backward_references_enc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = backward_references_enc.c; sourceTree = "<group>"; };
@@ -767,10 +762,7 @@
 		A783DA5D21A77CF400A0242F /* backward_references_cost_enc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = backward_references_cost_enc.c; sourceTree = "<group>"; };
 		A783DA5E21A77CF400A0242F /* picture_rescale_enc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = picture_rescale_enc.c; sourceTree = "<group>"; };
 		A783DA6021A77CF400A0242F /* demux.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = demux.c; sourceTree = "<group>"; };
-		A783DA6121A77CF400A0242F /* libwebpdemux.rc */ = {isa = PBXFileReference; lastKnownFileType = text; path = libwebpdemux.rc; sourceTree = "<group>"; };
-		A783DA6221A77CF400A0242F /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		A783DA6321A77CF400A0242F /* anim_decode.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = anim_decode.c; sourceTree = "<group>"; };
-		A783DA6421A77CF400A0242F /* libwebpdemux.pc.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = libwebpdemux.pc.in; sourceTree = "<group>"; };
 		A783DA6721A77CF400A0242F /* io_dec.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = io_dec.c; sourceTree = "<group>"; };
 		A783DA6821A77CF400A0242F /* frame_dec.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = frame_dec.c; sourceTree = "<group>"; };
 		A783DA6921A77CF400A0242F /* tree_dec.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = tree_dec.c; sourceTree = "<group>"; };
@@ -778,7 +770,6 @@
 		A783DA6B21A77CF400A0242F /* vp8_dec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vp8_dec.h; sourceTree = "<group>"; };
 		A783DA6C21A77CF400A0242F /* alpha_dec.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = alpha_dec.c; sourceTree = "<group>"; };
 		A783DA6D21A77CF400A0242F /* common_dec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common_dec.h; sourceTree = "<group>"; };
-		A783DA6E21A77CF400A0242F /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		A783DA6F21A77CF400A0242F /* buffer_dec.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = buffer_dec.c; sourceTree = "<group>"; };
 		A783DA7021A77CF400A0242F /* quant_dec.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = quant_dec.c; sourceTree = "<group>"; };
 		A783DA7121A77CF400A0242F /* vp8li_dec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vp8li_dec.h; sourceTree = "<group>"; };
@@ -829,7 +820,6 @@
 		A783DA9F21A77CF500A0242F /* dec_sse41.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dec_sse41.c; sourceTree = "<group>"; };
 		A783DAA021A77CF500A0242F /* yuv_sse41.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = yuv_sse41.c; sourceTree = "<group>"; };
 		A783DAA121A77CF500A0242F /* rescaler_sse2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rescaler_sse2.c; sourceTree = "<group>"; };
-		A783DAA221A77CF500A0242F /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		A783DAA321A77CF500A0242F /* lossless_enc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lossless_enc.c; sourceTree = "<group>"; };
 		A783DAA421A77CF500A0242F /* yuv_mips_dsp_r2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = yuv_mips_dsp_r2.c; sourceTree = "<group>"; };
 		A783DAA521A77CF500A0242F /* alpha_processing_neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = alpha_processing_neon.c; sourceTree = "<group>"; };
@@ -1058,14 +1048,11 @@
 			isa = PBXGroup;
 			children = (
 				A783DA1421A77CF400A0242F /* anim_encode.c */,
-				A783DA1521A77CF400A0242F /* animi.h */,
-				A783DA1621A77CF400A0242F /* libwebpmux.pc.in */,
-				A783DA1221A77CF400A0242F /* libwebpmux.rc */,
-				A783DA1321A77CF400A0242F /* Makefile.am */,
 				A783DA1721A77CF400A0242F /* muxedit.c */,
-				A783DA1821A77CF400A0242F /* muxi.h */,
 				A783DA1121A77CF400A0242F /* muxinternal.c */,
 				A783DA1021A77CF400A0242F /* muxread.c */,
+				A783DA1521A77CF400A0242F /* animi.h */,
+				A783DA1821A77CF400A0242F /* muxi.h */,
 			);
 			path = mux;
 			sourceTree = "<group>";
@@ -1073,32 +1060,31 @@
 		A783DA1C21A77CF400A0242F /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				A783DA2221A77CF400A0242F /* bit_reader_inl_utils.h */,
 				A783DA2F21A77CF400A0242F /* bit_reader_utils.c */,
-				A783DA2121A77CF400A0242F /* bit_reader_utils.h */,
 				A783DA1D21A77CF400A0242F /* bit_writer_utils.c */,
-				A783DA3221A77CF400A0242F /* bit_writer_utils.h */,
 				A783DA3521A77CF400A0242F /* color_cache_utils.c */,
+				A783DA3621A77CF400A0242F /* filters_utils.c */,
+				A783DA2921A77CF400A0242F /* huffman_encode_utils.c */,
+				A783DA2621A77CF400A0242F /* huffman_utils.c */,
+				A783DA2E21A77CF400A0242F /* quant_levels_dec_utils.c */,
+				A783DA2D21A77CF400A0242F /* quant_levels_utils.c */,
+				A783DA3721A77CF400A0242F /* random_utils.c */,
+				A783DA2321A77CF400A0242F /* rescaler_utils.c */,
+				A783DA1F21A77CF400A0242F /* thread_utils.c */,
+				A783DA3121A77CF400A0242F /* utils.c */,
+				A783DA2221A77CF400A0242F /* bit_reader_inl_utils.h */,
+				A783DA2121A77CF400A0242F /* bit_reader_utils.h */,
+				A783DA3221A77CF400A0242F /* bit_writer_utils.h */,
 				A783DA2721A77CF400A0242F /* color_cache_utils.h */,
 				A783DA1E21A77CF400A0242F /* endian_inl_utils.h */,
-				A783DA3621A77CF400A0242F /* filters_utils.c */,
 				A783DA2821A77CF400A0242F /* filters_utils.h */,
-				A783DA2921A77CF400A0242F /* huffman_encode_utils.c */,
 				A783DA3421A77CF400A0242F /* huffman_encode_utils.h */,
-				A783DA2621A77CF400A0242F /* huffman_utils.c */,
 				A783DA3321A77CF400A0242F /* huffman_utils.h */,
-				A783DA2C21A77CF400A0242F /* Makefile.am */,
-				A783DA2E21A77CF400A0242F /* quant_levels_dec_utils.c */,
 				A783DA2521A77CF400A0242F /* quant_levels_dec_utils.h */,
-				A783DA2D21A77CF400A0242F /* quant_levels_utils.c */,
 				A783DA2421A77CF400A0242F /* quant_levels_utils.h */,
-				A783DA3721A77CF400A0242F /* random_utils.c */,
 				A783DA2A21A77CF400A0242F /* random_utils.h */,
-				A783DA2321A77CF400A0242F /* rescaler_utils.c */,
 				A783DA2B21A77CF400A0242F /* rescaler_utils.h */,
-				A783DA1F21A77CF400A0242F /* thread_utils.c */,
 				A783DA3021A77CF400A0242F /* thread_utils.h */,
-				A783DA3121A77CF400A0242F /* utils.c */,
 				A783DA2021A77CF400A0242F /* utils.h */,
 			);
 			path = utils;
@@ -1125,16 +1111,12 @@
 				A783DA5821A77CF400A0242F /* analysis_enc.c */,
 				A783DA5D21A77CF400A0242F /* backward_references_cost_enc.c */,
 				A783DA5321A77CF400A0242F /* backward_references_enc.c */,
-				A783DA4321A77CF400A0242F /* backward_references_enc.h */,
 				A783DA5221A77CF400A0242F /* config_enc.c */,
 				A783DA4421A77CF400A0242F /* cost_enc.c */,
-				A783DA4F21A77CF400A0242F /* cost_enc.h */,
 				A783DA4B21A77CF400A0242F /* filter_enc.c */,
 				A783DA4D21A77CF400A0242F /* frame_enc.c */,
 				A783DA5721A77CF400A0242F /* histogram_enc.c */,
-				A783DA4621A77CF400A0242F /* histogram_enc.h */,
 				A783DA4221A77CF400A0242F /* iterator_enc.c */,
-				A783DA5021A77CF400A0242F /* Makefile.am */,
 				A783DA5B21A77CF400A0242F /* near_lossless_enc.c */,
 				A783DA4C21A77CF400A0242F /* picture_csp_enc.c */,
 				A783DA5C21A77CF400A0242F /* picture_enc.c */,
@@ -1146,10 +1128,13 @@
 				A783DA4E21A77CF400A0242F /* syntax_enc.c */,
 				A783DA4821A77CF400A0242F /* token_enc.c */,
 				A783DA4A21A77CF400A0242F /* tree_enc.c */,
-				A783DA4921A77CF400A0242F /* vp8i_enc.h */,
 				A783DA5621A77CF400A0242F /* vp8l_enc.c */,
-				A783DA5921A77CF400A0242F /* vp8li_enc.h */,
 				A783DA5521A77CF400A0242F /* webp_enc.c */,
+				A783DA4321A77CF400A0242F /* backward_references_enc.h */,
+				A783DA4F21A77CF400A0242F /* cost_enc.h */,
+				A783DA4621A77CF400A0242F /* histogram_enc.h */,
+				A783DA4921A77CF400A0242F /* vp8i_enc.h */,
+				A783DA5921A77CF400A0242F /* vp8li_enc.h */,
 			);
 			path = enc;
 			sourceTree = "<group>";
@@ -1159,9 +1144,6 @@
 			children = (
 				A783DA6321A77CF400A0242F /* anim_decode.c */,
 				A783DA6021A77CF400A0242F /* demux.c */,
-				A783DA6421A77CF400A0242F /* libwebpdemux.pc.in */,
-				A783DA6121A77CF400A0242F /* libwebpdemux.rc */,
-				A783DA6221A77CF400A0242F /* Makefile.am */,
 			);
 			path = demux;
 			sourceTree = "<group>";
@@ -1170,21 +1152,20 @@
 			isa = PBXGroup;
 			children = (
 				A783DA6C21A77CF400A0242F /* alpha_dec.c */,
-				A783DA7521A77CF400A0242F /* alphai_dec.h */,
 				A783DA6F21A77CF400A0242F /* buffer_dec.c */,
-				A783DA6D21A77CF400A0242F /* common_dec.h */,
 				A783DA6821A77CF400A0242F /* frame_dec.c */,
 				A783DA7221A77CF400A0242F /* idec_dec.c */,
 				A783DA6721A77CF400A0242F /* io_dec.c */,
-				A783DA6E21A77CF400A0242F /* Makefile.am */,
 				A783DA7021A77CF400A0242F /* quant_dec.c */,
 				A783DA6921A77CF400A0242F /* tree_dec.c */,
 				A783DA7621A77CF400A0242F /* vp8_dec.c */,
+				A783DA7421A77CF400A0242F /* vp8l_dec.c */,
+				A783DA7321A77CF400A0242F /* webp_dec.c */,
+				A783DA7521A77CF400A0242F /* alphai_dec.h */,
+				A783DA6D21A77CF400A0242F /* common_dec.h */,
 				A783DA6B21A77CF400A0242F /* vp8_dec.h */,
 				A783DA6A21A77CF400A0242F /* vp8i_dec.h */,
-				A783DA7421A77CF400A0242F /* vp8l_dec.c */,
 				A783DA7121A77CF400A0242F /* vp8li_dec.h */,
-				A783DA7321A77CF400A0242F /* webp_dec.c */,
 				A783DA7721A77CF400A0242F /* webpi_dec.h */,
 			);
 			path = dec;
@@ -1198,8 +1179,6 @@
 				A783DAB821A77CF500A0242F /* alpha_processing_sse2.c */,
 				A783DAB321A77CF500A0242F /* alpha_processing_sse41.c */,
 				A783DA8E21A77CF400A0242F /* alpha_processing.c */,
-				A783DABC21A77CF500A0242F /* common_sse2.h */,
-				A783DABE21A77CF500A0242F /* common_sse41.h */,
 				A783DAB721A77CF500A0242F /* cost_mips_dsp_r2.c */,
 				A783DAB221A77CF500A0242F /* cost_mips32.c */,
 				A783DA9021A77CF400A0242F /* cost_neon.c */,
@@ -1214,7 +1193,6 @@
 				A783DAAD21A77CF500A0242F /* dec_sse2.c */,
 				A783DA9F21A77CF500A0242F /* dec_sse41.c */,
 				A783DAA621A77CF500A0242F /* dec.c */,
-				A783DAAE21A77CF500A0242F /* dsp.h */,
 				A783DA8B21A77CF400A0242F /* enc_mips_dsp_r2.c */,
 				A783DA9121A77CF400A0242F /* enc_mips32.c */,
 				A783DA7D21A77CF400A0242F /* enc_msa.c */,
@@ -1227,7 +1205,6 @@
 				A783DA9221A77CF500A0242F /* filters_neon.c */,
 				A783DA8921A77CF400A0242F /* filters_sse2.c */,
 				A783DA9A21A77CF500A0242F /* filters.c */,
-				A783DAB121A77CF500A0242F /* lossless_common.h */,
 				A783DA7C21A77CF400A0242F /* lossless_enc_mips_dsp_r2.c */,
 				A783DABD21A77CF500A0242F /* lossless_enc_mips32.c */,
 				A783DA9921A77CF500A0242F /* lossless_enc_msa.c */,
@@ -1240,11 +1217,6 @@
 				A783DA9821A77CF500A0242F /* lossless_neon.c */,
 				A783DA7A21A77CF400A0242F /* lossless_sse2.c */,
 				A783DAA721A77CF500A0242F /* lossless.c */,
-				A783DA7B21A77CF400A0242F /* lossless.h */,
-				A783DAA221A77CF500A0242F /* Makefile.am */,
-				A783DA9621A77CF500A0242F /* mips_macro.h */,
-				A783DA7E21A77CF400A0242F /* msa_macro.h */,
-				A783DA7F21A77CF400A0242F /* neon.h */,
 				A783DA9C21A77CF500A0242F /* rescaler_mips_dsp_r2.c */,
 				A783DA9E21A77CF500A0242F /* rescaler_mips32.c */,
 				A783DA9721A77CF500A0242F /* rescaler_msa.c */,
@@ -1265,6 +1237,14 @@
 				A783DA9421A77CF500A0242F /* yuv_sse2.c */,
 				A783DAA021A77CF500A0242F /* yuv_sse41.c */,
 				A783DAAB21A77CF500A0242F /* yuv.c */,
+				A783DABC21A77CF500A0242F /* common_sse2.h */,
+				A783DABE21A77CF500A0242F /* common_sse41.h */,
+				A783DAAE21A77CF500A0242F /* dsp.h */,
+				A783DAB121A77CF500A0242F /* lossless_common.h */,
+				A783DA7B21A77CF400A0242F /* lossless.h */,
+				A783DA9621A77CF500A0242F /* mips_macro.h */,
+				A783DA7E21A77CF400A0242F /* msa_macro.h */,
+				A783DA7F21A77CF400A0242F /* neon.h */,
 				A783DA8F21A77CF400A0242F /* yuv.h */,
 			);
 			path = dsp;
