@@ -3,6 +3,7 @@ branches:
 #    - master
 #    - develop
     - "/^v?[0-9\\.]+/"
+    - feature/carthage
 
 cache:
   directories:
