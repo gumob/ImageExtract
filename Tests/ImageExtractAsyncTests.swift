@@ -199,90 +199,81 @@ final class ImageExtractAsyncTests: XCTestCase {
     }
 
     /* Multiple download */
-    func testMeasureJPGs() {
-        self.measure {
-            let exp: XCTestExpectation = expectation(description: "testMeasureJPGs".withRandomQuery())
-            XCTAssertNotNil(self.dataSet.jpg)
-            var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
-            for image: DataSet.Image in self.dataSet.jpg {
-                let request: String = image.url.withRandomQuery()
-                ImageExtract.extract(request) { (_: String?, size: CGSize) in
-                    if isFulfilled { return } /* If unit test is already completed, do not proceed */
-                    XCTAssertEqual(size, image.size)
-                    if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
-                        isFulfilled = true
-                        exp.fulfill()
-                    }
+    func testMultipleJPGs() {
+        let exp: XCTestExpectation = expectation(description: "testMultipleJPGs".withRandomQuery())
+        XCTAssertNotNil(self.dataSet.jpg)
+        var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
+        for image: DataSet.Image in self.dataSet.jpg {
+            let request: String = image.url.withRandomQuery()
+            ImageExtract.extract(request) { (_: String?, size: CGSize) in
+                if isFulfilled { return } /* If unit test is already completed, do not proceed */
+                XCTAssertEqual(size, image.size)
+                if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
+                    isFulfilled = true
+                    exp.fulfill()
                 }
             }
-            wait(for: [exp], timeout: 120.0)
         }
+        wait(for: [exp], timeout: 120.0)
     }
 
-    func testMeasurePNGs() {
-        self.measure {
-            let exp: XCTestExpectation = expectation(description: "testMeasurePNGs".withRandomQuery())
-            XCTAssertNotNil(self.dataSet.png)
-            var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
-            for image: DataSet.Image in self.dataSet.png {
-                let request: String = image.url.withRandomQuery()
-                ImageExtract.extract(request) { (_: String?, size: CGSize) in
-                    if isFulfilled { return } /* If unit test is already completed, do not proceed */
-                    XCTAssertEqual(size, image.size)
-                    if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
-                        isFulfilled = true
-                        exp.fulfill()
-                    }
+    func testMultiplePNGs() {
+        let exp: XCTestExpectation = expectation(description: "testMultiplePNGs".withRandomQuery())
+        XCTAssertNotNil(self.dataSet.png)
+        var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
+        for image: DataSet.Image in self.dataSet.png {
+            let request: String = image.url.withRandomQuery()
+            ImageExtract.extract(request) { (_: String?, size: CGSize) in
+                if isFulfilled { return } /* If unit test is already completed, do not proceed */
+                XCTAssertEqual(size, image.size)
+                if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
+                    isFulfilled = true
+                    exp.fulfill()
                 }
             }
-            wait(for: [exp], timeout: 120.0)
         }
+        wait(for: [exp], timeout: 120.0)
     }
 
-    func testMeasureGIFs() {
-        self.measure {
-            let exp: XCTestExpectation = expectation(description: "testMeasureGIFs".withRandomQuery())
-            XCTAssertNotNil(self.dataSet.gif)
-            var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
-            for image: DataSet.Image in self.dataSet.gif {
-                let request: String = image.url.withRandomQuery()
-                ImageExtract.extract(request) { (_: String?, size: CGSize) in
-                    if isFulfilled { return } /* If unit test is already completed, do not proceed */
-                    XCTAssertEqual(size, image.size)
-                    if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
-                        isFulfilled = true
-                        exp.fulfill()
-                    }
+    func testMultipleGIFs() {
+        let exp: XCTestExpectation = expectation(description: "testMultipleGIFs".withRandomQuery())
+        XCTAssertNotNil(self.dataSet.gif)
+        var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
+        for image: DataSet.Image in self.dataSet.gif {
+            let request: String = image.url.withRandomQuery()
+            ImageExtract.extract(request) { (_: String?, size: CGSize) in
+                if isFulfilled { return } /* If unit test is already completed, do not proceed */
+                XCTAssertEqual(size, image.size)
+                if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
+                    isFulfilled = true
+                    exp.fulfill()
                 }
             }
-            wait(for: [exp], timeout: 120.0)
         }
+        wait(for: [exp], timeout: 120.0)
     }
 
-    func testMeasureBMPs() {
-        self.measure {
-            let exp: XCTestExpectation = expectation(description: "testMeasureBMPs".withRandomQuery())
-            XCTAssertNotNil(self.dataSet.bmp)
-            var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
-            for image: DataSet.Image in self.dataSet.bmp {
-                let request: String = image.url.withRandomQuery()
-                ImageExtract.extract(request) { (_: String?, size: CGSize) in
-                    if isFulfilled { return } /* If unit test is already completed, do not proceed */
-                    XCTAssertEqual(size, image.size)
-                    if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
-                        isFulfilled = true
-                        exp.fulfill()
-                    }
+    func testMultipleBMPs() {
+        let exp: XCTestExpectation = expectation(description: "testMultipleBMPs".withRandomQuery())
+        XCTAssertNotNil(self.dataSet.bmp)
+        var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
+        for image: DataSet.Image in self.dataSet.bmp {
+            let request: String = image.url.withRandomQuery()
+            ImageExtract.extract(request) { (_: String?, size: CGSize) in
+                if isFulfilled { return } /* If unit test is already completed, do not proceed */
+                XCTAssertEqual(size, image.size)
+                if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
+                    isFulfilled = true
+                    exp.fulfill()
                 }
             }
-            wait(for: [exp], timeout: 120.0)
         }
+        wait(for: [exp], timeout: 120.0)
     }
 
     /* TODO: Support TIFF (low priority) */
-//    func testMeasureTIFs() {
-//        self.measure {
-//            let exp: XCTestExpectation = expectation(description: "testMeasureTIFs".withRandomQuery())
+//    func testMultipleTIFs() {
+//            let exp: XCTestExpectation = expectation(description: "testMultipleTIFs".withRandomQuery())
 //            XCTAssertNotNil(self.dataSet.tif)
 //            var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
 //            for image: DataSet.Image in self.dataSet.tif {
@@ -297,27 +288,24 @@ final class ImageExtractAsyncTests: XCTestCase {
 //                }
 //            }
 //            wait(for: [exp], timeout: 120.0)
-//        }
 //    }
 
-    func testMeasureWebPs() {
-        self.measure {
-            let exp: XCTestExpectation = expectation(description: "testMeasureWebPs".withRandomQuery())
-            XCTAssertNotNil(self.dataSet.webp)
-            var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
-            for image: DataSet.Image in self.dataSet.webp {
-                let request: String = image.url.withRandomQuery()
-                ImageExtract.extract(request) { (_: String?, size: CGSize) in
-                    if isFulfilled { return } /* If unit test is already completed, do not proceed */
-                    XCTAssertEqual(size, image.size)
-                    if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
-                        isFulfilled = true
-                        exp.fulfill()
-                    }
+    func testMultipleWebPs() {
+        let exp: XCTestExpectation = expectation(description: "testMultipleWebPs".withRandomQuery())
+        XCTAssertNotNil(self.dataSet.webp)
+        var isFulfilled: Bool = false /* Flag to avoid call fulfill repeatedly */
+        for image: DataSet.Image in self.dataSet.webp {
+            let request: String = image.url.withRandomQuery()
+            ImageExtract.extract(request) { (_: String?, size: CGSize) in
+                if isFulfilled { return } /* If unit test is already completed, do not proceed */
+                XCTAssertEqual(size, image.size)
+                if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
+                    isFulfilled = true
+                    exp.fulfill()
                 }
             }
-            wait(for: [exp], timeout: 120.0)
         }
+        wait(for: [exp], timeout: 120.0)
     }
 
     /* Cancellation */
