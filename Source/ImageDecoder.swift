@@ -10,7 +10,7 @@ import AppKit
 import UIKit
 #endif
 import CoreGraphics
-import CWebP
+import WebP
 
 internal class JPGDecoder {
     /**
@@ -155,26 +155,9 @@ internal class WEBPDecoder {
      * https://github.com/golang/image/blob/master/vp8l/decode.go
      */
     static func getSize(_ data: Data) -> CGSize {
-        if data.count <= ImageFormat.webp.minimumLength { return .zero }
-
-        let config: WebPDecoderConfig = data.withUnsafeBytes { (body: UnsafePointer<UInt8>) in
-            var config = WebPDecoderConfig()
-            if WebPInitDecoderConfig(&config) == 0 { return config }
-
-            var features = WebPBitstreamFeatures()
-            if WebPGetFeatures(body, data.count, &features) != VP8_STATUS_OK { return config }
-
-            config.output.colorspace = MODE_RGBA
-
-            /**
-             * If chunk data is passed to decoder it always returns fault status
-             * Do not check status in this case
-             */
-//            if WebPDecode(body, data.count, &config) != VP8_STATUS_OK { return config }
-            WebPDecode(body, data.count, &config)
-
-            return config
-        }
+        guard data.count > ImageFormat.webp.minimumLength,
+            let size: CGSize = try? WebPDecoder.decode(data, checkStatus: false) else { return .zero }
+        return size
 
         /* The current version uses the libwebp static library. */
 //        switch ImageWebPFormat(data: data) {
@@ -197,7 +180,5 @@ internal class WEBPDecoder {
 //            return .zero
 //
 //        }
-
-        return CGSize(width: Int(config.input.width), height: Int(config.input.height))
     }
 }
