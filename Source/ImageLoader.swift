@@ -85,40 +85,40 @@ internal extension ImageLoader {
 
     internal static func cancelAllQueues() {
         if self.queues.count == 0 { return }
-        print("⚠️ cancelAllQueue", "before", self.queues.count)
+        tprint("⚠️ cancelAllQueue", "before", self.queues.count)
         self.queues.forEach { $0.cancel() }
         self.queues.removeAll()
-        print("⚠️ cancelAllQueue", "after", self.queues.count)
+        tprint("⚠️ cancelAllQueue", "after", self.queues.count)
     }
 
     internal static func cancelQueue(_ request: ImageRequestConvertible) {
         if self.queues.count == 0 { return }
-        print("⚠️ cancelQueue", "before", self.queues.count)
+        tprint("⚠️ cancelQueue", "before", self.queues.count)
         self.queues.filter { shouldRemove($0, request) }.forEach { $0.cancel() }
         removeQueue(request)
-        print("⚠️ cancelQueue", "after", self.queues.count)
+        tprint("⚠️ cancelQueue", "after", self.queues.count)
     }
 
     internal static func invalidateQueue(_ request: ImageRequestConvertible) {
         if self.queues.count == 0 { return }
-        print("⚠️ invalidateQueue", "before", self.queues.count)
+        tprint("⚠️ invalidateQueue", "before", self.queues.count)
         getQueue(request: request)?.invalidate()
         removeQueue(request)
-        print("⚠️ invalidateQueue", "after", self.queues.count)
+        tprint("⚠️ invalidateQueue", "after", self.queues.count)
     }
 
     internal static func removeQueue(_ request: ImageRequestConvertible) {
         if self.queues.count == 0 { return }
-        print("🗑️ removeQueue", "before", self.queues.count)
+        tprint("🗑️ removeQueue", "before", self.queues.count)
 //        let isEqual: (ImageLoaderQueue) -> Bool = { shouldRemove($0, request) }
 //        self.queues.removeAll(where: isEqual)
         for (i, queue): (Int, ImageLoaderQueue) in self.queues.reversed().enumerated() {
             if shouldRemove(queue, request) {
-                print("🗑️ removeQueue", "removing", "\(i)/\(self.queues.count)")
+                tprint("🗑️ removeQueue", "removing", "\(i)/\(self.queues.count)")
                 self.queues.remove(safeAt: i)
             }
         }
-        print("🗑️ removeQueue", "after", self.queues.count)
+        tprint("🗑️ removeQueue", "after", self.queues.count)
     }
 
     private static func shouldRemove(_ queue: ImageLoaderQueue, _ request: ImageRequestConvertible) -> Bool {

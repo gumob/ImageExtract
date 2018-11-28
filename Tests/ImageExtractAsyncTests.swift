@@ -321,7 +321,7 @@ final class ImageExtractAsyncTests: XCTestCase {
             ImageExtract.extract(request) { (url: String?, size: CGSize) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
 
-                print("👎", "queueCount:", ImageExtract.queueCount, "size", size)
+                tprint("👎", "queueCount:", ImageExtract.queueCount, "size", size)
 
                 XCTAssertEqual(size, CGSize.zero)
 
@@ -333,11 +333,11 @@ final class ImageExtractAsyncTests: XCTestCase {
         }
 
         /* Remove all queues */
-        print("🛑", "queueCount", "before", ImageExtract.queueCount)
+        tprint("🛑", "queueCount", "before", ImageExtract.queueCount)
         XCTAssertFalse(ImageExtract.cancelAllQueues())
         XCTAssertFalse(ImageExtract.isQueueRunning)
         XCTAssertEqual(ImageExtract.queueCount, 0)
-        print("🛑️", "queueCount", "after", ImageExtract.queueCount)
+        tprint("🛑️", "queueCount", "after", ImageExtract.queueCount)
 
         wait(for: [exp], timeout: 120.0)
     }
@@ -358,10 +358,10 @@ final class ImageExtractAsyncTests: XCTestCase {
                 /* Assert image size */
                 if url == urlToCancel {
                     XCTAssertEqual(size, CGSize.zero) /*　Cancelled queue returns zero */
-                    print("👎", "queueCount:", ImageExtract.queueCount, "size", size)
+                    tprint("👎", "queueCount:", ImageExtract.queueCount, "size", size)
                 } else {
                     XCTAssertEqual(size, image.size)
-                    print("👍️", "queueCount:", ImageExtract.queueCount, "size", size)
+                    tprint("👍️", "queueCount:", ImageExtract.queueCount, "size", size)
                 }
 
                 if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
@@ -372,11 +372,11 @@ final class ImageExtractAsyncTests: XCTestCase {
         }
 
         /* Remove last queue */
-        print("🛑", "queueCount", "before", ImageExtract.queueCount)
+        tprint("🛑", "queueCount", "before", ImageExtract.queueCount)
         XCTAssertTrue(ImageExtract.cancelQueue(request: urlToCancel))
         XCTAssertTrue(ImageExtract.isQueueRunning)
         XCTAssertEqual(ImageExtract.queueCount, self.dataSet.bmp.count - 1)
-        print("🛑️", "queueCount", "after", ImageExtract.queueCount)
+        tprint("🛑️", "queueCount", "after", ImageExtract.queueCount)
 
         wait(for: [exp], timeout: 10.0)
     }

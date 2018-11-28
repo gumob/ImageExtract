@@ -10,7 +10,7 @@ import Foundation
  */
 var isTestRunning: Bool = NSClassFromString("XCTest") != nil
 
-internal func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+internal func tprint(_ items: Any..., separator: String = " ", terminator: String = "\n") {
     if !isTestRunning { return }
     Swift.print(items, separator: separator, terminator: terminator)
 }
@@ -40,7 +40,7 @@ extension Array {
      */
     mutating func remove(safeAt index: Index) {
         guard 0 <= index && index < count else {
-            print("Index out of bounds while deleting item at index \(index) in \(self). This action is ignored.")
+            tprint("Index out of bounds while deleting item at index \(index) in \(self). This action is ignored.")
             return
         }
 
@@ -53,7 +53,7 @@ extension Array {
 //     */
 //    mutating func insert(_ element: Element, safeAt index: Index) {
 //        guard 0 <= index && index <= count else {
-//            print("Index out of bounds while inserting item at index \(index) in \(self). This action is ignored")
+//            tprint("Index out of bounds while inserting item at index \(index) in \(self). This action is ignored")
 //            return
 //        }
 //
