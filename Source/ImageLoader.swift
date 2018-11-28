@@ -63,14 +63,14 @@ internal class ImageLoader: URLSession {
             completion($0, $1, $2)
             session.invalidateAndCancel()
         }
-        let queue: ImageLoaderQueue = ImageLoader.addQueue(request, dataTask)
+        let queue: ImageLoaderQueue = ImageLoader.addQueue(request, session, dataTask)
         queue.resume()
     }
 }
 
 internal extension ImageLoader {
-    private static func addQueue(_ request: ImageRequestConvertible, _ dataTask: URLSessionDataTask) -> ImageLoaderQueue {
-        let queue: ImageLoaderQueue = ImageLoaderQueue(request, dataTask)
+    private static func addQueue(_ request: ImageRequestConvertible, _ session: URLSession, _ dataTask: URLSessionDataTask) -> ImageLoaderQueue {
+        let queue: ImageLoaderQueue = ImageLoaderQueue(request, session, dataTask)
         self.queues.append(queue)
         return queue
     }
@@ -149,15 +149,20 @@ internal class ImageLoaderQueue {
 
     var request: ImageRequestConvertible?
 
+    var session: URLSession?
+
     weak var dataTask: URLSessionDataTask?
 
-    init(_ request: ImageRequestConvertible, _ dataTask: URLSessionDataTask) {
+    init(_ request: ImageRequestConvertible, _ session: URLSession, _ dataTask: URLSessionDataTask) {
         self.request = request
+        self.session = session
         self.dataTask = dataTask
     }
 
     deinit {
+        tprint("ImageLoaderQueue.deinit")
         self.dataTask = nil
+        self.session = nil
         self.request = nil
     }
 
@@ -167,12 +172,16 @@ internal class ImageLoaderQueue {
 
     func cancel() {
         self.dataTask?.cancel()
+        self.session?.invalidateAndCancel()
         self.dataTask = nil
+        self.session = nil
         self.request = nil
     }
 
     func invalidate() {
+        self.session?.invalidateAndCancel()
         self.dataTask = nil
+        self.session = nil
         self.request = nil
     }
 }
