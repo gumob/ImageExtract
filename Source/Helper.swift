@@ -8,7 +8,7 @@ import Foundation
 /**
  print function that print message on only an unit test
  */
-let isTestRunning: Bool = ProcessInfo.processInfo.value(forKey: "XCTestConfigurationFilePath") != nil
+var isTestRunning: Bool = NSClassFromString("XCTest") != nil
 
 internal func print(items: Any..., separator: String = " ", terminator: String = "\n") {
     if !isTestRunning { return }
