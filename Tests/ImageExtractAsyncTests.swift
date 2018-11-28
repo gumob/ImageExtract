@@ -377,7 +377,10 @@ final class ImageExtractAsyncTests: XCTestCase {
 
         /* Remove last queue */
         tprint("🛑", "queueCount", "before", ImageExtract.queueCount)
+        let queueCount: Int = ImageExtract.queueCount
         XCTAssertTrue(ImageExtract.cancelQueue(request: urlToCancel))
+        XCTAssertTrue(ImageExtract.isQueueRunning)
+        XCTAssertEqual(ImageExtract.queueCount, queueCount - 1)
         tprint("🛑️", "queueCount", "after", ImageExtract.queueCount)
 
         wait(for: [exp], timeout: 10.0)
