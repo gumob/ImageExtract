@@ -87,11 +87,8 @@ internal extension ImageLoader {
     internal static func cancelAllQueues() -> Bool {
         self.arrayAccessQueue.async(flags: .barrier) {
             if self.imageQueues.count == 0 { return }
-            tprint()
-            tprint("⚠️ cancelAllQueue", "before", self.imageQueues.count)
             self.imageQueues.forEach { $0.cancel() }
             self.imageQueues.removeAll()
-            tprint("⚠️ cancelAllQueue", "after", self.imageQueues.count)
         }
         return isQueueRunning
     }
@@ -100,11 +97,8 @@ internal extension ImageLoader {
     internal static func cancelQueue(_ request: ImageRequestConvertible) -> Bool {
         self.arrayAccessQueue.async(flags: .barrier) {
             if self.imageQueues.count == 0 { return }
-            tprint()
-            tprint("⚠️ cancelQueue", "before", self.imageQueues.count)
             self.imageQueues.filter { $0.request?.asURLString() == request.asURLString() }.forEach { $0.cancel() }
             removeQueue(request)
-            tprint("⚠️ cancelQueue", "after", self.imageQueues.count)
         }
         return isQueueRunning
     }
@@ -112,12 +106,9 @@ internal extension ImageLoader {
     internal static func removeQueue(_ request: ImageRequestConvertible) {
         self.arrayAccessQueue.async(flags: .barrier) {
             if self.imageQueues.count == 0 { return }
-            tprint()
-            tprint("🗑️ removeQueue", "before", self.imageQueues.count)
             imageQueues.removeAll(where: {
                 $0.isCancelled || $0.isFinished || $0.isInvalidated || $0.request?.asURLString() == request.asURLString()
             })
-            tprint("🗑️ removeQueue", "after", self.imageQueues.count)
         }
     }
 
@@ -156,7 +147,6 @@ internal class ImageLoaderQueue {
     }
 
     deinit {
-        tprint("ImageLoaderQueue.deinit")
         self.session?.invalidateAndCancel()
         self.dataTask = nil
         self.session = nil
