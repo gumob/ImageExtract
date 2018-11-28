@@ -8,8 +8,10 @@
 
 import Foundation
 
-/* Load image */
-internal class ImageLoader: URLSession {
+/**********************************************
+ * ImageLoader
+ **********************************************/
+internal class ImageLoader {
 
     internal static var queues: [ImageLoaderQueue] = [ImageLoaderQueue]()
 
@@ -41,49 +43,33 @@ internal class ImageLoader: URLSession {
         guard let urlRequest: URLRequest = request.asURLRequest() else {
             return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
-        let session: URLSession = URLSession(configuration: config)
-        let semaphore = DispatchSemaphore(value: 0)
-        var result: (Data?, URLResponse?, Error?)
-        session.dataTask(with: urlRequest) {
-            result = ($0, $1, $2)
-            session.invalidateAndCancel()
-            semaphore.signal()
-        }.resume()
-        _ = semaphore.wait(timeout: .distantFuture)
-        return result
+        let queue: ImageLoaderQueue = ImageLoaderQueue(urlRequest)
+        return queue.start()
     }
 
     internal static func request(_ request: ImageRequestConvertible, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         guard let urlRequest: URLRequest = request.asURLRequest() else {
             return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
-        let session: URLSession = URLSession(configuration: config)
-        let dataTask: URLSessionDataTask = session.dataTask(with: urlRequest) {
-            ImageLoader.invalidateQueue(request)
+        let queue: ImageLoaderQueue = ImageLoaderQueue(urlRequest)
+        self.queues.append(queue)
+        queue.start {
+            removeQueue(request)
             completion($0, $1, $2)
         }
-        let queue: ImageLoaderQueue = ImageLoader.addQueue(request, session, dataTask)
-        queue.resume()
     }
 }
 
+/* Manage Queue */
 internal extension ImageLoader {
-    private static func addQueue(_ request: ImageRequestConvertible, _ session: URLSession, _ dataTask: URLSessionDataTask) -> ImageLoaderQueue {
-        let queue: ImageLoaderQueue = ImageLoaderQueue(request, session, dataTask)
-        self.queues.append(queue)
-        return queue
-    }
 
-    private static func getQueue(request: ImageRequestConvertible) -> ImageLoaderQueue? {
+    fileprivate static func getQueue(request: ImageRequestConvertible) -> ImageLoaderQueue? {
         return self.queues.filter { $0.request?.asURLString() == request.asURLString() }.first
     }
 
-//    private static func getQueue(dataTask: URLSessionDataTask) -> ImageLoaderQueue? {
-//        return self.queues.filter { $0.dataTask == dataTask }.first
-//    }
-
     internal static func cancelAllQueues() {
         if self.queues.count == 0 { return }
+        tprint()
         tprint("⚠️ cancelAllQueue", "before", self.queues.count)
         self.queues.forEach { $0.cancel() }
         self.queues.removeAll()
@@ -92,46 +78,36 @@ internal extension ImageLoader {
 
     internal static func cancelQueue(_ request: ImageRequestConvertible) {
         if self.queues.count == 0 { return }
+        tprint()
         tprint("⚠️ cancelQueue", "before", self.queues.count)
-        self.queues.filter { shouldRemove($0, request) }.forEach { $0.cancel() }
+        self.queues.filter { $0.request?.asURLString() == request.asURLString() }.forEach { $0.cancel() }
         removeQueue(request)
         tprint("⚠️ cancelQueue", "after", self.queues.count)
     }
 
-    internal static func invalidateQueue(_ request: ImageRequestConvertible) {
-        if self.queues.count == 0 { return }
-        tprint("⚠️ invalidateQueue", "before", self.queues.count)
-        getQueue(request: request)?.invalidate()
-        removeQueue(request)
-        tprint("⚠️ invalidateQueue", "after", self.queues.count)
-    }
-
     internal static func removeQueue(_ request: ImageRequestConvertible) {
         if self.queues.count == 0 { return }
+        tprint()
         tprint("🗑️ removeQueue", "before", self.queues.count)
-//        let isEqual: (ImageLoaderQueue) -> Bool = { shouldRemove($0, request) }
-//        self.queues.removeAll(where: isEqual)
         for (i, queue): (Int, ImageLoaderQueue) in self.queues.reversed().enumerated() {
-            if shouldRemove(queue, request) {
+            if queue.isInvalidated {
                 tprint("🗑️ removeQueue", "removing", "\(i)/\(self.queues.count)")
                 self.queues.remove(safeAt: i)
             }
         }
         tprint("🗑️ removeQueue", "after", self.queues.count)
     }
-
-    private static func shouldRemove(_ queue: ImageLoaderQueue, _ request: ImageRequestConvertible) -> Bool {
-        guard let requestURL: String = request.asURLString() else { return false }
-        /* If the queue is invalidated, the queue has been already cancelled */
-        guard let queueURL: String = queue.request?.asURLString(), queue.isInvalidated == false else { return true }
-        /* If the requested url matches the queue url, remove from the queue list */
-        return requestURL == queueURL
-
-    }
 }
 
-/* Queue */
+/**********************************************
+ * ImageLoaderQueue
+ **********************************************/
 internal class ImageLoaderQueue {
+
+    /* Variables */
+    var request: ImageRequestConvertible?
+    var session: URLSession?
+    var dataTask: URLSessionDataTask?
 
     enum State: Int {
         case running, suspended, canceling, completed, ready, invalidated
@@ -143,19 +119,12 @@ internal class ImageLoaderQueue {
     }
 
     var isInvalidated: Bool {
-        return self.request == nil || self.dataTask == nil || self.state == State.invalidated
+        return self.request == nil || self.dataTask == nil || self.state == State.invalidated || self.state == State.canceling || self.state == State.completed
     }
 
-    var request: ImageRequestConvertible?
-
-    var session: URLSession?
-
-    var dataTask: URLSessionDataTask?
-
-    init(_ request: ImageRequestConvertible, _ session: URLSession, _ dataTask: URLSessionDataTask) {
+    /* Initialization */
+    init(_ request: ImageRequestConvertible) {
         self.request = request
-        self.session = session
-        self.dataTask = dataTask
     }
 
     deinit {
@@ -166,21 +135,37 @@ internal class ImageLoaderQueue {
         self.request = nil
     }
 
-    func resume() {
+    /* Request */
+    func start() -> (data: Data?, response: URLResponse?, error: Error?) {
+        guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
+            return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
+        }
+        self.session = URLSession(configuration: ImageLoader.config)
+        let semaphore = DispatchSemaphore(value: 0)
+        var result: (Data?, URLResponse?, Error?)
+        self.session?.dataTask(with: urlRequest) {
+            result = ($0, $1, $2)
+            semaphore.signal()
+        }.resume()
+        _ = semaphore.wait(timeout: .distantFuture)
+        self.session?.invalidateAndCancel()
+        return result
+    }
+
+    func start(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
+            return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
+        }
+        self.session = URLSession(configuration: ImageLoader.config)
+        self.dataTask = self.session!.dataTask(with: urlRequest) {
+            completion($0, $1, $2)
+        }
         self.dataTask?.resume()
     }
 
     func cancel() {
         self.dataTask?.cancel()
-        self.dataTask = nil
-        self.session = nil
-        self.request = nil
-    }
-
-    func invalidate() {
-        self.dataTask = nil
-        self.session = nil
-        self.request = nil
+        self.session?.invalidateAndCancel()
     }
 }
 
