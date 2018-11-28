@@ -47,6 +47,7 @@ internal class ImageLoader: URLSession {
         session.dataTask(with: urlRequest) {
             result = ($0, $1, $2)
             semaphore.signal()
+            session.invalidateAndCancel()
         }.resume()
         _ = semaphore.wait(timeout: .distantFuture)
         return result
@@ -60,6 +61,7 @@ internal class ImageLoader: URLSession {
         let dataTask: URLSessionDataTask = session.dataTask(with: urlRequest) {
             ImageLoader.invalidateQueue(request)
             completion($0, $1, $2)
+            session.invalidateAndCancel()
         }
         let queue: ImageLoaderQueue = ImageLoader.addQueue(request, dataTask)
         queue.resume()
@@ -152,6 +154,11 @@ internal class ImageLoaderQueue {
     init(_ request: ImageRequestConvertible, _ dataTask: URLSessionDataTask) {
         self.request = request
         self.dataTask = dataTask
+    }
+
+    deinit {
+        self.dataTask = nil
+        self.request = nil
     }
 
     func resume() {
