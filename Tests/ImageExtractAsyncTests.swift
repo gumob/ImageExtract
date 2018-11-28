@@ -323,7 +323,9 @@ final class ImageExtractAsyncTests: XCTestCase {
 
                 tprint("👎", "queueCount:", ImageExtract.queueCount, "size", size)
 
-                XCTAssertEqual(size, CGSize.zero)
+                if size != CGSize.zero {
+                    XCTAssertEqual(size, image.size)
+                }
 
                 if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
                     isFulfilled = true
