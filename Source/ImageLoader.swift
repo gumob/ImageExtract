@@ -79,14 +79,6 @@ internal extension ImageLoader {
         return count
     }
 
-    fileprivate static func getQueue(request: ImageRequestConvertible) -> ImageLoaderQueue? {
-        var queue: ImageLoaderQueue?
-        self.arrayAccessQueue.sync {
-            queue = imageQueues.filter { $0.request?.asURLString() == request.asURLString() }.first
-        }
-        return queue
-    }
-
     internal static func appendQueue(_ queue: ImageLoaderQueue) {
         self.arrayAccessQueue.async(flags: .barrier) { imageQueues.append(queue) }
     }
