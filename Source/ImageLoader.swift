@@ -61,7 +61,6 @@ internal class ImageLoader: URLSession {
         let dataTask: URLSessionDataTask = session.dataTask(with: urlRequest) {
             ImageLoader.invalidateQueue(request)
             completion($0, $1, $2)
-            session.invalidateAndCancel()
         }
         let queue: ImageLoaderQueue = ImageLoader.addQueue(request, session, dataTask)
         queue.resume()
@@ -161,6 +160,7 @@ internal class ImageLoaderQueue {
 
     deinit {
         tprint("ImageLoaderQueue.deinit")
+        self.session?.invalidateAndCancel()
         self.dataTask = nil
         self.session = nil
         self.request = nil
