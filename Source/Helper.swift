@@ -5,6 +5,19 @@
 
 import Foundation
 
+/**
+ print function that print message on only an unit test
+ */
+let isTestRunning: Bool = ProcessInfo.processInfo.value(forKey: "XCTestConfigurationFilePath") != nil
+
+internal func print(items: Any..., separator: String = " ", terminator: String = "\n") {
+    if !isTestRunning { return }
+    Swift.print(items, separator: separator, terminator: terminator)
+}
+
+/**
+ Subscript data
+ */
 internal extension Data {
     subscript<T>(start: Int, length: Int) -> T {
         return self[start..<start + length]
@@ -26,7 +39,7 @@ extension Array {
      Action that would cause an error are ignored.
      */
     mutating func remove(safeAt index: Index) {
-        guard index >= 0 && index < count else {
+        guard 0 <= index && index < count else {
             print("Index out of bounds while deleting item at index \(index) in \(self). This action is ignored.")
             return
         }
@@ -39,7 +52,7 @@ extension Array {
 //     Action that would cause an error are ignored.
 //     */
 //    mutating func insert(_ element: Element, safeAt index: Index) {
-//        guard index >= 0 && index <= count else {
+//        guard 0 <= index && index <= count else {
 //            print("Index out of bounds while inserting item at index \(index) in \(self). This action is ignored")
 //            return
 //        }
