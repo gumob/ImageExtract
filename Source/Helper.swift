@@ -10,7 +10,7 @@ import Foundation
  */
 var isTestRunning: Bool = NSClassFromString("XCTest") != nil
 
-internal func print(items: Any..., separator: String = " ", terminator: String = "\n") {
+internal func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
     if !isTestRunning { return }
     Swift.print(items, separator: separator, terminator: terminator)
 }
