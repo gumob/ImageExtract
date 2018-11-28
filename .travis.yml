@@ -1,9 +1,9 @@
 branches:
   only:
-#    - master
+    - master
 #    - develop
     - "/^v?[0-9\\.]+/"
-    - feature/carthage
+    - hotfix/memory-leak
 
 cache:
   directories:
