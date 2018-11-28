@@ -34,26 +34,26 @@ internal extension Data {
  */
 extension Array {
 
-    /**
-     Removes element at index.
-     Action that would cause an error are ignored.
-     */
-    mutating func remove(safeAt index: Index) {
-        guard 0 <= index && index < count else {
-            tprint("Index out of bounds while deleting item at index \(index) in \(self). This action is ignored.")
-            return
-        }
-
-        remove(at: index)
-    }
-
+//    /**
+//     Removes element at index.
+//     Action that would cause an error are ignored.
+//     */
+//    mutating func remove(safeAt index: Index) {
+//        guard 0 <= index && index < count else {
+//            tprint("☠️", "Index out of bounds while deleting item at index \(index) in \(self). This action is ignored.")
+//            return
+//        }
+//
+//        remove(at: index)
+//    }
+//
 //    /**
 //     Inserts an element at index.
 //     Action that would cause an error are ignored.
 //     */
 //    mutating func insert(_ element: Element, safeAt index: Index) {
 //        guard 0 <= index && index <= count else {
-//            tprint("Index out of bounds while inserting item at index \(index) in \(self). This action is ignored")
+//            tprint("☠", "Index out of bounds while inserting item at index \(index) in \(self). This action is ignored")
 //            return
 //        }
 //

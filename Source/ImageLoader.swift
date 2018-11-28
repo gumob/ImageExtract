@@ -13,7 +13,9 @@ import Foundation
  **********************************************/
 internal class ImageLoader {
 
-    internal static var queues: [ImageLoaderQueue] = [ImageLoaderQueue]()
+    internal static var imageQueues: [ImageLoaderQueue] = [ImageLoaderQueue]()
+
+    private static let arrayAccessQueue = DispatchQueue(label: "ArrayAccessQueue", attributes: .concurrent)
 
     internal static let defaultUserAgent: String = {
         #if os(macOS)
@@ -52,7 +54,7 @@ internal class ImageLoader {
             return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
         let queue: ImageLoaderQueue = ImageLoaderQueue(urlRequest)
-        self.queues.append(queue)
+        appendQueue(queue)
         queue.start {
             removeQueue(request)
             completion($0, $1, $2)
@@ -63,39 +65,74 @@ internal class ImageLoader {
 /* Manage Queue */
 internal extension ImageLoader {
 
+    /** A Boolean value indicating whether download imageQueues are running. */
+    internal static var isQueueRunning: Bool {
+        var result: Bool = false
+        self.arrayAccessQueue.sync { result = imageQueues.count > 0 }
+        return result
+    }
+
+    /** A Integer value indicating the number of running imageQueues. */
+    internal static var queueCount: Int {
+        var count: Int = 0
+        self.arrayAccessQueue.sync { count = imageQueues.count }
+        return count
+    }
+
     fileprivate static func getQueue(request: ImageRequestConvertible) -> ImageLoaderQueue? {
-        return self.queues.filter { $0.request?.asURLString() == request.asURLString() }.first
+        var queue: ImageLoaderQueue?
+        self.arrayAccessQueue.sync {
+            queue = imageQueues.filter { $0.request?.asURLString() == request.asURLString() }.first
+        }
+        return queue
     }
 
-    internal static func cancelAllQueues() {
-        if self.queues.count == 0 { return }
-        tprint()
-        tprint("⚠️ cancelAllQueue", "before", self.queues.count)
-        self.queues.forEach { $0.cancel() }
-        self.queues.removeAll()
-        tprint("⚠️ cancelAllQueue", "after", self.queues.count)
+    internal static func appendQueue(_ queue: ImageLoaderQueue) {
+        self.arrayAccessQueue.async(flags: .barrier) { imageQueues.append(queue) }
     }
 
-    internal static func cancelQueue(_ request: ImageRequestConvertible) {
-        if self.queues.count == 0 { return }
-        tprint()
-        tprint("⚠️ cancelQueue", "before", self.queues.count)
-        self.queues.filter { $0.request?.asURLString() == request.asURLString() }.forEach { $0.cancel() }
-        removeQueue(request)
-        tprint("⚠️ cancelQueue", "after", self.queues.count)
+    @discardableResult
+    internal static func cancelAllQueues() -> Bool {
+        self.arrayAccessQueue.async(flags: .barrier) {
+            if self.imageQueues.count == 0 { return }
+            tprint()
+            tprint("⚠️ cancelAllQueue", "before", self.imageQueues.count)
+            self.imageQueues.forEach { $0.cancel() }
+            self.imageQueues.removeAll()
+            tprint("⚠️ cancelAllQueue", "after", self.imageQueues.count)
+        }
+        return isQueueRunning
+    }
+
+    @discardableResult
+    internal static func cancelQueue(_ request: ImageRequestConvertible) -> Bool {
+        self.arrayAccessQueue.async(flags: .barrier) {
+            if self.imageQueues.count == 0 { return }
+            tprint()
+            tprint("⚠️ cancelQueue", "before", self.imageQueues.count)
+            self.imageQueues.filter { $0.request?.asURLString() == request.asURLString() }.forEach { $0.cancel() }
+            removeQueue(request)
+            tprint("⚠️ cancelQueue", "after", self.imageQueues.count)
+        }
+        return isQueueRunning
     }
 
     internal static func removeQueue(_ request: ImageRequestConvertible) {
-        if self.queues.count == 0 { return }
-        tprint()
-        tprint("🗑️ removeQueue", "before", self.queues.count)
-        for (i, queue): (Int, ImageLoaderQueue) in self.queues.reversed().enumerated() {
-            if queue.isInvalidated {
-                tprint("🗑️ removeQueue", "removing", "\(i)/\(self.queues.count)")
-                self.queues.remove(safeAt: i)
-            }
+        self.arrayAccessQueue.async(flags: .barrier) {
+            if self.imageQueues.count == 0 { return }
+            tprint()
+            tprint("🗑️ removeQueue", "before", self.imageQueues.count)
+//            for (i, queue): (Int, ImageLoaderQueue) in imageQueues.reversed().enumerated() {
+//                if queue.isCancelled || queue.isFinished || queue.isInvalidated || queue.request?.asURLString() == request.asURLString() {
+//                    tprint("🗑️ removeQueue", "removing", "\(i)/\(self.imageQueues.count)")
+//                    self.imageQueues.remove(safeAt: i)
+//                }
+//            }
+            imageQueues.removeAll(where: {
+                $0.isCancelled || $0.isFinished || $0.isInvalidated || $0.request?.asURLString() == request.asURLString()
+            })
+            tprint("🗑️ removeQueue", "after", self.imageQueues.count)
         }
-        tprint("🗑️ removeQueue", "after", self.queues.count)
     }
 }
 
@@ -118,9 +155,13 @@ internal class ImageLoaderQueue {
         return State(rawValue: rawValue) ?? State.invalidated
     }
 
-    var isInvalidated: Bool {
-        return self.request == nil || self.dataTask == nil || self.state == State.invalidated || self.state == State.canceling || self.state == State.completed
-    }
+    var _isCancelled: Bool = false
+    var isCancelled: Bool { return self._isCancelled || self.state == State.canceling }
+
+    var _isFinished: Bool = false
+    var isFinished: Bool { return self._isFinished || self.state == State.completed }
+
+    var isInvalidated: Bool { return self.request == nil || self.dataTask == nil || self.state == State.invalidated }
 
     /* Initialization */
     init(_ request: ImageRequestConvertible) {
@@ -129,7 +170,7 @@ internal class ImageLoaderQueue {
 
     deinit {
         tprint("ImageLoaderQueue.deinit")
-//        self.session?.invalidateAndCancel()
+        self.session?.invalidateAndCancel()
         self.dataTask = nil
         self.session = nil
         self.request = nil
@@ -157,13 +198,15 @@ internal class ImageLoaderQueue {
             return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
         self.session = URLSession(configuration: ImageLoader.config)
-        self.dataTask = self.session!.dataTask(with: urlRequest) {
+        self.dataTask = self.session!.dataTask(with: urlRequest) { [weak self] in
+            self?._isFinished = true
             completion($0, $1, $2)
         }
         self.dataTask?.resume()
     }
 
     func cancel() {
+        self._isCancelled = true
         self.dataTask?.cancel()
         self.session?.invalidateAndCancel()
     }

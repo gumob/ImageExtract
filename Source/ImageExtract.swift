@@ -331,14 +331,10 @@ public extension ImageExtract {
 
 public extension ImageExtract {
     /** A Boolean value indicating whether download queues are running. */
-    public static var isQueueRunning: Bool {
-        return ImageLoader.queues.count > 0
-    }
+    public static var isQueueRunning: Bool { return ImageLoader.isQueueRunning }
 
     /** A Integer value indicating the number of running queues. */
-    public static var queueCount: Int {
-        return ImageLoader.queues.count
-    }
+    public static var queueCount: Int { return ImageLoader.queueCount }
 
     /**
      A function to cancel all running queues.
@@ -346,10 +342,7 @@ public extension ImageExtract {
      - Returns: A Boolean value indicating whether download queues are running.
     */
     @discardableResult
-    public static func cancelAllQueues() -> Bool {
-        ImageLoader.cancelAllQueues()
-        return isQueueRunning
-    }
+    public static func cancelAllQueues() -> Bool { return ImageLoader.cancelAllQueues() }
 
     /**
      A function to cancel a queue that contains a specific url.
@@ -359,8 +352,5 @@ public extension ImageExtract {
      - Returns: A Boolean value indicating whether download queues are running.
     */
     @discardableResult
-    public static func cancelQueue(request: ImageRequestConvertible) -> Bool {
-        ImageLoader.cancelQueue(request)
-        return isQueueRunning
-    }
+    public static func cancelQueue(request: ImageRequestConvertible) -> Bool { return ImageLoader.cancelQueue(request) }
 }

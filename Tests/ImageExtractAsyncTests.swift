@@ -334,7 +334,9 @@ final class ImageExtractAsyncTests: XCTestCase {
 
         /* Remove all queues */
         tprint("🛑", "queueCount", "before", ImageExtract.queueCount)
-        XCTAssertFalse(ImageExtract.cancelAllQueues())
+        let isRunning: Bool = ImageExtract.cancelAllQueues()
+        tprint("🛑", "isRunning", isRunning)
+        XCTAssertFalse(isRunning)
         XCTAssertFalse(ImageExtract.isQueueRunning)
         XCTAssertEqual(ImageExtract.queueCount, 0)
         tprint("🛑️", "queueCount", "after", ImageExtract.queueCount)
