@@ -40,20 +40,17 @@ internal class ImageLoader {
         config.timeoutIntervalForRequest = 60    /* System Default */
         return config
     }()
+}
 
+/* Request */
+internal extension ImageLoader {
     internal static func request(_ request: ImageRequestConvertible) -> (data: Data?, response: URLResponse?, error: Error?) {
-        guard let urlRequest: URLRequest = request.asURLRequest() else {
-            return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
-        }
-        let queue: ImageLoaderQueue = ImageLoaderQueue(urlRequest)
+        let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         return queue.start()
     }
 
     internal static func request(_ request: ImageRequestConvertible, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        guard let urlRequest: URLRequest = request.asURLRequest() else {
-            return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
-        }
-        let queue: ImageLoaderQueue = ImageLoaderQueue(urlRequest)
+        let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         appendQueue(queue)
         queue.start {
             removeQueue(request)
