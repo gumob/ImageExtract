@@ -366,6 +366,8 @@ final class ImageExtractAsyncTests: XCTestCase {
 
                 if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
                     isFulfilled = true
+                    XCTAssertEqual(ImageExtract.queueCount, 0)
+                    XCTAssertFalse(ImageExtract.isQueueRunning)
                     exp.fulfill()
                 }
             }
@@ -374,8 +376,6 @@ final class ImageExtractAsyncTests: XCTestCase {
         /* Remove last queue */
         tprint("🛑", "queueCount", "before", ImageExtract.queueCount)
         XCTAssertTrue(ImageExtract.cancelQueue(request: urlToCancel))
-        XCTAssertTrue(ImageExtract.isQueueRunning)
-        XCTAssertEqual(ImageExtract.queueCount, self.dataSet.bmp.count - 1)
         tprint("🛑️", "queueCount", "after", ImageExtract.queueCount)
 
         wait(for: [exp], timeout: 10.0)

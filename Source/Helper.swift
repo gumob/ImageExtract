@@ -8,11 +8,11 @@ import Foundation
 /**
  print function that print message on only an unit test
  */
-var isTestRunning: Bool = NSClassFromString("XCTest") != nil
+internal var isTestRunning: Bool = NSClassFromString("XCTest") != nil
 
-internal func tprint(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+internal func tprint(_ items: Any...) {
     if !isTestRunning { return }
-    Swift.print(items, separator: separator, terminator: terminator)
+    print(items.map { String(describing: $0) }.joined(separator: " "))
 }
 
 /**

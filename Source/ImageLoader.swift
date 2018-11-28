@@ -46,8 +46,8 @@ internal class ImageLoader: URLSession {
         var result: (Data?, URLResponse?, Error?)
         session.dataTask(with: urlRequest) {
             result = ($0, $1, $2)
-            semaphore.signal()
             session.invalidateAndCancel()
+            semaphore.signal()
         }.resume()
         _ = semaphore.wait(timeout: .distantFuture)
         return result
@@ -150,7 +150,7 @@ internal class ImageLoaderQueue {
 
     var session: URLSession?
 
-    weak var dataTask: URLSessionDataTask?
+    var dataTask: URLSessionDataTask?
 
     init(_ request: ImageRequestConvertible, _ session: URLSession, _ dataTask: URLSessionDataTask) {
         self.request = request
@@ -160,7 +160,7 @@ internal class ImageLoaderQueue {
 
     deinit {
         tprint("ImageLoaderQueue.deinit")
-        self.session?.invalidateAndCancel()
+//        self.session?.invalidateAndCancel()
         self.dataTask = nil
         self.session = nil
         self.request = nil
@@ -172,14 +172,12 @@ internal class ImageLoaderQueue {
 
     func cancel() {
         self.dataTask?.cancel()
-        self.session?.invalidateAndCancel()
         self.dataTask = nil
         self.session = nil
         self.request = nil
     }
 
     func invalidate() {
-        self.session?.invalidateAndCancel()
         self.dataTask = nil
         self.session = nil
         self.request = nil
