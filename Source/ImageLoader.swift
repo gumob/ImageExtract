@@ -40,10 +40,12 @@ internal class ImageLoader {
         config.timeoutIntervalForRequest = 60    /* System Default */
         return config
     }()
+
 }
 
 /* Request */
 internal extension ImageLoader {
+
     internal static func request(_ request: ImageRequestConvertible) -> (data: Data?, response: URLResponse?, error: Error?) {
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         return queue.start()
@@ -57,6 +59,7 @@ internal extension ImageLoader {
             completion($0, $1, $2)
         }
     }
+
 }
 
 /* Manage Queue */
@@ -111,18 +114,13 @@ internal extension ImageLoader {
             if self.imageQueues.count == 0 { return }
             tprint()
             tprint("🗑️ removeQueue", "before", self.imageQueues.count)
-//            for (i, queue): (Int, ImageLoaderQueue) in imageQueues.reversed().enumerated() {
-//                if queue.isCancelled || queue.isFinished || queue.isInvalidated || queue.request?.asURLString() == request.asURLString() {
-//                    tprint("🗑️ removeQueue", "removing", "\(i)/\(self.imageQueues.count)")
-//                    self.imageQueues.remove(safeAt: i)
-//                }
-//            }
             imageQueues.removeAll(where: {
                 $0.isCancelled || $0.isFinished || $0.isInvalidated || $0.request?.asURLString() == request.asURLString()
             })
             tprint("🗑️ removeQueue", "after", self.imageQueues.count)
         }
     }
+
 }
 
 /**********************************************
@@ -199,6 +197,7 @@ internal class ImageLoaderQueue {
         self.dataTask?.cancel()
         self.session?.invalidateAndCancel()
     }
+
 }
 
 /**
