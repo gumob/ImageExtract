@@ -116,22 +116,22 @@ internal extension ImageLoader {
 internal class ImageLoaderQueue {
 
     /** A request url conforming ImageRequestConvertible */
-    var request: ImageRequestConvertible?
+    internal var request: ImageRequestConvertible?
     /** An instance of URLSession containing unique parameters */
-    var session: URLSession? = {
+    internal var session: URLSession? = {
         var config: URLSessionConfiguration = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["User-Agent": ImageLoader.userAgent]
         config.httpMaximumConnectionsPerHost = ImageLoader.httpMaximumConnectionsPerHost
         return URLSession(configuration: config)
     }()
     /** An instance of URLSessionDataTask */
-    var dataTask: URLSessionDataTask?
+    internal var dataTask: URLSessionDataTask?
 
-    enum State: Int {
+    internal enum State: Int {
         case running, suspended, canceling, completed, ready, invalidated
     }
     /** A state conforming URLSessionDataTask.State */
-    var state: State {
+    internal var state: State {
         guard let rawValue: Int = self.dataTask?.state.rawValue else { return State.invalidated }
         return State(rawValue: rawValue) ?? State.invalidated
     }
@@ -145,7 +145,7 @@ internal class ImageLoaderQueue {
     private var _isFinished: Bool = false
 
     /** A flag indicating whether a queue is invalidated */
-    var isInvalidated: Bool { return self.request == nil || self.dataTask == nil || self.state == State.invalidated }
+    internal var isInvalidated: Bool { return self.request == nil || self.dataTask == nil || self.state == State.invalidated }
 
     /* Initialization */
     init(_ request: ImageRequestConvertible) {
@@ -164,7 +164,7 @@ internal class ImageLoaderQueue {
 
      - Returns: A tuple of URLResponse.
      */
-    func start() -> (data: Data?, response: URLResponse?, error: Error?) {
+    internal func start() -> (data: Data?, response: URLResponse?, error: Error?) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
             return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
@@ -184,7 +184,7 @@ internal class ImageLoaderQueue {
 
      - Returns: A tuple of URLResponse.
      */
-    func start(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    internal func start(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
             return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
@@ -198,7 +198,7 @@ internal class ImageLoaderQueue {
     /**
      A function to cancel a asynchronous session
      */
-    func cancel() {
+    internal func cancel() {
         self._isCancelled = true
         self.dataTask?.cancel()
         self.session?.invalidateAndCancel()
