@@ -161,6 +161,7 @@ internal class ImageLoaderQueue {
 
     deinit {
         self.session?.invalidateAndCancel()
+        self.session?.finishTasksAndInvalidate()
         self.dataTask = nil
         self.session = nil
         self.request = nil
