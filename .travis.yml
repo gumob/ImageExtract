@@ -92,7 +92,7 @@ script:
 
 after_success:
   - if [ "$COVERAGE" == "YES" ]; then
-    bash <(curl -s https://codecov.io/bash) -J 'ImageExtract' -cF "$CODECOV_FLAG";
+    bash <(curl -s https://codecov.io/bash) -J 'ImageExtract' -cF "$CODECOV_FLAG" -y ".codecov.yml";
     fi
 
 notifications:
