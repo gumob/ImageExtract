@@ -8,12 +8,12 @@
 
 import Foundation
 
-/**********************************************
- * ImageLoader
- **********************************************/
+/**
+ A class that can be used to manage queues loading data.
+ */
 internal class ImageLoader {
 
-    internal static var imageQueues: [ImageLoaderQueue] = [ImageLoaderQueue]()
+    private static var imageQueues: [ImageLoaderQueue] = [ImageLoaderQueue]()
 
     private static let arrayAccessQueue = DispatchQueue(label: "ArrayAccessQueue", attributes: .concurrent)
 
@@ -106,9 +106,9 @@ internal extension ImageLoader {
 
 }
 
-/**********************************************
- * ImageLoaderQueue
- **********************************************/
+/**
+ A class that can be used to process request.
+ */
 internal class ImageLoaderQueue {
 
     /* Variables */
