@@ -324,8 +324,8 @@ public extension ImageExtract {
     }
     /** A Integer value that indicates the maximum number of simultaneous connections to make to a given host. */
     public static var maxConnectionsPerHost: Int {
-        set { ImageLoader.config.httpMaximumConnectionsPerHost = newValue }
-        get { return ImageLoader.config.httpMaximumConnectionsPerHost }
+        set { ImageLoader.httpMaximumConnectionsPerHost = newValue }
+        get { return ImageLoader.httpMaximumConnectionsPerHost }
     }
 }
 

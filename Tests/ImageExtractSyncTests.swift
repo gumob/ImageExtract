@@ -27,7 +27,7 @@ final class ImageExtractSyncTests: XCTestCase {
         XCTAssertEqual(ImageExtract.userAgent, ImageLoader.userAgent)
 
         ImageExtract.maxConnectionsPerHost = 10
-        XCTAssertEqual(ImageExtract.maxConnectionsPerHost, ImageLoader.config.httpMaximumConnectionsPerHost)
+        XCTAssertEqual(ImageExtract.maxConnectionsPerHost, ImageLoader.httpMaximumConnectionsPerHost)
     }
 
     /* Invalid URL */

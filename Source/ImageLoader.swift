@@ -17,7 +17,7 @@ internal class ImageLoader {
 
     private static let arrayAccessQueue = DispatchQueue(label: "ArrayAccessQueue", attributes: .concurrent)
 
-    internal static let defaultUserAgent: String = {
+    internal static var userAgent: String = {
         #if os(macOS)
         return "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9"
         #else
@@ -25,20 +25,12 @@ internal class ImageLoader {
         #endif
     }()
 
-    internal static var userAgent: String = defaultUserAgent {
-        didSet { config.httpAdditionalHeaders = ["User-Agent": userAgent] }
-    }
-
-    internal static var config: URLSessionConfiguration = {
-        var config: URLSessionConfiguration = URLSessionConfiguration.default
-        config.httpAdditionalHeaders = ["User-Agent": userAgent]
+    internal static var httpMaximumConnectionsPerHost: Int = {
         #if os(macOS)
-        config.httpMaximumConnectionsPerHost = 6 /* System Default */
+        return 6
         #else
-        config.httpMaximumConnectionsPerHost = 4 /* System Default */
+        return 4
         #endif
-        config.timeoutIntervalForRequest = 60    /* System Default */
-        return config
     }()
 
 }
@@ -121,7 +113,12 @@ internal class ImageLoaderQueue {
 
     /* Variables */
     var request: ImageRequestConvertible?
-    var session: URLSession?
+    var session: URLSession? = {
+        var config: URLSessionConfiguration = URLSessionConfiguration.default
+        config.httpAdditionalHeaders = ["User-Agent": ImageLoader.userAgent]
+        config.httpMaximumConnectionsPerHost = ImageLoader.httpMaximumConnectionsPerHost
+        return URLSession(configuration: config)
+    }()
     var dataTask: URLSessionDataTask?
 
     enum State: Int {
@@ -158,7 +155,6 @@ internal class ImageLoaderQueue {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
             return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
-        self.session = URLSession(configuration: ImageLoader.config)
         let semaphore = DispatchSemaphore(value: 0)
         var result: (Data?, URLResponse?, Error?)
         self.session?.dataTask(with: urlRequest) {
@@ -174,7 +170,6 @@ internal class ImageLoaderQueue {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
             return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
-        self.session = URLSession(configuration: ImageLoader.config)
         self.dataTask = self.session!.dataTask(with: urlRequest) { [weak self] in
             self?._isFinished = true
             completion($0, $1, $2)
