@@ -24,7 +24,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidURLAsync")
         let request: String = "https://"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -35,7 +35,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidURLAsync")
         let request: String = "localhost"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -46,7 +46,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidURLAsync")
         let request: String = ""
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -58,7 +58,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesJPG1")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-jfif-end.jpg"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -69,7 +69,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesJPG2")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx.jpg"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -80,7 +80,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesJPG3")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx-full.jpg"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -91,7 +91,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesWEBP1")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8-no-space.webp"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -102,7 +102,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesJPG1")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8x-end.webp"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -113,7 +113,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesWEBP3")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-xxxx.webp"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -124,7 +124,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesWEBP4")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-xxxx-vp8x.webp"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -135,7 +135,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesWEBP5")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-zero-byte.webp"
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(request) { (_: String?, size: CGSize) in
+        extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
@@ -149,7 +149,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         XCTAssertNotNil(self.dataSet.png)
         let extractor: ImageExtract = ImageExtract()
         let image: DataSet.Image = self.dataSet.png.first!
-        extractor.extract(image.url.withRandomQuery(), preferredWidth: 600) { (_: String?, size: CGSize) in
+        extractor.extract(image.url.withRandomQuery(), preferredWidth: 600) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize(width: 600, height: 399))
             exp.fulfill()
         }
@@ -162,7 +162,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         XCTAssertNotNil(self.dataSet.png)
         let image: DataSet.Image = self.dataSet.png.first!
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(image.url.withRandomQuery()) { (_: String?, size: CGSize) in
+        extractor.extract(image.url.withRandomQuery()) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, image.size)
             exp.fulfill()
         }
@@ -174,7 +174,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         XCTAssertNotNil(self.dataSet.jpg)
         let image: DataSet.Image = self.dataSet.jpg.first!
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(image.url.withRandomQuery()) { (_: String?, size: CGSize) in
+        extractor.extract(image.url.withRandomQuery()) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, image.size)
             exp.fulfill()
         }
@@ -194,7 +194,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         XCTAssertNotNil(self.dataSet.bmp)
         let image: DataSet.Image = self.dataSet.bmp.first!
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(image.url.withRandomQuery()) { (_: String?, size: CGSize) in
+        extractor.extract(image.url.withRandomQuery()) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, image.size)
             exp.fulfill()
         }
@@ -218,7 +218,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         XCTAssertNotNil(self.dataSet.webp)
         let image: DataSet.Image = self.dataSet.webp.first!
         let extractor: ImageExtract = ImageExtract()
-        extractor.extract(image.url.withRandomQuery()) { (_: String?, size: CGSize) in
+        extractor.extract(image.url.withRandomQuery()) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, image.size)
             exp.fulfill()
         }
@@ -233,7 +233,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let extractor: ImageExtract = ImageExtract()
         for image: DataSet.Image in self.dataSet.jpg {
             let request: String = image.url.withRandomQuery()
-            extractor.extract(request) { (_: String?, size: CGSize) in
+            extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
                 XCTAssertEqual(size, image.size)
                 if extractor.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
@@ -252,7 +252,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let extractor: ImageExtract = ImageExtract()
         for image: DataSet.Image in self.dataSet.png {
             let request: String = image.url.withRandomQuery()
-            extractor.extract(request) { (_: String?, size: CGSize) in
+            extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
                 XCTAssertEqual(size, image.size)
                 if extractor.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
@@ -271,7 +271,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let extractor: ImageExtract = ImageExtract()
         for image: DataSet.Image in self.dataSet.gif {
             let request: String = image.url.withRandomQuery()
-            extractor.extract(request) { (_: String?, size: CGSize) in
+            extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
                 XCTAssertEqual(size, image.size)
                 if extractor.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
@@ -290,7 +290,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         let extractor: ImageExtract = ImageExtract()
         for image: DataSet.Image in self.dataSet.bmp {
             let request: String = image.url.withRandomQuery()
-            extractor.extract(request) { (_: String?, size: CGSize) in
+            extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
                 XCTAssertEqual(size, image.size)
                 if extractor.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
@@ -310,7 +310,7 @@ final class ImageExtractAsyncTests: XCTestCase {
 //            let extractor: ImageExtract = ImageExtract()
 //            for image: DataSet.Image in self.dataSet.tif {
 //                let request: String = image.url.withRandomQuery()
-//                extractor.extract(request) { (_: String?, size: CGSize) in
+//                extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
 //                    if isFulfilled { return } /* If unit test is already completed, do not proceed */
 //                    XCTAssertEqual(size, image.size)
 //                    if ImageExtract.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
@@ -329,7 +329,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         for image: DataSet.Image in self.dataSet.webp {
             let request: String = image.url.withRandomQuery()
             let extractor: ImageExtract = ImageExtract()
-            extractor.extract(request) { (_: String?, size: CGSize) in
+            extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
                 XCTAssertEqual(size, image.size)
                 if extractor.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
@@ -352,7 +352,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         /* Batch download */
         for image: DataSet.Image in self.dataSet.bmp {
             let request: String = image.url.withRandomQuery()
-            extractor.extract(request) { (url: String?, size: CGSize) in
+            extractor.extract(request) { (url: String?, size: CGSize, isFinished: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
 
                 tprint("👎", "queueCount:", extractor.queueCount, "size", size)
@@ -392,7 +392,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         /* Batch download */
         for image: DataSet.Image in self.dataSet.bmp {
             let request: String = image.url
-            extractor.extract(request) { (url: String?, size: CGSize) in
+            extractor.extract(request) { (url: String?, size: CGSize, isFinished: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
 
                 /* Assert image size */

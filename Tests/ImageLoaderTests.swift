@@ -48,8 +48,8 @@ class ImageLoaderTests: XCTestCase {
     func testInvalidURLAsync1() {
         let exp: XCTestExpectation = expectation(description: "testInvalidURLAsync")
         let request: String = "https://"
-        ImageLoader().request(request) {
-            XCTAssertEqual($1, CGSize.zero)
+        ImageLoader().request(request) { _, size, _ in
+            XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 120.0)
@@ -58,8 +58,8 @@ class ImageLoaderTests: XCTestCase {
     func testInvalidURLAsync2() {
         let exp: XCTestExpectation = expectation(description: "testInvalidURLAsync")
         let request: String = "localhost"
-        ImageLoader().request(request) {
-            XCTAssertEqual($1, CGSize.zero)
+        ImageLoader().request(request) { _, size, _ in
+            XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 120.0)
@@ -68,8 +68,8 @@ class ImageLoaderTests: XCTestCase {
     func testInvalidURLAsync3() {
         let exp: XCTestExpectation = expectation(description: "testInvalidURLAsync")
         let request: String = ""
-        ImageLoader().request(request) {
-            XCTAssertEqual($1, CGSize.zero)
+        ImageLoader().request(request) { _, size, _ in
+            XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 120.0)
@@ -91,8 +91,8 @@ class ImageLoaderTests: XCTestCase {
     func testRequestFoundAsync() {
         let exp: XCTestExpectation = expectation(description: "testRequestSuccessAsync")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d.jpg"
-        ImageLoader().request(request) {
-            XCTAssertNotEqual($1, CGSize.zero)
+        ImageLoader().request(request) { _, size, _ in
+            XCTAssertNotEqual(size, CGSize.zero)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 120.0)
@@ -101,8 +101,8 @@ class ImageLoaderTests: XCTestCase {
     func testRequestNotFoundAsync() {
         let exp: XCTestExpectation = expectation(description: "testRequestFailureAsync")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/notfound.jpg"
-        ImageLoader().request(request) {
-            XCTAssertEqual($1, CGSize.zero)
+        ImageLoader().request(request) { _, size, _ in
+            XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 120.0)
@@ -122,9 +122,9 @@ class ImageLoaderTests: XCTestCase {
         let exp: XCTestExpectation = expectation(description: "testDuplicatedRequestAsync")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d.jpg"
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
-        queue.start { _, _ in }
-        queue.start {
-            XCTAssertEqual($1, CGSize.zero)
+        queue.start { _, _, _ in }
+        queue.start { _, size, _ in
+            XCTAssertEqual(size, CGSize.zero)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 120.0)

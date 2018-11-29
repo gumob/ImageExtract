@@ -59,12 +59,12 @@ internal extension ImageLoader {
         return queue.start()
     }
 
-    internal func request(_ request: ImageRequestConvertible, completion: @escaping (String?, CGSize) -> Void) {
+    internal func request(_ request: ImageRequestConvertible, completion: @escaping (String?, CGSize, Bool) -> Void) {
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         appendQueue(queue)
         queue.start { [weak self] in
             self?.removeQueue(request)
-            completion($0, $1)
+            completion($0, $1, $2)
         }
     }
 
@@ -160,7 +160,7 @@ internal class ImageLoaderQueue: NSObject {
     var decodedSize: CGSize = .zero
 
     /** A callback closure being called when an extraction is completed. */
-    typealias CompletionHandler = (String?, CGSize) -> Void
+    typealias CompletionHandler = (String?, CGSize, Bool) -> Void
     var completionHandler: CompletionHandler?
 
     /** A result object being returned when an extraction is completed. */
@@ -232,14 +232,14 @@ internal class ImageLoaderQueue: NSObject {
 
      - Returns: A tuple of URLResponse.
      */
-    internal func start(completion: @escaping (String?, CGSize) -> Void) {
+    internal func start(completion: @escaping (String?, CGSize, Bool) -> Void) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
 //            return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
-            return completion(nil, .zero)
+            return completion(nil, .zero, false)
         }
         guard self._state == .ready else {
 //            return completion(nil, nil, ImageExtractError.requestFailure(message: "Session is already started."))
-            return completion(self.request?.asURLString(), .zero)
+            return completion(self.request?.asURLString(), .zero, false)
         }
         self.completionHandler = completion
 
@@ -261,7 +261,7 @@ internal class ImageLoaderQueue: NSObject {
         self.dataTask?.cancel()
         self.session?.invalidateAndCancel()
         /* Finish queue */
-        self.finishQueue(size: .zero)
+        self.finishQueue(size: .zero, isFinished: false)
     }
 
     private func fail() {
@@ -272,7 +272,7 @@ internal class ImageLoaderQueue: NSObject {
         self.dataTask?.cancel()
         self.session?.invalidateAndCancel()
         /* Finish queue */
-        self.finishQueue(size: .zero)
+        self.finishQueue(size: .zero, isFinished: false)
     }
 
     private func finish(size: CGSize) {
@@ -283,13 +283,13 @@ internal class ImageLoaderQueue: NSObject {
         self.dataTask?.cancel()
         self.session?.invalidateAndCancel()
         /* Finish queue */
-        self.finishQueue(size: size)
+        self.finishQueue(size: size, isFinished: true)
     }
 
-    private func finishQueue(size: CGSize) {
+    private func finishQueue(size: CGSize, isFinished: Bool) {
         if let completion: CompletionHandler = self.completionHandler {
             DispatchQueue.main.async { [weak self] in
-                completion(self?.request?.asURLString(), size)
+                completion(self?.request?.asURLString(), size, isFinished)
             }
         } else if let semaphore: DispatchSemaphore = self.semaphore {
             self.decodedSize = size

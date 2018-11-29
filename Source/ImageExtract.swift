@@ -89,10 +89,10 @@ public class ImageExtract {
      */
     public func extract(_ request: ImageRequestConvertible,
                         chunkSize: ImageChunkSize = .extraLarge,
-                        completion: @escaping (String?, CGSize) -> Void) {
+                        completion: @escaping (String?, CGSize, Bool) -> Void) {
         /* Validate the request url */
         guard let urlRequest: URLRequest = request.asURLRequest() else {
-            return completion(request.asURLString(), .zero)
+            return completion(request.asURLString(), .zero, false)
         }
         /* Load image */
         self.imageLoader = ImageLoader()
@@ -134,11 +134,11 @@ public extension ImageExtract {
                         preferredWidth: CGFloat,
                         maxHeight: CGFloat = .greatestFiniteMagnitude,
                         chunkSize: ImageChunkSize = .extraLarge,
-                        completion: @escaping (String?, CGSize) -> Void) {
-        self.extract(request, chunkSize: chunkSize) { [weak self] (url: String?, size: CGSize) in
-            guard let `self`: ImageExtract = self else { return completion(nil, CGSize.zero) }
+                        completion: @escaping (String?, CGSize, Bool) -> Void) {
+        self.extract(request, chunkSize: chunkSize) { [weak self] (url: String?, size: CGSize, isFinished: Bool) in
+            guard let `self`: ImageExtract = self else { return completion(nil, CGSize.zero, isFinished) }
             let size: CGSize = self.convertSize(size: size, preferredWidth: preferredWidth, maxHeight: maxHeight)
-            completion(url, size)
+            completion(url, size, isFinished)
         }
     }
 
