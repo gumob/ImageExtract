@@ -7,6 +7,11 @@
 //
 
 import Foundation
+#if os(OSX)
+import AppKit
+#else
+import UIKit
+#endif
 
 /**
  A class that can be used to manage queues loading data.
@@ -17,7 +22,7 @@ internal class ImageLoader {
     private var imageQueues: [ImageLoaderQueue] = [ImageLoaderQueue]()
 
     /** A queue to manipulate a thread-safe array. */
-    private let arrayAccessQueue = DispatchQueue(label: "com.gumob.ImageExtract.SynchronizedArray", attributes: .concurrent)
+    private var arrayAccessQueue: DispatchQueue? = DispatchQueue(label: "com.gumob.ImageExtract.SynchronizedArray", attributes: .concurrent)
 
     /** A browser user agent */
     internal static var userAgent: String = {
@@ -40,22 +45,26 @@ internal class ImageLoader {
     init() {
     }
 
+    deinit {
+        self.arrayAccessQueue = nil
+    }
+
 }
 
 /* Request */
 internal extension ImageLoader {
 
-    internal func request(_ request: ImageRequestConvertible) -> (data: Data?, response: URLResponse?, error: Error?) {
+    internal func request(_ request: ImageRequestConvertible) -> CGSize {
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         return queue.start()
     }
 
-    internal func request(_ request: ImageRequestConvertible, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    internal func request(_ request: ImageRequestConvertible, completion: @escaping (String?, CGSize) -> Void) {
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         appendQueue(queue)
-        queue.start {
-            self.removeQueue(request)
-            completion($0, $1, $2)
+        queue.start { [weak self] in
+            self?.removeQueue(request)
+            completion($0, $1)
         }
     }
 
@@ -67,24 +76,36 @@ internal extension ImageLoader {
     /** A Boolean value indicating whether download imageQueues are running. */
     internal var isQueueRunning: Bool {
         var result: Bool = false
-        self.arrayAccessQueue.sync { result = self.imageQueues.count > 0 }
+        self.arrayAccessQueue?.sync { [weak self] in
+            guard let `self`: ImageLoader = self else { return }
+            result = self.imageQueues.count > 0
+        }
         return result
     }
 
     /** A Integer value indicating the number of running imageQueues. */
     internal var queueCount: Int {
         var count: Int = 0
-        self.arrayAccessQueue.sync { count = self.imageQueues.count }
+        print("queueCount")
+        print("self", self)
+        self.arrayAccessQueue?.sync { [weak self] in
+            guard let `self`: ImageLoader = self else { return }
+            count = self.imageQueues.count
+        }
         return count
     }
 
     internal func appendQueue(_ queue: ImageLoaderQueue) {
-        self.arrayAccessQueue.async(flags: .barrier) { self.imageQueues.append(queue) }
+        self.arrayAccessQueue?.async(flags: .barrier) { [weak self] in
+            guard let `self`: ImageLoader = self else { return }
+            self.imageQueues.append(queue)
+        }
     }
 
     @discardableResult
     internal func cancelAllQueues() -> Bool {
-        self.arrayAccessQueue.async(flags: .barrier) {
+        self.arrayAccessQueue?.async(flags: .barrier) { [weak self] in
+            guard let `self`: ImageLoader = self else { return }
             if self.imageQueues.count == 0 { return }
             self.imageQueues.forEach { $0.cancel() }
             self.imageQueues.removeAll()
@@ -94,19 +115,20 @@ internal extension ImageLoader {
 
     @discardableResult
     internal func cancelQueue(_ request: ImageRequestConvertible) -> Bool {
-        self.arrayAccessQueue.async(flags: .barrier) {
+        self.arrayAccessQueue?.async(flags: .barrier) { [weak self] in
+            guard let `self`: ImageLoader = self else { return }
             if self.imageQueues.count == 0 { return }
             self.imageQueues.filter { $0.request?.asURLString() == request.asURLString() }.forEach { $0.cancel() }
-            self.removeQueue(request)
         }
         return self.isQueueRunning
     }
 
     internal func removeQueue(_ request: ImageRequestConvertible) {
-        self.arrayAccessQueue.async(flags: .barrier) {
+        self.arrayAccessQueue?.async(flags: .barrier) { [weak self] in
+            guard let `self`: ImageLoader = self else { return }
             if self.imageQueues.count == 0 { return }
             self.imageQueues.removeAll(where: {
-                $0.isCancelled || $0.isFinished || $0.isInvalidated || $0.request?.asURLString() == request.asURLString()
+                $0.state == .cancelled || $0.state == .failed || $0.state == .finished || $0.state == .invalidated || $0.request?.asURLString() == request.asURLString()
             })
         }
     }
@@ -116,51 +138,79 @@ internal extension ImageLoader {
 /**
  A class that can be used to process request.
  */
-internal class ImageLoaderQueue {
+internal class ImageLoaderQueue: NSObject {
+
+    /** A instance of decoder */
+    private var decoder: ImageDecoder?
+
+    /** Partial data downloaded from host */
+    private var buffer: Data = Data()
 
     /** A request url conforming ImageRequestConvertible */
     internal var request: ImageRequestConvertible?
-    /** An instance of URLSession containing unique parameters */
-    internal var session: URLSession? = {
+
+    /** An instance of URLSession */
+    internal var session: URLSession?
+
+    /** An instance of URLSessionDataTask */
+    internal var dataTask: URLSessionDataTask?
+
+    /** A variable that can be used on synchronous request */
+    var semaphore: DispatchSemaphore?
+
+    /** A decoded size of an image */
+    var decodedSize: CGSize = .zero
+
+    /** A callback closure being called when an extraction is completed */
+    typealias CompletionHandler = (String?, CGSize) -> Void
+    var completionHandler: CompletionHandler?
+
+    /** A result object being returned when an extraction is completed */
+    var completionData: (Data?, URLResponse?, Error?)?
+
+    /** An instance of URLSessionConfiguration containing unique parameters */
+    internal lazy var config: URLSessionConfiguration! = {
         let config: URLSessionConfiguration = URLSessionConfiguration.ephemeral
         config.urlCache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
         config.urlCredentialStorage = nil
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.httpAdditionalHeaders = ["User-Agent": ImageLoader.userAgent]
         config.httpMaximumConnectionsPerHost = ImageLoader.httpMaximumConnectionsPerHost
-        return URLSession(configuration: config)
+        config.timeoutIntervalForRequest = 5
+        return config
     }()
-    /** An instance of URLSessionDataTask */
-    internal var dataTask: URLSessionDataTask?
 
     internal enum State: Int {
-        case running, suspended, canceling, completed, ready, invalidated
+        case ready, running, cancelled, failed, finished, invalidated
     }
 
-    /** A state conforming URLSessionDataTask.State */
-    internal var state: State {
-        guard let rawValue: Int = self.dataTask?.state.rawValue else { return State.invalidated }
-        return State(rawValue: rawValue) ?? State.invalidated
-    }
+    /** A state indicating queue state */
+    internal var state: State { return self._state }
+    private var _state: State = .ready
 
-    /** A flag indicating whether a queue is cancelled */
-    internal var isRunning: Bool { return self._isRunning || self.state == State.running }
-    private var _isRunning: Bool = false
-
-    /** A flag indicating whether a queue is cancelled */
-    internal var isCancelled: Bool { return self._isCancelled || self.state == State.canceling }
-    private var _isCancelled: Bool = false
-
-    /** A flag indicating whether a queue is finished */
-    internal var isFinished: Bool { return self._isFinished || self.state == State.completed }
-    private var _isFinished: Bool = false
-
-    /** A flag indicating whether a queue is invalidated */
-    internal var isInvalidated: Bool { return self.request == nil || self.dataTask == nil || self.state == State.invalidated }
+//    /** A Boolean value indicating whether a queue is cancelled */
+//    internal var isRunning: Bool { return self._isRunning || self.state == State.running }
+//    private var _isRunning: Bool = false
+//
+//    /** A Boolean value indicating whether a queue is cancelled */
+//    internal var isCancelled: Bool { return self._isCancelled || self.state == State.canceling }
+//    private var _isCancelled: Bool = false
+//
+//    /** A Boolean value indicating whether a queue is failed */
+//    internal var isFailed: Bool { return self._isFailed }
+//    private var _isFailed: Bool = false
+//
+//    /** A Boolean value indicating whether a queue is finished */
+//    internal var isFinished: Bool { return self._isFinished || self.state == State.finished }
+//    private var _isFinished: Bool = false
+//
+//    /** A Boolean value indicating whether a queue is invalidated */
+//    internal var isInvalidated: Bool { return self.request == nil || self.dataTask == nil || self.state == State.invalidated }
 
     /* Initialization */
     init(_ request: ImageRequestConvertible) {
         self.request = request
+        self.decoder = ImageDecoder()
     }
 
     deinit {
@@ -168,6 +218,8 @@ internal class ImageLoaderQueue {
         self.dataTask = nil
         self.session = nil
         self.request = nil
+        self.semaphore = nil
+        self.decoder = nil
     }
 
     /**
@@ -175,25 +227,23 @@ internal class ImageLoaderQueue {
 
      - Returns: A tuple of URLResponse.
      */
-    internal func start() -> (data: Data?, response: URLResponse?, error: Error?) {
+    internal func start() -> CGSize {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
-            return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
+//            return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
+            return .zero
         }
-        guard !self.isRunning && !self.isCancelled && !self.isFinished else {
-            return (nil, nil, ImageExtractError.requestFailure(message: "Session is already started."))
+        guard self._state == .ready else {
+//            return (nil, nil, ImageExtractError.requestFailure(message: "Session is already started."))
+            return .zero
         }
-        self._isRunning = true
-        let semaphore = DispatchSemaphore(value: 0)
-        var result: (Data?, URLResponse?, Error?)
-        self.session?.dataTask(with: urlRequest) { [weak self] in
-            self?._isRunning = false
-            self?._isFinished = true
-            result = ($0, $1, $2)
-            semaphore.signal()
-        }.resume()
+        self.semaphore = DispatchSemaphore(value: 0)
+        self.session = URLSession(configuration: self.config, delegate: self, delegateQueue: nil)
+        self.dataTask = self.session?.dataTask(with: urlRequest)
+        self._state = .running
+        self.dataTask?.resume()
         self.session?.finishTasksAndInvalidate()
-        _ = semaphore.wait(timeout: .distantFuture)
-        return result
+        _ = self.semaphore?.wait(timeout: .distantFuture)
+        return self.decodedSize
     }
 
     /**
@@ -201,19 +251,20 @@ internal class ImageLoaderQueue {
 
      - Returns: A tuple of URLResponse.
      */
-    internal func start(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    internal func start(completion: @escaping (String?, CGSize) -> Void) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
-            return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
+//            return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
+            return completion(nil, .zero)
         }
-        guard !self.isRunning && !self.isCancelled && !self.isFinished else {
-            return completion(nil, nil, ImageExtractError.requestFailure(message: "Session is already started."))
+        guard self._state == .ready else {
+//            return completion(nil, nil, ImageExtractError.requestFailure(message: "Session is already started."))
+            return completion(self.request?.asURLString(), .zero)
         }
-        self.dataTask = self.session!.dataTask(with: urlRequest) { [weak self] in
-            self?._isRunning = false
-            self?._isFinished = true
-            completion($0, $1, $2)
-        }
-        self._isRunning = true
+        self.completionHandler = completion
+
+        self.session = URLSession(configuration: self.config, delegate: self, delegateQueue: nil)
+        self.dataTask = self.session?.dataTask(with: urlRequest)
+        self._state = .running
         self.dataTask?.resume()
         self.session?.finishTasksAndInvalidate()
     }
@@ -222,14 +273,113 @@ internal class ImageLoaderQueue {
      A function to cancel a asynchronous session
      */
     internal func cancel() {
-        if self.isCancelled || self.isFinished { return }
-        self._isRunning = false
-        self._isCancelled = true
-        self._isFinished = false
+        print("📈", "cancel", self.state)
+        guard self._state == .ready || self._state == .running else { return }
+        print("📈", "cancel", self.state)
+        /* Switch state */
+        self._state = .cancelled
+        /* Finalize session */
         self.dataTask?.cancel()
         self.session?.invalidateAndCancel()
+        /* Finish queue */
+        self.finishQueue(size: .zero)
     }
 
+    private func fail() {
+        print("📈", "fail", self.state)
+        guard self._state == .ready || self._state == .running else { return }
+        print("📈", "fail", self.state)
+        /* Switch state */
+        self._state = .failed
+        /* Finalize session */
+        self.dataTask?.cancel()
+        self.session?.invalidateAndCancel()
+        /* Finish queue */
+        self.finishQueue(size: .zero)
+    }
+
+    private func finish(size: CGSize) {
+        print("📈", "finish", self.state)
+        guard self._state == .ready || self._state == .running else { return }
+        print("📈", "finish", self.state)
+        /* Switch state */
+        self._state = .finished
+        /* Finalize session */
+        self.dataTask?.cancel()
+        self.session?.invalidateAndCancel()
+        /* Finish queue */
+        self.finishQueue(size: size)
+    }
+
+    private func finishQueue(size: CGSize) {
+        if let completion: CompletionHandler = self.completionHandler {
+            DispatchQueue.main.async { [weak self] in
+                completion(self?.request?.asURLString(), size)
+            }
+        } else if let semaphore: DispatchSemaphore = self.semaphore {
+            self.decodedSize = size
+            semaphore.signal()
+        }
+    }
+
+}
+
+/* URLSessionDelegate */
+extension ImageLoaderQueue: URLSessionDelegate {
+
+//    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+//        print("📊", "didBecomeInvalidWithError", error)
+//    }
+//
+//    func urlSession(_ session: URLSession,
+//                    didReceive challenge: URLAuthenticationChallenge,
+//                    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+//        print("📊", "didReceive", challenge, completionHandler)
+//    }
+
+}
+
+/* URLSessionDataDelegate */
+extension ImageLoaderQueue: URLSessionDataDelegate {
+
+    func urlSession(_ session: URLSession,
+                    dataTask: URLSessionDataTask,
+                    didReceive response: URLResponse,
+                    completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        if self._state != .ready && self._state != .running {
+            completionHandler(.cancel)
+        } else if response.expectedContentLength >= 10 {
+            completionHandler(.allow)
+        } else {
+            completionHandler(.cancel)
+        }
+    }
+
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        guard self._state == .ready || self._state == .running else { return }
+        guard let decoder: ImageDecoder = self.decoder else { return }
+        self.buffer.append(data)
+        if let size: CGSize = decoder.decode(self.buffer), size != .zero {
+            self.finish(size: size)
+        }
+    }
+
+    func urlSession(_ session: URLSession, task dataTask: URLSessionTask, didCompleteWithError error: Error?) {
+        guard self._state == .ready || self._state == .running else { return }
+        self.fail()
+    }
+
+//    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask) {
+//        print("📊", "didBecome", "downloadTask")
+//    }
+//
+//    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome streamTask: URLSessionStreamTask) {
+//        print("📊", "didBecome", "streamTask")
+//    }
+
+//    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse, completionHandler: @escaping (CachedURLResponse?) -> Void) {
+//        print("📊", "willCacheResponse", "proposedResponse")
+//    }
 }
 
 /**

@@ -7,15 +7,16 @@ import Foundation
 
 enum ImageFormat: UInt16 {
 
+    case unknown = 0x0000
+    case unsupported = 0x0001
     case jpg = 0xFFD8
     case png = 0x8950
     case gif = 0x4749
     case bmp = 0x424D
-    /* TODO: Support TIFF (low priority) */
+//    /* TODO: Support TIFF (low priority) */
 //    case tif = 0x4949 /* Intel format */
 //    case tiff = 0x4D4D /* Motorola format */
     case webp = 0x5249
-    case unsupported = 0x0000
 
     init(data: Data) {
         guard data.count >= 2 else {
@@ -43,7 +44,7 @@ enum ImageFormat: UInt16 {
         case .png: return 25
         case .gif: return 11
         case .bmp: return 29
-        /* TODO: Support TIFF (low priority) */
+//        /* TODO: Support TIFF (low priority) */
 //        case .tif, .tiff: return 29
         case .webp: return 30
         default: return -1
@@ -63,11 +64,6 @@ enum ImageJPGFormat {
         }
         self = .unsupported
         let bytes: Data = data[6..<10]
-        /* String could not be nil. Use force unwrap */
-//        guard let meta: String = String(data: bytes, encoding: .ascii)?.uppercased() else {
-//            self = .unsupported
-//            return
-//        }
         let meta: String = String(data: bytes, encoding: .ascii)!.uppercased()
         switch meta {
         case "EXIF": self = .exif
@@ -90,11 +86,6 @@ enum ImageWebPFormat {
         }
         self = .unsupported
         let bytes: Data = data[12..<16]
-        /* String could not be nil. Use force unwrap */
-//        guard let meta: String = String(data: bytes, encoding: .ascii)?.uppercased().replacingOccurrences(of: " ", with: "") else {
-//            self = .unsupported
-//            return
-//        }
         let meta: String = String(data: bytes, encoding: .ascii)!.uppercased().replacingOccurrences(of: " ", with: "")
         switch meta {
         case "VP8X": self = .vp8x

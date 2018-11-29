@@ -35,6 +35,12 @@ class ImageFormatTests: XCTestCase {
         XCTAssertEqual(size, CGSize.zero)
     }
 
+    func testInvalidBytesJPG3() {
+        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx-full.jpg"
+        let size: CGSize = ImageExtract().extract(request.withRandomQuery())
+        XCTAssertEqual(size, CGSize.zero)
+    }
+
     func testInvalidBytesWEBP1() {
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8-no-space.webp"
         let size: CGSize = ImageExtract().extract(request.withRandomQuery())

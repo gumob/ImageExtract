@@ -12,6 +12,46 @@ import UIKit
 import CoreGraphics
 import WebP
 
+internal class ImageDecoder {
+
+    private var format: ImageFormat = .unknown
+
+    /**
+     A function to get chunk size synchronously.
+
+     - Parameters:
+       - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
+       - chunkSize: Chunk size to download. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).small. (100 bytes)
+     - Returns: (data, mimeType)
+    */
+    internal func decode(_ data: Data) -> CGSize? {
+        guard data.count >= 2 else { return nil }
+        var size: CGSize?
+        switch self.format {
+        case .unknown:
+            self.format = ImageFormat(data: data)
+            fallthrough
+        case .jpg:
+            size = JPGDecoder().getSize(data)
+        case .png:
+            size = PNGDecoder().getSize(data)
+        case .gif:
+            size = GIFDecoder().getSize(data)
+        case .bmp:
+            size = BMPDecoder().getSize(data)
+//        /* TODO: Support TIFF (low priority) */
+//        case .tif, .tiff:
+//            size = TIFFDecoder().getSize(data)
+        case .webp:
+            size = WEBPDecoder().getSize(data)
+        case .unsupported:
+            size = .zero
+        }
+        return size
+    }
+
+}
+
 internal class JPGDecoder {
     /**
      private function: getSize
@@ -156,7 +196,7 @@ internal class WEBPDecoder {
      */
     func getSize(_ data: Data) -> CGSize {
         guard data.count > ImageFormat.webp.minimumLength,
-            let size: CGSize = try? WebPDecoder.decode(data, checkStatus: false) else { return .zero }
+              let size: CGSize = try? WebPDecoder.decode(data, checkStatus: false) else { return .zero }
         return size
 
         /* The current version uses the libwebp static library. */
