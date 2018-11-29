@@ -1,5 +1,5 @@
-codecov:
-  branch: master
+#codecov:
+#  branch: master
 
 ignore:
   - "Tests"
