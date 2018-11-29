@@ -62,14 +62,16 @@ import ImageExtract
 Get the size of an image synchronously:
 ```swift
 let url: String = "https://example.com/image.jpg"
-let size: CGSize = ImageExtract.extract(url)
+let extractor: ImageExtract = ImageExtract()
+let size: CGSize = extractor.extract(url)
 print(size) // (800.0, 600.0)
 ```
 
 Get the size of an image asynchronously:
 ```swift
 let url: String = "https://example.com/image.jpg"
-ImageExtract.extract(request) { (url: String?, size: CGSize) in
+let extractor: ImageExtract = ImageExtract()
+extractor.extract(request) { (url: String?, size: CGSize) in
     print(size) // (800.0, 600.0)
 }
 ```

@@ -12,14 +12,16 @@ import ImageExtract
 Get the size of an image synchronously:
 ```swift
 let url: String = "https://example.com/image.jpg"
-let size: CGSize = ImageExtract.extract(url)
+let extractor: ImageExtract = ImageExtract()
+let size: CGSize = extractor.extract(url)
 print(size) // (800.0, 600.0)
 ```
 
 Get the size of an image asynchronously:
 ```swift
 let url: String = "https://example.com/image.jpg"
-ImageExtract.extract(request) { (url: String?, size: CGSize) in
+let extractor: ImageExtract = ImageExtract()
+extractor.extract(request) { (url: String?, size: CGSize) in
     print(size) // (800.0, 600.0)
 }
 ```
@@ -29,7 +31,8 @@ ImageExtract.extract(request) { (url: String?, size: CGSize) in
 Request with String:
 ```swift
 let url: String = "https://example.com/image.jpg"
-ImageExtract.extract(request) { (url: String?, size: CGSize) in
+let extractor: ImageExtract = ImageExtract()
+extractor.extract(request) { (url: String?, size: CGSize) in
     print(size) // (800.0, 600.0)
 }
 ```
@@ -37,7 +40,8 @@ ImageExtract.extract(request) { (url: String?, size: CGSize) in
 Request with URL:
 ```swift
 let url: URL = URL(string: "https://example.com/image.jpg")
-ImageExtract.extract(request) { (url: String?, size: CGSize) in
+let extractor: ImageExtract = ImageExtract()
+extractor.extract(request) { (url: String?, size: CGSize) in
     print(size) // (800.0, 600.0)
 }
 ```
@@ -46,7 +50,8 @@ Request with URLRequest:
 ```swift
 let url: URL = URL(string: "https://example.com/image.jpg")!
 let request: URLRequest = URLRequest(url: request)
-ImageExtract.extract(request) { (url: String?, size: CGSize) in
+let extractor: ImageExtract = ImageExtract()
+extractor.extract(request) { (url: String?, size: CGSize) in
     print(size) // (800.0, 600.0)
 }
 ```
@@ -67,8 +72,9 @@ let urls: [String] = [
 Cancel all requests:
 ```swift
 // Requests asynchronously
+let extractor: ImageExtract = ImageExtract()
 for url: String in url {
-    ImageExtract.extract(request, chunkSize: ImageChunkSize.large) { (url: String?, size: CGSize) in
+    extractor.extract(request, chunkSize: ImageChunkSize.large) { (url: String?, size: CGSize) in
         print(size)  // (0.0, 0.0)
     }
 }
@@ -83,8 +89,9 @@ print(ImageExtract.queueCount) // 0
 Cancel a specific request:
 ```swift
 // Requests asynchronously
+let extractor: ImageExtract = ImageExtract()
 for url: String in url {
-    ImageExtract.extract(request, chunkSize: ImageChunkSize.large) { (url: String?, size: CGSize) in
+    extractor.extract(request, chunkSize: ImageChunkSize.large) { (url: String?, size: CGSize) in
         print(size) // (800.0, 600.0) or (0.0, 0.0)
     }
 }
@@ -102,7 +109,8 @@ print(ImageExtract.queueCount) // 5
 Specify chunk size:
 ```swift
 let url: String = "https://example.com/large-header-image.jpg"
-ImageExtract.extract(request, chunkSize: ImageChunkSize.large) { (url: String?, size: CGSize) in
+let extractor: ImageExtract = ImageExtract()
+extractor.extract(request, chunkSize: ImageChunkSize.large) { (url: String?, size: CGSize) in
     print(size) // (800.0, 600.0)
 }
 ```
@@ -110,7 +118,8 @@ ImageExtract.extract(request, chunkSize: ImageChunkSize.large) { (url: String?, 
 Download all data including bitmap if it fails to extract the size of an image from chunk data:
 ```swift
 let url: String = "https://example.com/large-header-image.jpg"
-ImageExtract.extract(request, downloadOnFailure: true) { (url: String?, size: CGSize) in
+let extractor: ImageExtract = ImageExtract()
+extractor.extract(request, downloadOnFailure: true) { (url: String?, size: CGSize) in
     print(size) // (800.0, 600.0)
 }
 ```
@@ -118,7 +127,8 @@ ImageExtract.extract(request, downloadOnFailure: true) { (url: String?, size: CG
 Get the resized size of an image with the desired width:
 ```swift
 let url: String = "https://example.com/image.jpg" // Original size is (800.0, 600.0)
-ImageExtract.extract(request, preferredWidth: 640) { (url: String?, size: CGSize) in
+let extractor: ImageExtract = ImageExtract()
+extractor.extract(request, preferredWidth: 640) { (url: String?, size: CGSize) in
     print(size) // (640.0, 480.0)
 }
 ```
@@ -126,7 +136,8 @@ ImageExtract.extract(request, preferredWidth: 640) { (url: String?, size: CGSize
 Get the resized size of an image with the desired width restricting the maximum height:
 ```swift
 let url: String = "https://example.com/image.jpg" // Original size is (800.0, 600.0)
-ImageExtract.extract(request, preferredWidth: 640, maxHeight: 240) { (url: String?, size: CGSize) in
+let extractor: ImageExtract = ImageExtract()
+extractor.extract(request, preferredWidth: 640, maxHeight: 240) { (url: String?, size: CGSize) in
     print(size) // (320.0, 240.0)
 }
 ```
