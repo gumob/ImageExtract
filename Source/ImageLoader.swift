@@ -13,10 +13,13 @@ import Foundation
  */
 internal class ImageLoader {
 
+    /** Queues to store ImageLoaderQueue instances. */
     private static var imageQueues: [ImageLoaderQueue] = [ImageLoaderQueue]()
 
-    private static let arrayAccessQueue = DispatchQueue(label: "ArrayAccessQueue", attributes: .concurrent)
+    /** A queue to manipulate a thread-safe array. */
+    private static let arrayAccessQueue = DispatchQueue(label: "com.gumob.ImageExtract.SynchronizedArray", attributes: .concurrent)
 
+    /** A browser user agent */
     internal static var userAgent: String = {
         #if os(macOS)
         return "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9"
@@ -25,6 +28,7 @@ internal class ImageLoader {
         #endif
     }()
 
+    /** The maximum number of simultaneous connections to make to a given host. */
     internal static var httpMaximumConnectionsPerHost: Int = {
         #if os(macOS)
         return 6
@@ -111,31 +115,36 @@ internal extension ImageLoader {
  */
 internal class ImageLoaderQueue {
 
-    /* Variables */
+    /** A request url conforming ImageRequestConvertible */
     var request: ImageRequestConvertible?
+    /** An instance of URLSession containing unique parameters */
     var session: URLSession? = {
         var config: URLSessionConfiguration = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["User-Agent": ImageLoader.userAgent]
         config.httpMaximumConnectionsPerHost = ImageLoader.httpMaximumConnectionsPerHost
         return URLSession(configuration: config)
     }()
+    /** An instance of URLSessionDataTask */
     var dataTask: URLSessionDataTask?
 
     enum State: Int {
         case running, suspended, canceling, completed, ready, invalidated
     }
-
+    /** A state conforming URLSessionDataTask.State */
     var state: State {
         guard let rawValue: Int = self.dataTask?.state.rawValue else { return State.invalidated }
         return State(rawValue: rawValue) ?? State.invalidated
     }
 
-    var _isCancelled: Bool = false
-    var isCancelled: Bool { return self._isCancelled || self.state == State.canceling }
+    /** A flag indicating whether a queue is cancelled */
+    internal var isCancelled: Bool { return self._isCancelled || self.state == State.canceling }
+    private var _isCancelled: Bool = false
 
-    var _isFinished: Bool = false
-    var isFinished: Bool { return self._isFinished || self.state == State.completed }
+    /** A flag indicating whether a queue is finished */
+    internal var isFinished: Bool { return self._isFinished || self.state == State.completed }
+    private var _isFinished: Bool = false
 
+    /** A flag indicating whether a queue is invalidated */
     var isInvalidated: Bool { return self.request == nil || self.dataTask == nil || self.state == State.invalidated }
 
     /* Initialization */
@@ -150,7 +159,11 @@ internal class ImageLoaderQueue {
         self.request = nil
     }
 
-    /* Request */
+    /**
+     A function to start a session synchronously
+
+     - Returns: A tuple of URLResponse.
+     */
     func start() -> (data: Data?, response: URLResponse?, error: Error?) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
             return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
@@ -166,6 +179,11 @@ internal class ImageLoaderQueue {
         return result
     }
 
+    /**
+     A function to start a session asynchronously
+
+     - Returns: A tuple of URLResponse.
+     */
     func start(completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
             return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
@@ -177,6 +195,9 @@ internal class ImageLoaderQueue {
         self.dataTask?.resume()
     }
 
+    /**
+     A function to cancel a asynchronous session
+     */
     func cancel() {
         self._isCancelled = true
         self.dataTask?.cancel()
