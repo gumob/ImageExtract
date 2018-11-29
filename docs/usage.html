@@ -98,13 +98,15 @@
 
 <p>Get the size of an image synchronously:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span>
-<span class="k">let</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
 </code></pre>
 
 <p>Get the size of an image asynchronously:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span>
-<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
+<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
 <span class="p">}</span>
 </code></pre>
@@ -112,14 +114,16 @@
 
 <p>Request with String:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span>
-<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
+<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
 <span class="p">}</span>
 </code></pre>
 
 <p>Request with URL:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://example.com/image.jpg"</span><span class="p">)</span>
-<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
+<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
 <span class="p">}</span>
 </code></pre>
@@ -127,7 +131,8 @@
 <p>Request with URLRequest:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://example.com/image.jpg"</span><span class="p">)</span><span class="o">!</span>
 <span class="k">let</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span>
-<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
+<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
 <span class="p">}</span>
 </code></pre>
@@ -146,8 +151,9 @@
 
 <p>Cancel all requests:</p>
 <pre class="highlight swift"><code><span class="c1">// Requests asynchronously</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
 <span class="k">for</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="k">in</span> <span class="n">url</span> <span class="p">{</span>
-    <span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt">ImageChunkSize</span><span class="o">.</span><span class="n">large</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt">ImageChunkSize</span><span class="o">.</span><span class="n">large</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
         <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>  <span class="c1">// (0.0, 0.0)</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -162,8 +168,9 @@
 
 <p>Cancel a specific request:</p>
 <pre class="highlight swift"><code><span class="c1">// Requests asynchronously</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
 <span class="k">for</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="k">in</span> <span class="n">url</span> <span class="p">{</span>
-    <span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt">ImageChunkSize</span><span class="o">.</span><span class="n">large</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+    <span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt">ImageChunkSize</span><span class="o">.</span><span class="n">large</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
         <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0) or (0.0, 0.0)</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -180,28 +187,32 @@
 
 <p>Specify chunk size:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/large-header-image.jpg"</span>
-<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt">ImageChunkSize</span><span class="o">.</span><span class="n">large</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
+<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt">ImageChunkSize</span><span class="o">.</span><span class="n">large</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
 <span class="p">}</span>
 </code></pre>
 
 <p>Download all data including bitmap if it fails to extract the size of an image from chunk data:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/large-header-image.jpg"</span>
-<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">downloadOnFailure</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
+<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">downloadOnFailure</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
 <span class="p">}</span>
 </code></pre>
 
 <p>Get the resized size of an image with the desired width:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span> <span class="c1">// Original size is (800.0, 600.0)</span>
-<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">preferredWidth</span><span class="p">:</span> <span class="mi">640</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
+<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">preferredWidth</span><span class="p">:</span> <span class="mi">640</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (640.0, 480.0)</span>
 <span class="p">}</span>
 </code></pre>
 
 <p>Get the resized size of an image with the desired width restricting the maximum height:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span> <span class="c1">// Original size is (800.0, 600.0)</span>
-<span class="kt">ImageExtract</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">preferredWidth</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="nv">maxHeight</span><span class="p">:</span> <span class="mi">240</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+<span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
+<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nv">preferredWidth</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="nv">maxHeight</span><span class="p">:</span> <span class="mi">240</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (320.0, 240.0)</span>
 <span class="p">}</span>
 </code></pre>

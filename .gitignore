@@ -77,6 +77,7 @@ fastlane/test_output
 
 # Report files
 Reports
+Submodule
+htmldoc.html
 report-coverage.html
 report-tests.html
-Submodule
