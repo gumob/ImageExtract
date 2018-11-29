@@ -39,6 +39,13 @@ public class ImageExtract {
     /** An instance of ImageLoader */
     internal var imageLoader: ImageLoader! = ImageLoader()
 
+    public init() {
+    }
+
+    deinit {
+        self.imageLoader = nil
+    }
+
     /**
      A function to get the size of a remote image synchronously.
 
