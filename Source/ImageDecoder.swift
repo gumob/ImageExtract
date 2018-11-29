@@ -25,7 +25,7 @@ internal class JPGDecoder {
     * http://swag.outpostbbs.net/GRAPHICS/0143.PAS.html
     * http://www.fastgraph.com/help/jpeg_header_format.html
     */
-    static func getSize(_ data: Data) -> CGSize {
+    func getSize(_ data: Data) -> CGSize {
         switch ImageJPGFormat(data: data) {
         case .exif, .jfif:
             var i: Int = 4
@@ -70,7 +70,7 @@ internal class PNGDecoder {
      * http://www.fileformat.info/format/png/corion.htm
      * https://www.w3.org/TR/PNG-Structure.html
      */
-    static func getSize(_ data: Data) -> CGSize {
+    func getSize(_ data: Data) -> CGSize {
         if data.count <= ImageFormat.png.minimumLength { return .zero }
 
         let w: UInt32 = data[16, 4]
@@ -91,7 +91,7 @@ internal class GIFDecoder {
      * http://www.fileformat.info/format/gif/egff.htm
      * https://www.w3.org/Graphics/GIF/spec-gif87.txt
      */
-    static func getSize(_ data: Data) -> CGSize {
+    func getSize(_ data: Data) -> CGSize {
         if data.count <= ImageFormat.gif.minimumLength { return .zero }
 
         let w: UInt16 = data[6, 2]
@@ -113,7 +113,7 @@ internal class BMPDecoder {
      * http://www.fastgraph.com/help/bmp_header_format.html (Windows)
      * http://www.fastgraph.com/help/bmp_os2_header_format.html (OS2)
      */
-    static func getSize(_ data: Data) -> CGSize {
+    func getSize(_ data: Data) -> CGSize {
         if data.count <= ImageFormat.bmp.minimumLength { return .zero }
 
         let headerSize: UInt16 = data[14, 4] /* The size of BITMAPINFOHEADER structure (Win: 40, OS2: 12) */
@@ -136,7 +136,7 @@ internal class BMPDecoder {
 //     * TIFF Specification
 //     * https://www.fileformat.info/format/tiff/egff.htm
 //     */
-//    static func getSize(_ data: Data, _ format: ImageFormat) -> CGSize {
+//    func getSize(_ data: Data, _ format: ImageFormat) -> CGSize {
 //        return .zero
 //    }
 //}
@@ -154,7 +154,7 @@ internal class WEBPDecoder {
      * https://github.com/webmproject/libwebp/blob/master/src/dec/webp_dec.c
      * https://github.com/golang/image/blob/master/vp8l/decode.go
      */
-    static func getSize(_ data: Data) -> CGSize {
+    func getSize(_ data: Data) -> CGSize {
         guard data.count > ImageFormat.webp.minimumLength,
             let size: CGSize = try? WebPDecoder.decode(data, checkStatus: false) else { return .zero }
         return size

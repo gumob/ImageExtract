@@ -209,13 +209,13 @@ private extension ImageExtract {
         /* Extract image dimension */
         switch format {
         case .png:
-            size = PNGDecoder.getSize(data)
+            size = PNGDecoder().getSize(data)
         case .gif:
-            size = GIFDecoder.getSize(data)
+            size = GIFDecoder().getSize(data)
         case .jpg:
-            size = JPGDecoder.getSize(data)
+            size = JPGDecoder().getSize(data)
         case .bmp:
-            size = BMPDecoder.getSize(data)
+            size = BMPDecoder().getSize(data)
                 /* TODO: Support TIFF (low priority) */
 //        case .tif, .tiff:
 //            size = TIFFDecoder.getSize(data, chunk.format)
@@ -223,7 +223,7 @@ private extension ImageExtract {
             let webpFormat: ImageWebPFormat = ImageWebPFormat(data: data)
             switch webpFormat {
             case .vp8x, .vp8l, .vp8:
-                size = WEBPDecoder.getSize(data)
+                size = WEBPDecoder().getSize(data)
             case .unsupported:
                 break
             }
