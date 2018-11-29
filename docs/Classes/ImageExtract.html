@@ -117,7 +117,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>A function to initialize instance.</p>
+
                       </div>
                     </section>
                   </div>
@@ -125,9 +126,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12ImageExtractAAC7extract_9chunkSize17downloadOnFailureSo6CGSizeVAA0A18RequestConvertible_p_AA0a5ChunkE0OSbtF"></a>
-                    <a name="//apple_ref/swift/Method/extract(_:chunkSize:downloadOnFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12ImageExtractAAC7extract_9chunkSize17downloadOnFailureSo6CGSizeVAA0A18RequestConvertible_p_AA0a5ChunkE0OSbtF">extract(_:chunkSize:downloadOnFailure:)</a>
+                    <a name="/s:12ImageExtractAAC7extract_9chunkSizeSo6CGSizeVAA0A18RequestConvertible_p_AA0a5ChunkE0OtF"></a>
+                    <a name="//apple_ref/swift/Method/extract(_:chunkSize:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ImageExtractAAC7extract_9chunkSizeSo6CGSizeVAA0A18RequestConvertible_p_AA0a5ChunkE0OtF">extract(_:chunkSize:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -143,8 +144,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">,</span>
-                    <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageChunkSize.html">ImageChunkSize</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">small</span><span class="p">,</span>
-                    <span class="nv">downloadOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
+                    <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageChunkSize.html">ImageChunkSize</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">extraLarge</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
 
                         </div>
                       </div>
@@ -160,7 +160,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>An image url to request.  <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
+                                  <p>An image url to request. <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
                                 </div>
                               </td>
                             </tr>
@@ -172,19 +172,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Chunk size to download. The default value is <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>.small. (100 bytes)</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>downloadOnFailure</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.</p>
+                                  <p>Chunk size to limit buffer to be downloaded. The default value is <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>.extraLarge. (50,000 bytes)</p>
                                 </div>
                               </td>
                             </tr>
@@ -201,9 +189,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12ImageExtractAAC7extract_9chunkSize17downloadOnFailure10completionyAA0A18RequestConvertible_p_AA0a5ChunkE0OSbySSSg_So6CGSizeVtctF"></a>
-                    <a name="//apple_ref/swift/Method/extract(_:chunkSize:downloadOnFailure:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12ImageExtractAAC7extract_9chunkSize17downloadOnFailure10completionyAA0A18RequestConvertible_p_AA0a5ChunkE0OSbySSSg_So6CGSizeVtctF">extract(_:chunkSize:downloadOnFailure:completion:)</a>
+                    <a name="/s:12ImageExtractAAC7extract_9chunkSize10completionyAA0A18RequestConvertible_p_AA0a5ChunkE0OySSSg_So6CGSizeVSbtctF"></a>
+                    <a name="//apple_ref/swift/Method/extract(_:chunkSize:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ImageExtractAAC7extract_9chunkSize10completionyAA0A18RequestConvertible_p_AA0a5ChunkE0OySSSg_So6CGSizeVSbtctF">extract(_:chunkSize:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -219,9 +207,8 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">,</span>
-                    <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageChunkSize.html">ImageChunkSize</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">small</span><span class="p">,</span>
-                    <span class="nv">downloadOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
-                    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">?,</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                    <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageChunkSize.html">ImageChunkSize</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">extraLarge</span><span class="p">,</span>
+                    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">?,</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -237,7 +224,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>An image url to request.  <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
+                                  <p>An image url to request. <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
                                 </div>
                               </td>
                             </tr>
@@ -249,19 +236,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Chunk size to download. The default value is <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>.small. (100 bytes)</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>downloadOnFailure</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.</p>
+                                  <p>Chunk size to limit buffer to be downloaded. The default value is <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>.extraLarge. (50,000 bytes)</p>
                                 </div>
                               </td>
                             </tr>
@@ -290,9 +265,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12ImageExtractAAC7extract_14preferredWidth9maxHeight9chunkSize17downloadOnFailureSo6CGSizeVAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAmA0a5ChunkI0OSbtF"></a>
-                    <a name="//apple_ref/swift/Method/extract(_:preferredWidth:maxHeight:chunkSize:downloadOnFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12ImageExtractAAC7extract_14preferredWidth9maxHeight9chunkSize17downloadOnFailureSo6CGSizeVAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAmA0a5ChunkI0OSbtF">extract(_:preferredWidth:maxHeight:chunkSize:downloadOnFailure:)</a>
+                    <a name="/s:12ImageExtractAAC7extract_14preferredWidth9maxHeight9chunkSizeSo6CGSizeVAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAlA0a5ChunkI0OtF"></a>
+                    <a name="//apple_ref/swift/Method/extract(_:preferredWidth:maxHeight:chunkSize:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ImageExtractAAC7extract_14preferredWidth9maxHeight9chunkSizeSo6CGSizeVAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAlA0a5ChunkI0OtF">extract(_:preferredWidth:maxHeight:chunkSize:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -310,8 +285,7 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">,</span>
                     <span class="nv">preferredWidth</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
                     <span class="nv">maxHeight</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="o">.</span><span class="n">greatestFiniteMagnitude</span><span class="p">,</span>
-                    <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageChunkSize.html">ImageChunkSize</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">small</span><span class="p">,</span>
-                    <span class="nv">downloadOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
+                    <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageChunkSize.html">ImageChunkSize</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">extraLarge</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
 
                         </div>
                       </div>
@@ -327,7 +301,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>An image url to request.  <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
+                                  <p>An image url to request. <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
                                 </div>
                               </td>
                             </tr>
@@ -363,19 +337,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Chunk size to download. The default value is <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>.small. (100 bytes)</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>downloadOnFailure</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.</p>
+                                  <p>Chunk size to limit buffer to be downloaded. The default value is <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>.extraLarge. (50,000 bytes)</p>
                                 </div>
                               </td>
                             </tr>
@@ -392,9 +354,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12ImageExtractAAC7extract_14preferredWidth9maxHeight9chunkSize17downloadOnFailure10completionyAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAlA0a5ChunkI0OSbySSSg_So6CGSizeVtctF"></a>
-                    <a name="//apple_ref/swift/Method/extract(_:preferredWidth:maxHeight:chunkSize:downloadOnFailure:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12ImageExtractAAC7extract_14preferredWidth9maxHeight9chunkSize17downloadOnFailure10completionyAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAlA0a5ChunkI0OSbySSSg_So6CGSizeVtctF">extract(_:preferredWidth:maxHeight:chunkSize:downloadOnFailure:completion:)</a>
+                    <a name="/s:12ImageExtractAAC7extract_14preferredWidth9maxHeight9chunkSize10completionyAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAkA0a5ChunkI0OySSSg_So6CGSizeVSbtctF"></a>
+                    <a name="//apple_ref/swift/Method/extract(_:preferredWidth:maxHeight:chunkSize:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ImageExtractAAC7extract_14preferredWidth9maxHeight9chunkSize10completionyAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAkA0a5ChunkI0OySSSg_So6CGSizeVSbtctF">extract(_:preferredWidth:maxHeight:chunkSize:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -412,9 +374,8 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">,</span>
                     <span class="nv">preferredWidth</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
                     <span class="nv">maxHeight</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="o">.</span><span class="n">greatestFiniteMagnitude</span><span class="p">,</span>
-                    <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageChunkSize.html">ImageChunkSize</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">small</span><span class="p">,</span>
-                    <span class="nv">downloadOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
-                    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">?,</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                    <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageChunkSize.html">ImageChunkSize</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">extraLarge</span><span class="p">,</span>
+                    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">?,</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -430,7 +391,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>An image url to request.  <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
+                                  <p>An image url to request. <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
                                 </div>
                               </td>
                             </tr>
@@ -466,19 +427,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Chunk size to download. The default value is <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>.small. (100 bytes)</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>downloadOnFailure</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.</p>
+                                  <p>Chunk size to limit buffer to be downloaded. The default value is <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>.extraLarge. (50,000 bytes)</p>
                                 </div>
                               </td>
                             </tr>
@@ -685,7 +634,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>An image url to request.  <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
+                                  <p>An image url to request. <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
                                 </div>
                               </td>
                             </tr>
