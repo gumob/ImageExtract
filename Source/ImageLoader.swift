@@ -144,6 +144,10 @@ internal class ImageLoaderQueue {
     }
 
     /** A flag indicating whether a queue is cancelled */
+    internal var isRunning: Bool { return self._isRunning || self.state == State.running }
+    private var _isRunning: Bool = false
+
+    /** A flag indicating whether a queue is cancelled */
     internal var isCancelled: Bool { return self._isCancelled || self.state == State.canceling }
     private var _isCancelled: Bool = false
 
@@ -175,9 +179,15 @@ internal class ImageLoaderQueue {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
             return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
+        guard !self.isRunning && !self.isCancelled && !self.isFinished else {
+            return (nil, nil, ImageExtractError.requestFailure(message: "Session is already started."))
+        }
+        self._isRunning = true
         let semaphore = DispatchSemaphore(value: 0)
         var result: (Data?, URLResponse?, Error?)
-        self.session?.dataTask(with: urlRequest) {
+        self.session?.dataTask(with: urlRequest) { [weak self] in
+            self?._isRunning = false
+            self?._isFinished = true
             result = ($0, $1, $2)
             semaphore.signal()
         }.resume()
@@ -195,10 +205,15 @@ internal class ImageLoaderQueue {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
             return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
         }
+        guard !self.isRunning && !self.isCancelled && !self.isFinished else {
+            return completion(nil, nil, ImageExtractError.requestFailure(message: "Session is already started."))
+        }
         self.dataTask = self.session!.dataTask(with: urlRequest) { [weak self] in
+            self?._isRunning = false
             self?._isFinished = true
             completion($0, $1, $2)
         }
+        self._isRunning = true
         self.dataTask?.resume()
         self.session?.finishTasksAndInvalidate()
     }
@@ -207,7 +222,10 @@ internal class ImageLoaderQueue {
      A function to cancel a asynchronous session
      */
     internal func cancel() {
+        if self.isCancelled || self.isFinished { return }
+        self._isRunning = false
         self._isCancelled = true
+        self._isFinished = false
         self.dataTask?.cancel()
         self.session?.invalidateAndCancel()
     }

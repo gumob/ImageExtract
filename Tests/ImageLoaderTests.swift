@@ -119,8 +119,30 @@ class ImageLoaderTests: XCTestCase {
     func testRequestNotFoundAsync() {
         let exp: XCTestExpectation = expectation(description: "testRequestFailureAsync")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/notfound.jpg"
-        ImageLoader().request(request) { (data: Data?, response: URLResponse?, error: Error?) in
+        ImageLoader().request(request) { (_: Data?, response: URLResponse?, _: Error?) in
             XCTAssertNotEqual((response as? HTTPURLResponse)?.statusCode, 200)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 120.0)
+    }
+
+    /* Duplicated request */
+    func testDuplicatedCallSync() {
+        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d.jpg"
+        let queue: ImageLoaderQueue = ImageLoaderQueue(request)
+        _ = queue.start()
+        let result: (data: Data?, response: URLResponse?, error: Error?) = queue.start()
+        XCTAssertNotNil(result.error)
+
+    }
+
+    func testDuplicatedCallAsync() {
+        let exp: XCTestExpectation = expectation(description: "testDuplicatedRequestAsync")
+        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d.jpg"
+        let queue: ImageLoaderQueue = ImageLoaderQueue(request)
+        queue.start { _, _, _ in }
+        queue.start {
+            XCTAssertNotNil($2)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 120.0)

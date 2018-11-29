@@ -10,6 +10,7 @@ import Foundation
 
 enum ImageExtractError: Error {
     case invalidUrl(message: String)
+    case requestFailure(message: String)
 
 //    static func == (lhs: ImageExtractError, rhs: ImageExtractError) -> Bool {
 //        switch (lhs, rhs) {
