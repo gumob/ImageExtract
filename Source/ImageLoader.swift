@@ -122,7 +122,10 @@ internal class ImageLoaderQueue {
     internal var request: ImageRequestConvertible?
     /** An instance of URLSession containing unique parameters */
     internal var session: URLSession? = {
-        var config: URLSessionConfiguration = URLSessionConfiguration.default
+        let config: URLSessionConfiguration = URLSessionConfiguration.ephemeral
+        config.urlCache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
+        config.urlCredentialStorage = nil
+        config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.httpAdditionalHeaders = ["User-Agent": ImageLoader.userAgent]
         config.httpMaximumConnectionsPerHost = ImageLoader.httpMaximumConnectionsPerHost
         return URLSession(configuration: config)
