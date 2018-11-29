@@ -186,25 +186,6 @@ internal class ImageLoaderQueue: NSObject {
     internal var state: State { return self._state }
     private var _state: State = .ready
 
-//    /** A Boolean value indicating whether a queue is cancelled */
-//    internal var isRunning: Bool { return self._isRunning || self.state == State.running }
-//    private var _isRunning: Bool = false
-//
-//    /** A Boolean value indicating whether a queue is cancelled */
-//    internal var isCancelled: Bool { return self._isCancelled || self.state == State.canceling }
-//    private var _isCancelled: Bool = false
-//
-//    /** A Boolean value indicating whether a queue is failed */
-//    internal var isFailed: Bool { return self._isFailed }
-//    private var _isFailed: Bool = false
-//
-//    /** A Boolean value indicating whether a queue is finished */
-//    internal var isFinished: Bool { return self._isFinished || self.state == State.finished }
-//    private var _isFinished: Bool = false
-//
-//    /** A Boolean value indicating whether a queue is invalidated */
-//    internal var isInvalidated: Bool { return self.request == nil || self.dataTask == nil || self.state == State.invalidated }
-
     /**
      Initialization
      */
