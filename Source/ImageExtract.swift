@@ -39,7 +39,9 @@ public class ImageExtract {
     /** An instance of ImageLoader */
     internal var imageLoader: ImageLoader! = ImageLoader()
 
-    public init() {
+    public init(userAgent: String? = nil, maxConnectionsPerHost: Int = 0) {
+        if let userAgent: String = userAgent { self.userAgent = userAgent }
+        if maxConnectionsPerHost > 0 { self.maxConnectionsPerHost = maxConnectionsPerHost }
     }
 
     deinit {
