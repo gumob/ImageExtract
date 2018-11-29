@@ -86,8 +86,6 @@ internal extension ImageLoader {
     /** A Integer value indicating the number of running imageQueues. */
     internal var queueCount: Int {
         var count: Int = 0
-        print("queueCount")
-        print("self", self)
         self.arrayAccessQueue?.sync { [weak self] in
             guard let `self`: ImageLoader = self else { return }
             count = self.imageQueues.count
@@ -273,9 +271,7 @@ internal class ImageLoaderQueue: NSObject {
      A function to cancel a asynchronous session
      */
     internal func cancel() {
-        print("📈", "cancel", self.state)
         guard self._state == .ready || self._state == .running else { return }
-        print("📈", "cancel", self.state)
         /* Switch state */
         self._state = .cancelled
         /* Finalize session */
@@ -286,9 +282,7 @@ internal class ImageLoaderQueue: NSObject {
     }
 
     private func fail() {
-        print("📈", "fail", self.state)
         guard self._state == .ready || self._state == .running else { return }
-        print("📈", "fail", self.state)
         /* Switch state */
         self._state = .failed
         /* Finalize session */
@@ -299,9 +293,7 @@ internal class ImageLoaderQueue: NSObject {
     }
 
     private func finish(size: CGSize) {
-        print("📈", "finish", self.state)
         guard self._state == .ready || self._state == .running else { return }
-        print("📈", "finish", self.state)
         /* Switch state */
         self._state = .finished
         /* Finalize session */
@@ -324,21 +316,6 @@ internal class ImageLoaderQueue: NSObject {
 
 }
 
-/* URLSessionDelegate */
-extension ImageLoaderQueue: URLSessionDelegate {
-
-//    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
-//        print("📊", "didBecomeInvalidWithError", error)
-//    }
-//
-//    func urlSession(_ session: URLSession,
-//                    didReceive challenge: URLAuthenticationChallenge,
-//                    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-//        print("📊", "didReceive", challenge, completionHandler)
-//    }
-
-}
-
 /* URLSessionDataDelegate */
 extension ImageLoaderQueue: URLSessionDataDelegate {
 
@@ -346,17 +323,18 @@ extension ImageLoaderQueue: URLSessionDataDelegate {
                     dataTask: URLSessionDataTask,
                     didReceive response: URLResponse,
                     completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        /* If state is invalid, cancel a response */
         if self._state != .ready && self._state != .running {
             completionHandler(.cancel)
-        } else if response.expectedContentLength >= 10 {
-            completionHandler(.allow)
         } else {
-            completionHandler(.cancel)
+            completionHandler(.allow)
         }
     }
 
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        /* If state is invalid, do nothing */
         guard self._state == .ready || self._state == .running else { return }
+        /* Decode an image size from partial buffer data */
         guard let decoder: ImageDecoder = self.decoder else { return }
         self.buffer.append(data)
         if let size: CGSize = decoder.decode(self.buffer), size != .zero {
@@ -365,21 +343,10 @@ extension ImageLoaderQueue: URLSessionDataDelegate {
     }
 
     func urlSession(_ session: URLSession, task dataTask: URLSessionTask, didCompleteWithError error: Error?) {
+        /* If state is invalid, do nothing */
         guard self._state == .ready || self._state == .running else { return }
         self.fail()
     }
-
-//    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask) {
-//        print("📊", "didBecome", "downloadTask")
-//    }
-//
-//    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome streamTask: URLSessionStreamTask) {
-//        print("📊", "didBecome", "streamTask")
-//    }
-
-//    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse, completionHandler: @escaping (CachedURLResponse?) -> Void) {
-//        print("📊", "willCacheResponse", "proposedResponse")
-//    }
 }
 
 /**

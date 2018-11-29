@@ -25,7 +25,6 @@ internal class ImageDecoder {
      - Returns: (data, mimeType)
     */
     internal func decode(_ data: Data) -> CGSize? {
-        guard data.count >= 2 else { return nil }
         var size: CGSize?
         switch self.format {
         case .unknown:

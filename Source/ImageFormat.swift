@@ -20,7 +20,7 @@ enum ImageFormat: UInt16 {
 
     init(data: Data) {
         guard data.count >= 2 else {
-            self = .unsupported
+            self = .unknown
             return
         }
         let header: UInt16 = CFSwapInt16(data[0..<2])
