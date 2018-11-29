@@ -160,7 +160,6 @@ internal class ImageLoaderQueue {
     }
 
     deinit {
-        self.session?.invalidateAndCancel()
         self.session?.finishTasksAndInvalidate()
         self.dataTask = nil
         self.session = nil
@@ -182,8 +181,8 @@ internal class ImageLoaderQueue {
             result = ($0, $1, $2)
             semaphore.signal()
         }.resume()
+        self.session?.finishTasksAndInvalidate()
         _ = semaphore.wait(timeout: .distantFuture)
-        self.session?.invalidateAndCancel()
         return result
     }
 
@@ -201,6 +200,7 @@ internal class ImageLoaderQueue {
             completion($0, $1, $2)
         }
         self.dataTask?.resume()
+        self.session?.finishTasksAndInvalidate()
     }
 
     /**
