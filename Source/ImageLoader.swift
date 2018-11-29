@@ -138,35 +138,35 @@ internal extension ImageLoader {
  */
 internal class ImageLoaderQueue: NSObject {
 
-    /** A instance of decoder */
+    /** A instance of decoder. */
     private var decoder: ImageDecoder?
 
-    /** Partial data downloaded from host */
+    /** Partial data downloaded from host. */
     private var buffer: Data = Data()
 
-    /** A request url conforming ImageRequestConvertible */
+    /** A request url conforming ImageRequestConvertible. */
     internal var request: ImageRequestConvertible?
 
-    /** An instance of URLSession */
+    /** An instance of URLSession. */
     internal var session: URLSession?
 
-    /** An instance of URLSessionDataTask */
+    /** An instance of URLSessionDataTask. */
     internal var dataTask: URLSessionDataTask?
 
-    /** A variable that can be used on synchronous request */
+    /** A variable that can be used on synchronous request. */
     var semaphore: DispatchSemaphore?
 
     /** A decoded size of an image */
     var decodedSize: CGSize = .zero
 
-    /** A callback closure being called when an extraction is completed */
+    /** A callback closure being called when an extraction is completed. */
     typealias CompletionHandler = (String?, CGSize) -> Void
     var completionHandler: CompletionHandler?
 
-    /** A result object being returned when an extraction is completed */
+    /** A result object being returned when an extraction is completed. */
     var completionData: (Data?, URLResponse?, Error?)?
 
-    /** An instance of URLSessionConfiguration containing unique parameters */
+    /** An instance of URLSessionConfiguration containing unique parameters. */
     internal lazy var config: URLSessionConfiguration! = {
         let config: URLSessionConfiguration = URLSessionConfiguration.ephemeral
         config.urlCache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
@@ -182,7 +182,7 @@ internal class ImageLoaderQueue: NSObject {
         case ready, running, cancelled, failed, finished, invalidated
     }
 
-    /** A state indicating queue state */
+    /** A state indicating queue state. */
     internal var state: State { return self._state }
     private var _state: State = .ready
 
@@ -205,7 +205,9 @@ internal class ImageLoaderQueue: NSObject {
 //    /** A Boolean value indicating whether a queue is invalidated */
 //    internal var isInvalidated: Bool { return self.request == nil || self.dataTask == nil || self.state == State.invalidated }
 
-    /* Initialization */
+    /**
+     Initialization
+     */
     init(_ request: ImageRequestConvertible) {
         self.request = request
         self.decoder = ImageDecoder()
@@ -318,18 +320,6 @@ internal class ImageLoaderQueue: NSObject {
 
 /* URLSessionDataDelegate */
 extension ImageLoaderQueue: URLSessionDataDelegate {
-
-    func urlSession(_ session: URLSession,
-                    dataTask: URLSessionDataTask,
-                    didReceive response: URLResponse,
-                    completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        /* If state is invalid, cancel a response */
-        if self._state != .ready && self._state != .running {
-            completionHandler(.cancel)
-        } else {
-            completionHandler(.allow)
-        }
-    }
 
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         /* If state is invalid, do nothing */
