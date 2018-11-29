@@ -29,7 +29,7 @@ class ImageLoaderTests: XCTestCase {
     /* Invalid URL */
     func testInvalidURLSync1() {
         let request: String = "https://"
-        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader.request(request)
+        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader().request(request)
         XCTAssertNil(result.data)
         XCTAssertNil(result.response)
         XCTAssertNotNil(result.error)
@@ -37,7 +37,7 @@ class ImageLoaderTests: XCTestCase {
 
     func testInvalidURLSync2() {
         let request: String = "localhost"
-        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader.request(request)
+        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader().request(request)
         XCTAssertNil(result.data)
         XCTAssertNil(result.response)
         XCTAssertNotNil(result.error)
@@ -45,7 +45,7 @@ class ImageLoaderTests: XCTestCase {
 
     func testInvalidURLSync3() {
         let request: String = ""
-        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader.request(request)
+        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader().request(request)
         XCTAssertNil(result.data)
         XCTAssertNil(result.response)
         XCTAssertNotNil(result.error)
@@ -54,7 +54,7 @@ class ImageLoaderTests: XCTestCase {
     func testInvalidURLAsync1() {
         let exp: XCTestExpectation = expectation(description: "testInvalidURLAsync")
         let request: String = "https://"
-        ImageLoader.request(request) { (data: Data?, response: URLResponse?, error: Error?) in
+        ImageLoader().request(request) { (data: Data?, response: URLResponse?, error: Error?) in
             XCTAssertNil(data)
             XCTAssertNil(response)
             XCTAssertNotNil(error)
@@ -66,7 +66,7 @@ class ImageLoaderTests: XCTestCase {
     func testInvalidURLAsync2() {
         let exp: XCTestExpectation = expectation(description: "testInvalidURLAsync")
         let request: String = "localhost"
-        ImageLoader.request(request) { (data: Data?, response: URLResponse?, error: Error?) in
+        ImageLoader().request(request) { (data: Data?, response: URLResponse?, error: Error?) in
             XCTAssertNil(data)
             XCTAssertNil(response)
             XCTAssertNotNil(error)
@@ -78,7 +78,7 @@ class ImageLoaderTests: XCTestCase {
     func testInvalidURLAsync3() {
         let exp: XCTestExpectation = expectation(description: "testInvalidURLAsync")
         let request: String = ""
-        ImageLoader.request(request) { (data: Data?, response: URLResponse?, error: Error?) in
+        ImageLoader().request(request) { (data: Data?, response: URLResponse?, error: Error?) in
             XCTAssertNil(data)
             XCTAssertNil(response)
             XCTAssertNotNil(error)
@@ -90,7 +90,7 @@ class ImageLoaderTests: XCTestCase {
     /* Found & Not found */
     func testRequestFoundSync() {
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d.jpg"
-        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader.request(request)
+        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader().request(request)
         XCTAssertEqual((result.response as? HTTPURLResponse)?.statusCode, 200)
         XCTAssertNotNil(result.data)
         XCTAssertNotNil(result.response)
@@ -99,14 +99,14 @@ class ImageLoaderTests: XCTestCase {
 
     func testRequestNotFoundSync() {
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/notfound.jpg"
-        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader.request(request)
+        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader().request(request)
         XCTAssertNotEqual((result.response as? HTTPURLResponse)?.statusCode, 200)
     }
 
     func testRequestFoundAsync() {
         let exp: XCTestExpectation = expectation(description: "testRequestSuccessAsync")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d.jpg"
-        ImageLoader.request(request) { (data: Data?, response: URLResponse?, error: Error?) in
+        ImageLoader().request(request) { (data: Data?, response: URLResponse?, error: Error?) in
             XCTAssertEqual((response as? HTTPURLResponse)?.statusCode, 200)
             XCTAssertNotNil(data)
             XCTAssertNotNil(response)
@@ -119,7 +119,7 @@ class ImageLoaderTests: XCTestCase {
     func testRequestNotFoundAsync() {
         let exp: XCTestExpectation = expectation(description: "testRequestFailureAsync")
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/notfound.jpg"
-        ImageLoader.request(request) { (data: Data?, response: URLResponse?, error: Error?) in
+        ImageLoader().request(request) { (data: Data?, response: URLResponse?, error: Error?) in
             XCTAssertNotEqual((response as? HTTPURLResponse)?.statusCode, 200)
             exp.fulfill()
         }

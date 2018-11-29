@@ -36,6 +36,9 @@ public enum ImageChunkSize: Int {
  */
 public class ImageExtract {
 
+    /** An instance of ImageLoader */
+    internal var imageLoader: ImageLoader! = ImageLoader()
+
     /**
      A function to get the size of a remote image synchronously.
 
@@ -45,9 +48,9 @@ public class ImageExtract {
        - downloadOnFailure: A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.
      - Returns: A size of an image.
      */
-    public class func extract(_ request: ImageRequestConvertible,
-                              chunkSize: ImageChunkSize = .small,
-                              downloadOnFailure: Bool = false) -> CGSize {
+    public func extract(_ request: ImageRequestConvertible,
+                        chunkSize: ImageChunkSize = .small,
+                        downloadOnFailure: Bool = false) -> CGSize {
         /* Validate the request url */
         guard let request: URLRequest = request.asURLRequest() else { return .zero }
         /* Get chunk data */
@@ -66,28 +69,29 @@ public class ImageExtract {
        - downloadOnFailure: A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.
        - completion: A handler that called when a request is completed.
      */
-    public class func extract(_ request: ImageRequestConvertible,
-                              chunkSize: ImageChunkSize = .small,
-                              downloadOnFailure: Bool = false,
-                              completion: @escaping (String?, CGSize) -> Void) {
+    public func extract(_ request: ImageRequestConvertible,
+                        chunkSize: ImageChunkSize = .small,
+                        downloadOnFailure: Bool = false,
+                        completion: @escaping (String?, CGSize) -> Void) {
         /* Validate the request url */
         guard let urlRequest: URLRequest = request.asURLRequest() else {
             return completion(request.asURLString(), .zero)
         }
-        getChunk(urlRequest, chunkSize) { (data: Data?, format: ImageFormat) in
+        getChunk(urlRequest, chunkSize) { [weak self] (data: Data?, format: ImageFormat) in
             /* Get chunk data */
-            guard let data: Data = data, format != .unsupported else {
+            guard let `self`: ImageExtract = self,
+                  let data: Data = data, format != .unsupported else {
                 return completion(request.asURLString(), .zero)
             }
             /* Decode the image size */
-            getSize(data, format, urlRequest, downloadOnFailure) { (size: CGSize) in
+            self.getSize(data, format, urlRequest, downloadOnFailure) { (size: CGSize) in
                 completion(urlRequest.asURLString(), size)
             }
         }
     }
 }
 
-private extension ImageExtract {
+public extension ImageExtract {
     /**
      A function to get chunk size synchronously.
 
@@ -96,13 +100,13 @@ private extension ImageExtract {
        - chunkSize: Chunk size to download. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).small. (100 bytes)
      - Returns: (data, mimeType)
     */
-    private class func getChunk(_ request: URLRequest, _ chunkSize: ImageChunkSize) -> (data: Data?, format: ImageFormat) {
+    private func getChunk(_ request: URLRequest, _ chunkSize: ImageChunkSize) -> (data: Data?, format: ImageFormat) {
         /* Add bytes range to the request header */
         var request: URLRequest = request
         request.setValue("bytes=0-\(chunkSize)", forHTTPHeaderField: "Range")
 
         /* Retrieve chunk */
-        let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader.request(request)
+        let result: (data: Data?, response: URLResponse?, error: Error?) = self.imageLoader.request(request)
 
         /* If an error occurs, just return */
         if let _: Error = result.error { return (nil, .unsupported) }
@@ -122,13 +126,13 @@ private extension ImageExtract {
        - completion: A handler that called when image size extraction is completed.
      - Returns: (data, mimeType)
     */
-    private class func getChunk(_ request: URLRequest, _ chunkSize: ImageChunkSize, _ completion: @escaping (Data?, ImageFormat) -> Void) {
+    private func getChunk(_ request: URLRequest, _ chunkSize: ImageChunkSize, _ completion: @escaping (Data?, ImageFormat) -> Void) {
         /* Add bytes range to the request header */
         var request: URLRequest = request
         request.setValue("bytes=0-\(chunkSize)", forHTTPHeaderField: "Range")
 
         /* Retrieve chunk */
-        ImageLoader.request(request) { (data: Data?, _: URLResponse?, error: Error?) in
+        self.imageLoader.request(request) { (data: Data?, _: URLResponse?, error: Error?) in
             /* If an error occurs, just return */
             guard let data: Data = data, error == nil else {
                 return completion(nil, ImageFormat.unsupported)
@@ -140,7 +144,7 @@ private extension ImageExtract {
     }
 }
 
-private extension ImageExtract {
+public extension ImageExtract {
     /**
      A function to get the size of an image from chunk data synchronously.
 
@@ -151,17 +155,16 @@ private extension ImageExtract {
        - downloadOnFailure: A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.
      - Returns: (data, mimeType)
      */
-    private class func getSize(_ data: Data,
-                               _ format: ImageFormat,
-                               _ request: URLRequest,
-                               _ downloadOnFailure: Bool = false) -> CGSize {
+    private func getSize(_ data: Data,
+                         _ format: ImageFormat,
+                         _ request: URLRequest,
+                         _ downloadOnFailure: Bool = false) -> CGSize {
         let size: CGSize = decodeSizeFromChunk(data, format)
 
         /* If extraction fails, download entire image */
         if size.equalTo(.zero) && downloadOnFailure {
-            let result: (data: Data?, response: URLResponse?, error: Error?) = ImageLoader.request(request)
+            let result: (data: Data?, response: URLResponse?, error: Error?) = self.imageLoader.request(request)
             guard let data: Data = result.data else { return size }
-
             return decodeSizeFromImage(data)
         }
 
@@ -177,18 +180,19 @@ private extension ImageExtract {
        - request: An image url to request.
        - downloadOnFailure: A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.
      */
-    private class func getSize(_ data: Data,
-                               _ format: ImageFormat,
-                               _ request: URLRequest,
-                               _ downloadOnFailure: Bool = false,
-                               _ completion: @escaping (CGSize) -> Void) {
+    private func getSize(_ data: Data,
+                         _ format: ImageFormat,
+                         _ request: URLRequest,
+                         _ downloadOnFailure: Bool = false,
+                         _ completion: @escaping (CGSize) -> Void) {
         let size: CGSize = decodeSizeFromChunk(data, format)
 
         /* If extraction fails, download entire image */
         if size.equalTo(.zero) && downloadOnFailure {
-            ImageLoader.request(request) { (data: Data?, _: URLResponse?, error: Error?) in
-                guard let data: Data = data, error == nil else { return completion(.zero) }
-                completion(decodeSizeFromImage(data))
+            self.imageLoader.request(request) { [weak self] (data: Data?, _: URLResponse?, error: Error?) in
+                guard let `self`: ImageExtract = self,
+                      let data: Data = data, error == nil else { return completion(.zero) }
+                completion(self.decodeSizeFromImage(data))
             }
         } else {
             completion(size)
@@ -203,7 +207,7 @@ private extension ImageExtract {
        - format: The format of a downloaded image.
      - Returns: (data, mimeType)
      */
-    private class func decodeSizeFromChunk(_ data: Data, _ format: ImageFormat) -> CGSize {
+    private func decodeSizeFromChunk(_ data: Data, _ format: ImageFormat) -> CGSize {
         var size: CGSize = .zero
 
         /* Extract image dimension */
@@ -242,7 +246,7 @@ private extension ImageExtract {
        - data: Small data containing header information of a image.
      - Returns: A size of an image
      */
-    private class func decodeSizeFromImage(_ data: Data) -> CGSize {
+    private func decodeSizeFromImage(_ data: Data) -> CGSize {
         #if os(OSX)
         if let image: NSImage = NSImage(data: data) { return image.size }
         #else
@@ -264,11 +268,11 @@ public extension ImageExtract {
        - downloadOnFailure: A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.
      - Returns: A size of an image.
      */
-    public static func extract(_ request: ImageRequestConvertible,
-                               preferredWidth: CGFloat,
-                               maxHeight: CGFloat = .greatestFiniteMagnitude,
-                               chunkSize: ImageChunkSize = .small,
-                               downloadOnFailure: Bool = false) -> CGSize {
+    public func extract(_ request: ImageRequestConvertible,
+                        preferredWidth: CGFloat,
+                        maxHeight: CGFloat = .greatestFiniteMagnitude,
+                        chunkSize: ImageChunkSize = .small,
+                        downloadOnFailure: Bool = false) -> CGSize {
         return self.convertSize(size: self.extract(request, chunkSize: chunkSize, downloadOnFailure: downloadOnFailure),
                                 preferredWidth: preferredWidth,
                                 maxHeight: maxHeight)
@@ -285,13 +289,14 @@ public extension ImageExtract {
        - downloadOnFailure: A Boolean value indicating whether all data including bitmap should be downloaded if it fails to extract an image size from chunk data. The default value is false.
        - completion: A handler that called when a request is completed.
      */
-    public static func extract(_ request: ImageRequestConvertible,
-                               preferredWidth: CGFloat,
-                               maxHeight: CGFloat = .greatestFiniteMagnitude,
-                               chunkSize: ImageChunkSize = .small,
-                               downloadOnFailure: Bool = false,
-                               completion: @escaping (String?, CGSize) -> Void) {
-        self.extract(request, chunkSize: chunkSize, downloadOnFailure: downloadOnFailure) { (url: String?, size: CGSize) in
+    public func extract(_ request: ImageRequestConvertible,
+                        preferredWidth: CGFloat,
+                        maxHeight: CGFloat = .greatestFiniteMagnitude,
+                        chunkSize: ImageChunkSize = .small,
+                        downloadOnFailure: Bool = false,
+                        completion: @escaping (String?, CGSize) -> Void) {
+        self.extract(request, chunkSize: chunkSize, downloadOnFailure: downloadOnFailure) { [weak self] (url: String?, size: CGSize) in
+            guard let `self`: ImageExtract = self else { return completion(nil, CGSize.zero) }
             let size: CGSize = self.convertSize(size: size, preferredWidth: preferredWidth, maxHeight: maxHeight)
             completion(url, size)
         }
@@ -306,9 +311,9 @@ public extension ImageExtract {
        - maxHeight: A maximum height to be restricted at resizing.
      - Returns: A size of a resized image.
      */
-    private static func convertSize(size: CGSize,
-                                    preferredWidth: CGFloat,
-                                    maxHeight: CGFloat) -> CGSize {
+    private func convertSize(size: CGSize,
+                             preferredWidth: CGFloat,
+                             maxHeight: CGFloat) -> CGSize {
         if size.width == 0 || size.height == 0 { return .zero }
         return CGSize(width: round(preferredWidth),
                       height: round(min((size.height * preferredWidth) / size.width, maxHeight)))
@@ -318,12 +323,12 @@ public extension ImageExtract {
 /* Configuration */
 public extension ImageExtract {
     /** A String value to be set in the request header. */
-    public static var userAgent: String {
+    public var userAgent: String {
         set { ImageLoader.userAgent = newValue }
         get { return ImageLoader.userAgent }
     }
     /** A Integer value that indicates the maximum number of simultaneous connections to make to a given host. */
-    public static var maxConnectionsPerHost: Int {
+    public var maxConnectionsPerHost: Int {
         set { ImageLoader.httpMaximumConnectionsPerHost = newValue }
         get { return ImageLoader.httpMaximumConnectionsPerHost }
     }
@@ -331,10 +336,10 @@ public extension ImageExtract {
 
 public extension ImageExtract {
     /** A Boolean value indicating whether download queues are running. */
-    public static var isQueueRunning: Bool { return ImageLoader.isQueueRunning }
+    public var isQueueRunning: Bool { return self.imageLoader.isQueueRunning }
 
     /** A Integer value indicating the number of running queues. */
-    public static var queueCount: Int { return ImageLoader.queueCount }
+    public var queueCount: Int { return self.imageLoader.queueCount }
 
     /**
      A function to cancel all running queues.
@@ -342,7 +347,7 @@ public extension ImageExtract {
      - Returns: A Boolean value indicating whether download queues are running.
     */
     @discardableResult
-    public static func cancelAllQueues() -> Bool { return ImageLoader.cancelAllQueues() }
+    public func cancelAllQueues() -> Bool { return self.imageLoader.cancelAllQueues() }
 
     /**
      A function to cancel a queue that contains a specific url.
@@ -352,5 +357,5 @@ public extension ImageExtract {
      - Returns: A Boolean value indicating whether download queues are running.
     */
     @discardableResult
-    public static func cancelQueue(request: ImageRequestConvertible) -> Bool { return ImageLoader.cancelQueue(request) }
+    public func cancelQueue(request: ImageRequestConvertible) -> Bool { return self.imageLoader.cancelQueue(request) }
 }

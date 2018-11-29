@@ -14,10 +14,10 @@ import Foundation
 internal class ImageLoader {
 
     /** Queues to store ImageLoaderQueue instances. */
-    private static var imageQueues: [ImageLoaderQueue] = [ImageLoaderQueue]()
+    private var imageQueues: [ImageLoaderQueue] = [ImageLoaderQueue]()
 
     /** A queue to manipulate a thread-safe array. */
-    private static let arrayAccessQueue = DispatchQueue(label: "com.gumob.ImageExtract.SynchronizedArray", attributes: .concurrent)
+    private let arrayAccessQueue = DispatchQueue(label: "com.gumob.ImageExtract.SynchronizedArray", attributes: .concurrent)
 
     /** A browser user agent */
     internal static var userAgent: String = {
@@ -37,21 +37,24 @@ internal class ImageLoader {
         #endif
     }()
 
+    init() {
+    }
+
 }
 
 /* Request */
 internal extension ImageLoader {
 
-    internal static func request(_ request: ImageRequestConvertible) -> (data: Data?, response: URLResponse?, error: Error?) {
+    internal func request(_ request: ImageRequestConvertible) -> (data: Data?, response: URLResponse?, error: Error?) {
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         return queue.start()
     }
 
-    internal static func request(_ request: ImageRequestConvertible, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    internal func request(_ request: ImageRequestConvertible, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         appendQueue(queue)
         queue.start {
-            removeQueue(request)
+            self.removeQueue(request)
             completion($0, $1, $2)
         }
     }
@@ -62,25 +65,25 @@ internal extension ImageLoader {
 internal extension ImageLoader {
 
     /** A Boolean value indicating whether download imageQueues are running. */
-    internal static var isQueueRunning: Bool {
+    internal var isQueueRunning: Bool {
         var result: Bool = false
-        self.arrayAccessQueue.sync { result = imageQueues.count > 0 }
+        self.arrayAccessQueue.sync { result = self.imageQueues.count > 0 }
         return result
     }
 
     /** A Integer value indicating the number of running imageQueues. */
-    internal static var queueCount: Int {
+    internal var queueCount: Int {
         var count: Int = 0
-        self.arrayAccessQueue.sync { count = imageQueues.count }
+        self.arrayAccessQueue.sync { count = self.imageQueues.count }
         return count
     }
 
-    internal static func appendQueue(_ queue: ImageLoaderQueue) {
-        self.arrayAccessQueue.async(flags: .barrier) { imageQueues.append(queue) }
+    internal func appendQueue(_ queue: ImageLoaderQueue) {
+        self.arrayAccessQueue.async(flags: .barrier) { self.imageQueues.append(queue) }
     }
 
     @discardableResult
-    internal static func cancelAllQueues() -> Bool {
+    internal func cancelAllQueues() -> Bool {
         self.arrayAccessQueue.async(flags: .barrier) {
             if self.imageQueues.count == 0 { return }
             self.imageQueues.forEach { $0.cancel() }
@@ -90,19 +93,19 @@ internal extension ImageLoader {
     }
 
     @discardableResult
-    internal static func cancelQueue(_ request: ImageRequestConvertible) -> Bool {
+    internal func cancelQueue(_ request: ImageRequestConvertible) -> Bool {
         self.arrayAccessQueue.async(flags: .barrier) {
             if self.imageQueues.count == 0 { return }
             self.imageQueues.filter { $0.request?.asURLString() == request.asURLString() }.forEach { $0.cancel() }
-            removeQueue(request)
+            self.removeQueue(request)
         }
-        return isQueueRunning
+        return self.isQueueRunning
     }
 
-    internal static func removeQueue(_ request: ImageRequestConvertible) {
+    internal func removeQueue(_ request: ImageRequestConvertible) {
         self.arrayAccessQueue.async(flags: .barrier) {
             if self.imageQueues.count == 0 { return }
-            imageQueues.removeAll(where: {
+            self.imageQueues.removeAll(where: {
                 $0.isCancelled || $0.isFinished || $0.isInvalidated || $0.request?.asURLString() == request.asURLString()
             })
         }
@@ -130,6 +133,7 @@ internal class ImageLoaderQueue {
     internal enum State: Int {
         case running, suspended, canceling, completed, ready, invalidated
     }
+
     /** A state conforming URLSessionDataTask.State */
     internal var state: State {
         guard let rawValue: Int = self.dataTask?.state.rawValue else { return State.invalidated }
