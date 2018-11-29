@@ -305,8 +305,9 @@ extension ImageLoaderQueue: URLSessionDataDelegate {
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         /* If state is invalid, do nothing */
         guard self._state == .ready || self._state == .running else { return }
-        /* Decode an image size from partial buffer data */
+        /* If a decoder is already deallocated, do nothing */
         guard let decoder: ImageDecoder = self.decoder else { return }
+        /* Decode an image size from partial buffer data */
         self.buffer.append(data)
         if let size: CGSize = decoder.decode(self.buffer), size != .zero {
             self.finish(size: size)

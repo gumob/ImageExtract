@@ -13,13 +13,22 @@ class ImageFormatTests: XCTestCase {
 
     /* Zero byte data */
     func testZeroBytes() {
+        /* TODO: Test with data on a remote server */
+        let jpgData1: Data = Data(repeating: 0, count: 0)
+        let jpgFormat1: ImageFormat = ImageFormat(data: jpgData1)
+        XCTAssertEqual(jpgFormat1, ImageFormat.unknown)
+
         let jpgData: Data = Data(repeating: 0, count: 10)
         let jpgFormat: ImageJPGFormat = ImageJPGFormat(data: jpgData)
         XCTAssertEqual(jpgFormat, ImageJPGFormat.unsupported)
 
-        let webpData: Data = Data(repeating: 0, count: 16)
-        let webpFormat: ImageWebPFormat = ImageWebPFormat(data: webpData)
-        XCTAssertEqual(webpFormat, ImageWebPFormat.unsupported)
+        let webpData1: Data = Data(repeating: 0, count: 16)
+        let webpFormat1: ImageWebPFormat = ImageWebPFormat(data: webpData1)
+        XCTAssertEqual(webpFormat1, ImageWebPFormat.unsupported)
+
+        let webpData2: Data = Data(repeating: 0, count: 15)
+        let webpFormat2: ImageWebPFormat = ImageWebPFormat(data: webpData2)
+        XCTAssertEqual(webpFormat2, ImageWebPFormat.unsupported)
     }
 
     /* Invalid byte data */
