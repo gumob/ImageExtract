@@ -155,7 +155,7 @@ pod 'ImageExtract'
 <p>Get the size of an image asynchronously:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"https://example.com/image.jpg"</span>
 <span class="k">let</span> <span class="nv">extractor</span><span class="p">:</span> <span class="kt">ImageExtract</span> <span class="o">=</span> <span class="kt">ImageExtract</span><span class="p">()</span>
-<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="k">in</span>
+<span class="n">extractor</span><span class="o">.</span><span class="nf">extract</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="nv">isFinished</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="k">in</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="c1">// (800.0, 600.0)</span>
 <span class="p">}</span>
 </code></pre>

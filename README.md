@@ -71,7 +71,7 @@ Get the size of an image asynchronously:
 ```swift
 let url: String = "https://example.com/image.jpg"
 let extractor: ImageExtract = ImageExtract()
-extractor.extract(request) { (url: String?, size: CGSize) in
+extractor.extract(request) { (url: String?, size: CGSize, isFinished: Bool) in
     print(size) // (800.0, 600.0)
 }
 ```

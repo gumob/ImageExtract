@@ -198,7 +198,7 @@ internal class WEBPDecoder {
               let size: CGSize = try? WebPDecoder.decode(data, checkStatus: false) else { return .zero }
         return size
 
-        /* The current version uses the libwebp static library. */
+        /* The current version uses libwebp static library. */
 //        switch ImageWebPFormat(data: data) {
 //        case .vp8x:
 //            let w: UInt16 = data[24, 3]
