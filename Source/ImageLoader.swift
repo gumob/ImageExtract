@@ -65,6 +65,7 @@ internal class ImageLoader {
     }
 
     deinit {
+//        self.cancelAllQueues()
         self.arrayAccessQueue = nil
     }
 
@@ -322,7 +323,7 @@ internal class ImageLoaderQueue: NSObject {
 extension ImageLoaderQueue: URLSessionDataDelegate {
 
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        /* If state is invalid, do nothing */
+        /* If state is already started, do nothing */
         guard self._state == .ready || self._state == .running else { return }
         /* If a decoder is already deallocated, do nothing */
         guard let decoder: ImageDecoder = self.decoder else { return }
@@ -330,6 +331,8 @@ extension ImageLoaderQueue: URLSessionDataDelegate {
         self.buffer.append(data)
         if let size: CGSize = decoder.decode(self.buffer), size != .zero {
             self.finish(size: size)
+        } else if self.buffer.count >= ImageLoader.chunkSize.rawValue {
+            self.fail()
         }
     }
 
