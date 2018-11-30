@@ -44,12 +44,20 @@ public class ImageExtract {
 
      - Parameters:
        - userAgent: A String value to be set in the request header.
-       - chunkSize: A Integer value that indicates the maximum number of simultaneous connections to make to a given host.
-     - Returns: A size of an image.
+       - maxConnectionsPerHost: A Integer value that indicates the maximum number of simultaneous connections to make to a given host.
+       - timeout: The timeout interval to use when waiting for additional data.
+       - chunkSize: Chunk size limiting buffer size to be downloaded. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).extraLarge. (50,000 bytes)
      */
-    public init(userAgent: String? = nil, maxConnectionsPerHost: Int = 0) {
-        if let userAgent: String = userAgent { ImageLoader.userAgent = userAgent }
-        if maxConnectionsPerHost > 0 { ImageLoader.httpMaximumConnectionsPerHost = maxConnectionsPerHost }
+    public init(userAgent: String? = nil,
+                maxConnectionsPerHost: Int = 0,
+                timeout: TimeInterval = 5,
+                chunkSize: ImageChunkSize = .extraLarge) {
+        self.imageLoader = ImageLoader(
+                userAgent: userAgent,
+                maxConnectionsPerHost: maxConnectionsPerHost,
+                timeout: timeout,
+                chunkSize: chunkSize
+        )
     }
 
     deinit {
@@ -61,14 +69,12 @@ public class ImageExtract {
 
      - Parameters:
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
-       - chunkSize: Chunk size to limit buffer to be downloaded. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).extraLarge. (50,000 bytes)
      - Returns: A size of an image.
      */
-    public func extract(_ request: ImageRequestConvertible,
-                        chunkSize: ImageChunkSize = .extraLarge) -> CGSize {
+    public func extract(_ request: ImageRequestConvertible) -> CGSize {
         /* Validate the request url */
         guard let urlRequest: URLRequest = request.asURLRequest() else { return .zero }
-        self.imageLoader = ImageLoader()
+        /* Load image */
         return self.imageLoader!.request(urlRequest)
     }
 
@@ -77,18 +83,15 @@ public class ImageExtract {
 
      - Parameters:
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
-       - chunkSize: Chunk size to limit buffer to be downloaded. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).extraLarge. (50,000 bytes)
        - completion: A handler that called when a request is completed.
      */
     public func extract(_ request: ImageRequestConvertible,
-                        chunkSize: ImageChunkSize = .extraLarge,
                         completion: @escaping (String?, CGSize, Bool) -> Void) {
         /* Validate the request url */
         guard let urlRequest: URLRequest = request.asURLRequest() else {
             return completion(request.asURLString(), .zero, false)
         }
         /* Load image */
-        self.imageLoader = ImageLoader()
         self.imageLoader!.request(urlRequest, completion: completion)
     }
 }
@@ -101,14 +104,12 @@ public extension ImageExtract {
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
        - preferredWidth: A preferred width to resize.
        - maxHeight: A maximum height to be restricted at resizing.
-       - chunkSize: Chunk size to limit buffer to be downloaded. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).extraLarge. (50,000 bytes)
      - Returns: A size of an image.
      */
     public func extract(_ request: ImageRequestConvertible,
                         preferredWidth: CGFloat,
-                        maxHeight: CGFloat = .greatestFiniteMagnitude,
-                        chunkSize: ImageChunkSize = .extraLarge) -> CGSize {
-        return self.convertSize(size: self.extract(request, chunkSize: chunkSize),
+                        maxHeight: CGFloat = .greatestFiniteMagnitude) -> CGSize {
+        return self.convertSize(size: self.extract(request),
                                 preferredWidth: preferredWidth,
                                 maxHeight: maxHeight)
     }
@@ -120,15 +121,13 @@ public extension ImageExtract {
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
        - preferredWidth: A preferred width to resize.
        - maxHeight: A maximum height to be restricted at resizing.
-       - chunkSize: Chunk size to limit buffer to be downloaded. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).extraLarge. (50,000 bytes)
        - completion: A handler that called when a request is completed.
      */
     public func extract(_ request: ImageRequestConvertible,
                         preferredWidth: CGFloat,
                         maxHeight: CGFloat = .greatestFiniteMagnitude,
-                        chunkSize: ImageChunkSize = .extraLarge,
                         completion: @escaping (String?, CGSize, Bool) -> Void) {
-        self.extract(request, chunkSize: chunkSize) { [weak self] (url: String?, size: CGSize, isFinished: Bool) in
+        self.extract(request) { [weak self] (url: String?, size: CGSize, isFinished: Bool) in
             guard let `self`: ImageExtract = self else { return completion(nil, CGSize.zero, isFinished) }
             let size: CGSize = self.convertSize(size: size, preferredWidth: preferredWidth, maxHeight: maxHeight)
             completion(url, size, isFinished)

@@ -42,7 +42,26 @@ internal class ImageLoader {
         #endif
     }()
 
-    init() {
+    /** The timeout interval to use when waiting for additional data. */
+    internal static var timeoutIntervalForRequest: TimeInterval = 5
+
+    /** The timeout interval to use when waiting for additional data. */
+    internal static var chunkSize: ImageChunkSize = .extraLarge
+
+    /**
+     A function to initialize instance.
+
+     - Parameters:
+       - userAgent: A String value to be set in the request header.
+       - maxConnectionsPerHost: A Integer value that indicates the maximum number of simultaneous connections to make to a given host.
+       - timeout: The timeout interval to use when waiting for additional data.
+       - chunkSize: Chunk size limiting buffer size to be downloaded. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).extraLarge. (50,000 bytes)
+     */
+    init(userAgent: String? = nil, maxConnectionsPerHost: Int = 0, timeout: TimeInterval = 5, chunkSize: ImageChunkSize = .extraLarge) {
+        if let userAgent: String = userAgent { ImageLoader.userAgent = userAgent }
+        if maxConnectionsPerHost > 0 { ImageLoader.httpMaximumConnectionsPerHost = maxConnectionsPerHost }
+        ImageLoader.timeoutIntervalForRequest = timeout
+        ImageLoader.chunkSize = chunkSize
     }
 
     deinit {
@@ -174,7 +193,7 @@ internal class ImageLoaderQueue: NSObject {
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.httpAdditionalHeaders = ["User-Agent": ImageLoader.userAgent]
         config.httpMaximumConnectionsPerHost = ImageLoader.httpMaximumConnectionsPerHost
-//        config.timeoutIntervalForRequest = 5
+        config.timeoutIntervalForRequest = ImageLoader.timeoutIntervalForRequest
         return config
     }()
 
