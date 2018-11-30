@@ -47,17 +47,10 @@ public class ImageExtract {
        - chunkSize: A Integer value that indicates the maximum number of simultaneous connections to make to a given host.
      - Returns: A size of an image.
      */
-    #if os(macOS)
-    public init(userAgent: String? = nil, maxConnectionsPerHost: Int = 6) {
-        if let userAgent: String = userAgent { self.userAgent = userAgent }
-        if maxConnectionsPerHost > 0 { self.maxConnectionsPerHost = maxConnectionsPerHost }
+    public init(userAgent: String? = nil, maxConnectionsPerHost: Int = 0) {
+        if let userAgent: String = userAgent { ImageLoader.userAgent = userAgent }
+        if maxConnectionsPerHost > 0 { ImageLoader.httpMaximumConnectionsPerHost = maxConnectionsPerHost }
     }
-    #else
-    public init(userAgent: String? = nil, maxConnectionsPerHost: Int = 4) {
-        if let userAgent: String = userAgent { self.userAgent = userAgent }
-        self.maxConnectionsPerHost = maxConnectionsPerHost
-    }
-    #endif
 
     deinit {
         self.imageLoader = nil
@@ -157,20 +150,6 @@ public extension ImageExtract {
         if size.width == 0 || size.height == 0 { return .zero }
         return CGSize(width: round(preferredWidth),
                       height: round(min((size.height * preferredWidth) / size.width, maxHeight)))
-    }
-}
-
-/* Configuration */
-public extension ImageExtract {
-    /** A String value to be set in the request header. */
-    public var userAgent: String {
-        set { ImageLoader.userAgent = newValue }
-        get { return ImageLoader.userAgent }
-    }
-    /** A Integer value that indicates the maximum number of simultaneous connections to make to a given host. */
-    public var maxConnectionsPerHost: Int {
-        set { ImageLoader.httpMaximumConnectionsPerHost = newValue }
-        get { return ImageLoader.httpMaximumConnectionsPerHost }
     }
 }
 

@@ -174,7 +174,7 @@ internal class ImageLoaderQueue: NSObject {
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.httpAdditionalHeaders = ["User-Agent": ImageLoader.userAgent]
         config.httpMaximumConnectionsPerHost = ImageLoader.httpMaximumConnectionsPerHost
-        config.timeoutIntervalForRequest = 5
+//        config.timeoutIntervalForRequest = 5
         return config
     }()
 

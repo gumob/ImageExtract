@@ -20,17 +20,6 @@ final class ImageExtractSyncTests: XCTestCase {
         self.dataSet = dataSet
     }
 
-    /* User Agent */
-    func testGetterSetter() {
-        let ua: String = "User Agent"
-        let extractor: ImageExtract = ImageExtract()
-        extractor.userAgent = ua
-        XCTAssertEqual(extractor.userAgent, extractor.userAgent)
-
-        extractor.maxConnectionsPerHost = 10
-        XCTAssertEqual(extractor.maxConnectionsPerHost, ImageLoader.httpMaximumConnectionsPerHost)
-    }
-
     /* Invalid URL */
     func testInvalidURL1() {
         let request: String = "https://"
