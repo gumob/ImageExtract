@@ -29,20 +29,20 @@ class ImageLoaderTests: XCTestCase {
     /* Invalid URL */
     func testInvalidURLSync1() {
         let request: String = "https://"
-        let size: CGSize = ImageLoader().request(request)
-        XCTAssertEqual(size, CGSize.zero)
+        let result: (size: CGSize, isFinished: Bool) = ImageLoader().request(request)
+        XCTAssertEqual(result.size, CGSize.zero)
     }
 
     func testInvalidURLSync2() {
         let request: String = "localhost"
-        let size: CGSize = ImageLoader().request(request)
-        XCTAssertEqual(size, CGSize.zero)
+        let result: (size: CGSize, isFinished: Bool) = ImageLoader().request(request)
+        XCTAssertEqual(result.size, CGSize.zero)
     }
 
     func testInvalidURLSync3() {
         let request: String = ""
-        let size: CGSize = ImageLoader().request(request)
-        XCTAssertEqual(size, CGSize.zero)
+        let result: (size: CGSize, isFinished: Bool) = ImageLoader().request(request)
+        XCTAssertEqual(result.size, CGSize.zero)
     }
 
     func testInvalidURLAsync1() {
@@ -78,14 +78,14 @@ class ImageLoaderTests: XCTestCase {
     /* Found & Not found */
     func testRequestFoundSync() {
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d.jpg"
-        let size: CGSize = ImageLoader().request(request)
-        XCTAssertNotEqual(size, CGSize.zero)
+        let result: (size: CGSize, isFinished: Bool) = ImageLoader().request(request)
+        XCTAssertEqual(result.size, CGSize(width: 562.0, height: 660.0))
     }
 
     func testRequestNotFoundSync() {
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/notfound.jpg"
-        let size: CGSize = ImageLoader().request(request)
-        XCTAssertEqual(size, CGSize.zero)
+        let result: (size: CGSize, isFinished: Bool) = ImageLoader().request(request)
+        XCTAssertEqual(result.size, .zero)
     }
 
     func testRequestFoundAsync() {
@@ -113,8 +113,8 @@ class ImageLoaderTests: XCTestCase {
         let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-3d.jpg"
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         _ = queue.start()
-        let size: CGSize = queue.start()
-        XCTAssertEqual(size, CGSize.zero)
+        let result: (size: CGSize, isFinished: Bool) = queue.start()
+        XCTAssertEqual(result.size, CGSize.zero)
 
     }
 

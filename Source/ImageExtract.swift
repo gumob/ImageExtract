@@ -71,9 +71,9 @@ public class ImageExtract {
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
      - Returns: A size of an image.
      */
-    public func extract(_ request: ImageRequestConvertible) -> CGSize {
+    public func extract(_ request: ImageRequestConvertible) -> (size: CGSize, isFinished: Bool) {
         /* Validate the request url */
-        guard let urlRequest: URLRequest = request.asURLRequest() else { return .zero }
+        guard let urlRequest: URLRequest = request.asURLRequest() else { return (.zero, false) }
         /* Load image */
         return self.imageLoader!.request(urlRequest)
     }
@@ -108,10 +108,12 @@ public extension ImageExtract {
      */
     public func extract(_ request: ImageRequestConvertible,
                         preferredWidth: CGFloat,
-                        maxHeight: CGFloat = .greatestFiniteMagnitude) -> CGSize {
-        return self.convertSize(size: self.extract(request),
-                                preferredWidth: preferredWidth,
-                                maxHeight: maxHeight)
+                        maxHeight: CGFloat = .greatestFiniteMagnitude) -> (size: CGSize, isFinished: Bool) {
+        var result: (size: CGSize, isFinished: Bool) = self.extract(request)
+        result.size = self.convertSize(size: result.size,
+                                       preferredWidth: preferredWidth,
+                                       maxHeight: maxHeight)
+        return result
     }
 
     /**

@@ -74,7 +74,7 @@ internal class ImageLoader {
 /* Request */
 internal extension ImageLoader {
 
-    internal func request(_ request: ImageRequestConvertible) -> CGSize {
+    internal func request(_ request: ImageRequestConvertible) -> (size: CGSize, isFinished: Bool) {
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         return queue.start()
     }
@@ -226,16 +226,16 @@ internal class ImageLoaderQueue: NSObject {
     /**
      A function to start a session synchronously
 
-     - Returns: A tuple of URLResponse.
+     - Returns: A tuple containing CGSize and Bool values.
      */
-    internal func start() -> CGSize {
+    internal func start() -> (size: CGSize, isFinished: Bool) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
 //            return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
-            return .zero
+            return (.zero , false)
         }
         guard self._state == .ready else {
 //            return (nil, nil, ImageExtractError.requestFailure(message: "Session is already started."))
-            return .zero
+            return (.zero , false)
         }
         self.semaphore = DispatchSemaphore(value: 0)
         self.session = URLSession(configuration: self.config, delegate: self, delegateQueue: nil)
@@ -244,7 +244,7 @@ internal class ImageLoaderQueue: NSObject {
         self.dataTask?.resume()
         self.session?.finishTasksAndInvalidate()
         _ = self.semaphore?.wait(timeout: .distantFuture)
-        return self.decodedSize
+        return (size: self.decodedSize, isFinished: self.state == .finished)
     }
 
     /**

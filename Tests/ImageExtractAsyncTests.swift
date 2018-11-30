@@ -275,9 +275,9 @@ final class ImageExtractAsyncTests: XCTestCase {
         let extractor: ImageExtract = ImageExtract()
         for image: DataSet.Image in self.dataSet.gif {
             let request: String = image.url.withRandomQuery()
-            extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
+            extractor.extract(request) { (_: String?, size: CGSize, isFinished: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
-                XCTAssertEqual(size, image.size)
+                XCTAssertEqual(size, isFinished ? image.size : CGSize.zero)
                 if extractor.queueCount == 0 && !isFulfilled { /* If all queue is completed, complete unit test */
                     isFulfilled = true
                     exp.fulfill()
