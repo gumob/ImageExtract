@@ -122,6 +122,7 @@ platform :ios do
         )
         coverage
         lint
+        create_doc
     end
 
     desc "Run tvOS Tests"

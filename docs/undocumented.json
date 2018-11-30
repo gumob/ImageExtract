@@ -1,12 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/kojirof/Documents/pj-github/ImageExtract/Source/ImageExtract.swift",
-      "line": 56,
-      "symbol": "ImageExtract.init(userAgent:maxConnectionsPerHost:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/kojirof/Documents/pj-github/ImageExtract/Source"
 }
