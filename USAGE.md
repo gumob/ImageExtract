@@ -13,8 +13,8 @@ Get the size of an image synchronously:
 ```swift
 let url: String = "https://example.com/image.jpg"
 let extractor: ImageExtract = ImageExtract()
-let size: CGSize = extractor.extract(url)
-print(size) // (800.0, 600.0)
+let result: (size: CGSize, isFinished: Bool) = extractor.extract(url)
+print(result.size) // (800.0, 600.0)
 ```
 
 Get the size of an image asynchronously:
@@ -106,20 +106,20 @@ print(ImageExtract.queueCount) // 5
 
 ## Extra arguments
 
-Specify chunk size:
+Specify an user agent:
 ```swift
 let url: String = "https://example.com/large-header-image.jpg"
-let extractor: ImageExtract = ImageExtract()
-extractor.extract(request, chunkSize: ImageChunkSize.large) { (url: String?, size: CGSize, isFinished: Bool) in
+let extractor: ImageExtract = ImageExtract(userAgent: "ImageExtract")
+extractor.extract(request) { (url: String?, size: CGSize, isFinished: Bool) in
     print(size) // (800.0, 600.0)
 }
 ```
 
-Download all data including bitmap if it fails to extract the size of an image from chunk data:
+Specify chunk size:
 ```swift
 let url: String = "https://example.com/large-header-image.jpg"
-let extractor: ImageExtract = ImageExtract()
-extractor.extract(request, downloadOnFailure: true) { (url: String?, size: CGSize, isFinished: Bool) in
+let extractor: ImageExtract = ImageExtract(chunkSize: ImageChunkSize.large)
+extractor.extract(request) { (url: String?, size: CGSize, isFinished: Bool) in
     print(size) // (800.0, 600.0)
 }
 ```

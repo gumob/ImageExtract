@@ -69,7 +69,7 @@ public class ImageExtract {
 
      - Parameters:
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
-     - Returns: A size of an image.
+     - Returns: A tuple value including image size and task result. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
     public func extract(_ request: ImageRequestConvertible) -> (size: CGSize, isFinished: Bool) {
         /* Validate the request url */
@@ -83,7 +83,7 @@ public class ImageExtract {
 
      - Parameters:
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
-       - completion: A handler that called when a request is completed.
+       - completion: A handler that called when a request is completed. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
     public func extract(_ request: ImageRequestConvertible,
                         completion: @escaping (String?, CGSize, Bool) -> Void) {
@@ -104,7 +104,7 @@ public extension ImageExtract {
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
        - preferredWidth: A preferred width to resize.
        - maxHeight: A maximum height to be restricted at resizing.
-     - Returns: A size of an image.
+     - Returns: A tuple value including image size and task result. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
     public func extract(_ request: ImageRequestConvertible,
                         preferredWidth: CGFloat,
@@ -123,7 +123,7 @@ public extension ImageExtract {
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
        - preferredWidth: A preferred width to resize.
        - maxHeight: A maximum height to be restricted at resizing.
-       - completion: A handler that called when a request is completed.
+       - completion: A handler that called when a request is completed. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
     public func extract(_ request: ImageRequestConvertible,
                         preferredWidth: CGFloat,
