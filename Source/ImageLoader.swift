@@ -25,7 +25,7 @@ internal class ImageLoader {
     private var arrayAccessQueue: DispatchQueue? = DispatchQueue(label: "com.gumob.ImageExtract.SynchronizedArray", attributes: .concurrent)
 
     /** A browser user agent */
-    internal static var userAgent: String = {
+    static var userAgent: String = {
         #if os(macOS)
         return "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9"
         #else
@@ -34,7 +34,7 @@ internal class ImageLoader {
     }()
 
     /** The maximum number of simultaneous connections to make to a given host. */
-    internal static var httpMaximumConnectionsPerHost: Int = {
+    static var httpMaximumConnectionsPerHost: Int = {
         #if os(macOS)
         return 6
         #else
@@ -43,10 +43,10 @@ internal class ImageLoader {
     }()
 
     /** The timeout interval to use when waiting for additional data. */
-    internal static var timeoutIntervalForRequest: TimeInterval = 5
+    static var timeoutIntervalForRequest: TimeInterval = 5
 
     /** The timeout interval to use when waiting for additional data. */
-    internal static var chunkSize: ImageChunkSize = .extraLarge
+    static var chunkSize: ImageChunkSize = .extraLarge
 
     /**
      A function to initialize instance.
@@ -74,12 +74,12 @@ internal class ImageLoader {
 /* Request */
 internal extension ImageLoader {
 
-    internal func request(_ request: ImageRequestConvertible) -> (size: CGSize, isFinished: Bool) {
+    func request(_ request: ImageRequestConvertible) -> (size: CGSize, isFinished: Bool) {
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         return queue.start()
     }
 
-    internal func request(_ request: ImageRequestConvertible, completion: @escaping (String?, CGSize, Bool) -> Void) {
+    func request(_ request: ImageRequestConvertible, completion: @escaping (String?, CGSize, Bool) -> Void) {
         let queue: ImageLoaderQueue = ImageLoaderQueue(request)
         appendQueue(queue)
         queue.start { [weak self] in
@@ -94,7 +94,7 @@ internal extension ImageLoader {
 internal extension ImageLoader {
 
     /** A Boolean value indicating whether download imageQueues are running. */
-    internal var isQueueRunning: Bool {
+    var isQueueRunning: Bool {
         var result: Bool = false
         self.arrayAccessQueue?.sync { [weak self] in
             guard let `self`: ImageLoader = self else { return }
@@ -104,7 +104,7 @@ internal extension ImageLoader {
     }
 
     /** A Integer value indicating the number of running imageQueues. */
-    internal var queueCount: Int {
+    var queueCount: Int {
         var count: Int = 0
         self.arrayAccessQueue?.sync { [weak self] in
             guard let `self`: ImageLoader = self else { return }
@@ -113,7 +113,7 @@ internal extension ImageLoader {
         return count
     }
 
-    internal func appendQueue(_ queue: ImageLoaderQueue) {
+    func appendQueue(_ queue: ImageLoaderQueue) {
         self.arrayAccessQueue?.async(flags: .barrier) { [weak self] in
             guard let `self`: ImageLoader = self else { return }
             self.imageQueues.append(queue)
@@ -121,7 +121,7 @@ internal extension ImageLoader {
     }
 
     @discardableResult
-    internal func cancelAllQueues() -> Bool {
+    func cancelAllQueues() -> Bool {
         self.arrayAccessQueue?.async(flags: .barrier) { [weak self] in
             guard let `self`: ImageLoader = self else { return }
             if self.imageQueues.count == 0 { return }
@@ -132,7 +132,7 @@ internal extension ImageLoader {
     }
 
     @discardableResult
-    internal func cancelQueue(_ request: ImageRequestConvertible) -> Bool {
+    func cancelQueue(_ request: ImageRequestConvertible) -> Bool {
         self.arrayAccessQueue?.async(flags: .barrier) { [weak self] in
             guard let `self`: ImageLoader = self else { return }
             if self.imageQueues.count == 0 { return }
@@ -141,7 +141,7 @@ internal extension ImageLoader {
         return self.isQueueRunning
     }
 
-    internal func removeQueue(_ request: ImageRequestConvertible) {
+    func removeQueue(_ request: ImageRequestConvertible) {
         self.arrayAccessQueue?.async(flags: .barrier) { [weak self] in
             guard let `self`: ImageLoader = self else { return }
             if self.imageQueues.count == 0 { return }
@@ -165,13 +165,13 @@ internal class ImageLoaderQueue: NSObject {
     private var buffer: Data = Data()
 
     /** A request url conforming ImageRequestConvertible. */
-    internal var request: ImageRequestConvertible?
+    var request: ImageRequestConvertible?
 
     /** An instance of URLSession. */
-    internal var session: URLSession?
+    var session: URLSession?
 
     /** An instance of URLSessionDataTask. */
-    internal var dataTask: URLSessionDataTask?
+    var dataTask: URLSessionDataTask?
 
     /** A variable that can be used on synchronous request. */
     var semaphore: DispatchSemaphore?
@@ -187,7 +187,7 @@ internal class ImageLoaderQueue: NSObject {
     var completionData: (Data?, URLResponse?, Error?)?
 
     /** An instance of URLSessionConfiguration containing unique parameters. */
-    internal lazy var config: URLSessionConfiguration! = {
+    lazy var config: URLSessionConfiguration! = {
         let config: URLSessionConfiguration = URLSessionConfiguration.ephemeral
         config.urlCache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
         config.urlCredentialStorage = nil
@@ -198,12 +198,12 @@ internal class ImageLoaderQueue: NSObject {
         return config
     }()
 
-    internal enum State: Int {
+    enum State: Int {
         case ready, running, cancelled, failed, finished, invalidated
     }
 
     /** A state indicating queue state. */
-    internal var state: State { return self._state }
+    var state: State { return self._state }
     private var _state: State = .ready
 
     /**
@@ -228,7 +228,7 @@ internal class ImageLoaderQueue: NSObject {
 
      - Returns: A tuple containing CGSize and Bool values.
      */
-    internal func start() -> (size: CGSize, isFinished: Bool) {
+    func start() -> (size: CGSize, isFinished: Bool) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
 //            return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
             return (.zero , false)
@@ -252,7 +252,7 @@ internal class ImageLoaderQueue: NSObject {
 
      - Returns: A tuple of URLResponse.
      */
-    internal func start(completion: @escaping (String?, CGSize, Bool) -> Void) {
+    func start(completion: @escaping (String?, CGSize, Bool) -> Void) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
 //            return completion(nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
             return completion(nil, .zero, false)
@@ -273,7 +273,7 @@ internal class ImageLoaderQueue: NSObject {
     /**
      A function to cancel a asynchronous session
      */
-    internal func cancel() {
+    func cancel() {
         guard self._state == .ready || self._state == .running else { return }
         /* Switch state */
         self._state = .cancelled

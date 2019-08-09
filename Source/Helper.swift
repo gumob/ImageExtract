@@ -24,6 +24,7 @@ internal extension Data {
     }
 
     subscript<T>(range: Range<Data.Index>) -> T {
-        return subdata(in: range).withUnsafeBytes { $0.pointee }
+//        return subdata(in: range).withUnsafeBytes { $0.pointee } /* Deprecated */
+        return subdata(in: range).withUnsafeBytes { $0.load(as: T.self) }
     }
 }

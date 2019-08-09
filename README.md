@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.com/gumob/ImageExtract.svg?branch=master)](https://travis-ci.com/gumob/ImageExtract)
 [![codecov](https://codecov.io/gh/gumob/ImageExtract/branch/master/graph/badge.svg)](https://codecov.io/gh/gumob/ImageExtract)
 [![Platform](https://img.shields.io/badge/platform-ios%20|%20tvos%20|%20watchos%20|%20osx-lightgrey.svg)](https://github.com/gumob/ImageExtract)
+![Language](https://img.shields.io/badge/Language-Swift%205.0-orange.svg)
 ![Language](https://img.shields.io/badge/Language-Swift%204.2-orange.svg)
 ![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
@@ -15,7 +16,7 @@ ImageExtract supports multiple platforms
 - macOS 10.11 or later
 - tvOS 10.0 or later
 - watchOS 3.0 or later
-- Swift 4.2
+- Swift 4.2 ore later
 
 ## Supported image format
 

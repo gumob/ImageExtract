@@ -48,7 +48,7 @@ public class ImageExtract {
        - timeout: The timeout interval to use when waiting for additional data.
        - chunkSize: Chunk size limiting buffer size to be downloaded. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).extraLarge. (50,000 bytes)
      */
-    public init(userAgent: String? = nil,
+    init(userAgent: String? = nil,
                 maxConnectionsPerHost: Int = 0,
                 timeout: TimeInterval = 5,
                 chunkSize: ImageChunkSize = .extraLarge) {
@@ -71,7 +71,7 @@ public class ImageExtract {
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
      - Returns: A tuple value including image size and task result. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
-    public func extract(_ request: ImageRequestConvertible) -> (size: CGSize, isFinished: Bool) {
+    func extract(_ request: ImageRequestConvertible) -> (size: CGSize, isFinished: Bool) {
         /* Validate the request url */
         guard let urlRequest: URLRequest = request.asURLRequest() else { return (.zero, false) }
         /* Load image */
@@ -85,7 +85,7 @@ public class ImageExtract {
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
        - completion: A handler that called when a request is completed. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
-    public func extract(_ request: ImageRequestConvertible,
+    func extract(_ request: ImageRequestConvertible,
                         completion: @escaping (String?, CGSize, Bool) -> Void) {
         /* Validate the request url */
         guard let urlRequest: URLRequest = request.asURLRequest() else {
@@ -106,7 +106,7 @@ public extension ImageExtract {
        - maxHeight: A maximum height to be restricted at resizing.
      - Returns: A tuple value including image size and task result. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
-    public func extract(_ request: ImageRequestConvertible,
+    func extract(_ request: ImageRequestConvertible,
                         preferredWidth: CGFloat,
                         maxHeight: CGFloat = .greatestFiniteMagnitude) -> (size: CGSize, isFinished: Bool) {
         var result: (size: CGSize, isFinished: Bool) = self.extract(request)
@@ -125,7 +125,7 @@ public extension ImageExtract {
        - maxHeight: A maximum height to be restricted at resizing.
        - completion: A handler that called when a request is completed. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
-    public func extract(_ request: ImageRequestConvertible,
+    func extract(_ request: ImageRequestConvertible,
                         preferredWidth: CGFloat,
                         maxHeight: CGFloat = .greatestFiniteMagnitude,
                         completion: @escaping (String?, CGSize, Bool) -> Void) {
@@ -156,13 +156,13 @@ public extension ImageExtract {
 
 public extension ImageExtract {
     /** A Boolean value indicating whether download queues are running. */
-    public var isQueueRunning: Bool {
+    var isQueueRunning: Bool {
         guard let imageLoader: ImageLoader = self.imageLoader else { return false }
         return imageLoader.isQueueRunning
     }
 
     /** A Integer value indicating the number of running queues. */
-    public var queueCount: Int {
+    var queueCount: Int {
         guard let imageLoader: ImageLoader = self.imageLoader else { return 0 }
         return imageLoader.queueCount
     }
@@ -173,7 +173,7 @@ public extension ImageExtract {
      - Returns: A Boolean value indicating whether download queues are running.
     */
     @discardableResult
-    public func cancelAllQueues() -> Bool {
+    func cancelAllQueues() -> Bool {
         guard let imageLoader: ImageLoader = self.imageLoader else { return false }
         return imageLoader.cancelAllQueues()
     }
@@ -186,7 +186,7 @@ public extension ImageExtract {
      - Returns: A Boolean value indicating whether download queues are running.
     */
     @discardableResult
-    public func cancelQueue(request: ImageRequestConvertible) -> Bool {
+    func cancelQueue(request: ImageRequestConvertible) -> Bool {
         guard let imageLoader: ImageLoader = self.imageLoader else { return false }
         return imageLoader.cancelQueue(request)
     }
