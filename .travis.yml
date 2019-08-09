@@ -2,10 +2,10 @@ language: objective-c
 os: osx
 osx_image: xcode10.2
 
-branches:
-  only:
-    - master
-    - develop
+#branches:
+#  only:
+#    - master
+#    - develop
 #    - "/^v?[0-9\\.]+/"
 
 cache:
