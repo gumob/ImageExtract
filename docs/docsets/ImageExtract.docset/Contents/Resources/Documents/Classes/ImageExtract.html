@@ -107,204 +107,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12ImageExtractAAC9userAgent21maxConnectionsPerHost7timeout9chunkSizeABSSSg_SiSdAA0a5ChunkK0Otcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(userAgent:maxConnectionsPerHost:timeout:chunkSize:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12ImageExtractAAC9userAgent21maxConnectionsPerHost7timeout9chunkSizeABSSSg_SiSdAA0a5ChunkK0Otcfc">init(userAgent:maxConnectionsPerHost:timeout:chunkSize:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A function to initialize instance.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">userAgent</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">maxConnectionsPerHost</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="nv">timeout</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-            <span class="nv">chunkSize</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageChunkSize.html">ImageChunkSize</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">extraLarge</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>userAgent</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A String value to be set in the request header.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>maxConnectionsPerHost</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A Integer value that indicates the maximum number of simultaneous connections to make to a given host.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>timeout</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The timeout interval to use when waiting for additional data.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>chunkSize</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Chunk size limiting buffer size to be downloaded. The default value is <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>.extraLarge. (50,000 bytes)</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:12ImageExtractAAC7extractySo6CGSizeV4size_Sb10isFinishedtAA0A18RequestConvertible_pF"></a>
-                    <a name="//apple_ref/swift/Method/extract(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12ImageExtractAAC7extractySo6CGSizeV4size_Sb10isFinishedtAA0A18RequestConvertible_pF">extract(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A function to get the size of a remote image synchronously.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="nv">isFinished</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>request</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An image url to request. <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>A tuple value including image size and task result. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:12ImageExtractAAC7extract_10completionyAA0A18RequestConvertible_p_ySSSg_So6CGSizeVSbtctF"></a>
-                    <a name="//apple_ref/swift/Method/extract(_:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12ImageExtractAAC7extract_10completionyAA0A18RequestConvertible_p_ySSSg_So6CGSizeVSbtctF">extract(_:completion:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A function to get the size of a remote image asynchronously.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">,</span>
-                    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">?,</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>request</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An image url to request. <a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a> protocol.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A handler that called when a request is completed. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:12ImageExtractAAC7extract_14preferredWidth9maxHeightSo6CGSizeV4size_Sb10isFinishedtAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAMtF"></a>
                     <a name="//apple_ref/swift/Method/extract(_:preferredWidth:maxHeight:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:12ImageExtractAAC7extract_14preferredWidth9maxHeightSo6CGSizeV4size_Sb10isFinishedtAA0A18RequestConvertible_p_12CoreGraphics7CGFloatVAMtF">extract(_:preferredWidth:maxHeight:)</a>
@@ -322,7 +124,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">,</span>
                     <span class="nv">preferredWidth</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
                     <span class="nv">maxHeight</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="o">.</span><span class="n">greatestFiniteMagnitude</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="nv">isFinished</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
@@ -398,7 +200,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">extract</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">,</span>
                     <span class="nv">preferredWidth</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
                     <span class="nv">maxHeight</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="o">.</span><span class="n">greatestFiniteMagnitude</span><span class="p">,</span>
                     <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">?,</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
@@ -487,7 +289,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isQueueRunning</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isQueueRunning</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -514,7 +316,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queueCount</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">queueCount</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -542,7 +344,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelAllQueues</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<span class="kd">func</span> <span class="nf">cancelAllQueues</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -574,7 +376,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelQueue</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<span class="kd">func</span> <span class="nf">cancelQueue</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -613,7 +415,7 @@
     </div>
     <section class="footer">
       <p>Copyright © 2018 Gumob. All rights reserved.</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

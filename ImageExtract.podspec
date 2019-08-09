@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name              = "ImageExtract"
-    s.version           = "1.0.0"
+    s.version           = "2.0.0"
     s.summary           = "A Swift library to allows you to extract the size of an image without downloading."
     s.homepage          = "https://github.com/gumob/ImageExtract"
     s.documentation_url = "https://gumob.github.io/ImageExtract/"
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     # s.module_map               = "Module/CWebP/module.modulemap"
     s.requires_arc              = true
 
-    s.swift_version             = "4.2"
+    s.swift_version             = "5.0"
 
     ios_deployment_target       = "9.0"
     tvos_deployment_target      = "10.0"
