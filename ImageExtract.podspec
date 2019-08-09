@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     # s.module_map               = "Module/CWebP/module.modulemap"
     s.requires_arc              = true
 
-    s.swift_version             = "4.2"
+    s.swift_version             = "5.0"
 
     ios_deployment_target       = "9.0"
     tvos_deployment_target      = "10.0"
