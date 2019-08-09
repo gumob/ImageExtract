@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name              = "ImageExtract"
-    s.version           = "1.0.0"
+    s.version           = "2.0.0"
     s.summary           = "A Swift library to allows you to extract the size of an image without downloading."
     s.homepage          = "https://github.com/gumob/ImageExtract"
     s.documentation_url = "https://gumob.github.io/ImageExtract/"
