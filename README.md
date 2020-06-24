@@ -12,11 +12,9 @@ A Swift library to allows you to extract the size of an image without downloadin
 ## Requirements
 
 ImageExtract supports multiple platforms
-- iOS 9.0 or later
+- iOS 10.0 or later
 - macOS 10.11 or later
-- tvOS 10.0 or later
-- watchOS 3.0 or later
-- Swift 4.2 ore later
+- Swift 5.0 ore later
 
 ## Supported image format
 
@@ -47,7 +45,7 @@ Do not forget to include WebP.framework. Otherwise it will fail to build the app
 To integrate ImageExtract into your project, add the following to your `Podfile`.
 
 ```ruby
-platform :ios, '9.3'
+platform :ios, '10.0'
 use_frameworks!
 
 pod 'ImageExtract'
