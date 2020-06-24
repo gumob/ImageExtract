@@ -8,68 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		A712B87221AA5FCA00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
-		A712B87321AA5FCA00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
-		A712B87421AA5FCA00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
 		A712B87521AA5FCB00C77612 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE72859CBDF260604FF10 /* Extension.swift */; };
 		A72140C621ABA68C0019C38B /* TestImage.json in Resources */ = {isa = PBXBuildFile; fileRef = A72140C521ABA68C0019C38B /* TestImage.json */; };
-		A72140C721ABA68C0019C38B /* TestImage.json in Resources */ = {isa = PBXBuildFile; fileRef = A72140C521ABA68C0019C38B /* TestImage.json */; };
 		A72140C821ABA68C0019C38B /* TestImage.json in Resources */ = {isa = PBXBuildFile; fileRef = A72140C521ABA68C0019C38B /* TestImage.json */; };
 		A77887CF21AD35F200CD553E /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77887CE21AD35F200CD553E /* WebP.framework */; };
-		A77887D121AD360300CD553E /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77887D021AD360300CD553E /* WebP.framework */; };
-		A77887D321AD361500CD553E /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77887D221AD361500CD553E /* WebP.framework */; };
 		A77887D521AD362B00CD553E /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77887D421AD362B00CD553E /* WebP.framework */; };
 		A77CE44C21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
 		A77CE44D21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
-		A77CE44E21A29F90009AFD9B /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
-		A783D86121A5432300A0242F /* ImageExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE44B21A29F90009AFD9B /* ImageExtract.swift */; };
 		A783D86521A5480700A0242F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D86421A5480600A0242F /* UIKit.framework */; };
-		A783D86721A5481B00A0242F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D86621A5481B00A0242F /* UIKit.framework */; };
-		A783D86921A5482100A0242F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D86821A5482100A0242F /* UIKit.framework */; };
 		A783D86B21A54A7400A0242F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783D86A21A54A7400A0242F /* AppKit.framework */; };
 		A783D86D21A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
 		A783D86E21A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
-		A783D86F21A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
-		A783D87021A54CA800A0242F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783D86C21A54CA800A0242F /* ImageLoader.swift */; };
 		A783DD2521A782EF00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2421A782EE00A0242F /* Foundation.framework */; };
-		A783DD2721A782FE00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2621A782FE00A0242F /* Foundation.framework */; };
-		A783DD2A21A7831A00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2921A7831A00A0242F /* Foundation.framework */; };
-		A783DD2F21A7833F00A0242F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A783DD2E21A7833F00A0242F /* Foundation.framework */; };
 		A783DD3621A7B8DC00A0242F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3521A7B8DC00A0242F /* Error.swift */; };
-		A783DD3721A7B8DC00A0242F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3521A7B8DC00A0242F /* Error.swift */; };
-		A783DD3821A7B8DC00A0242F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3521A7B8DC00A0242F /* Error.swift */; };
 		A783DD3921A7B8DC00A0242F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3521A7B8DC00A0242F /* Error.swift */; };
 		A783DD3B21A7F4A400A0242F /* ImageDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3A21A7F4A400A0242F /* ImageDecoderTests.swift */; };
-		A783DD3C21A7F4A400A0242F /* ImageDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3A21A7F4A400A0242F /* ImageDecoderTests.swift */; };
 		A783DD3D21A7F4A400A0242F /* ImageDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3A21A7F4A400A0242F /* ImageDecoderTests.swift */; };
 		A783DD4C21A7FD2C00A0242F /* ImageExtractSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A14318219F0075003FB96A /* ImageExtractSyncTests.swift */; };
 		A783DD4D21A7FD2C00A0242F /* ImageFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3E21A7F4C200A0242F /* ImageFormatTests.swift */; };
 		A783DD4E21A7FD2C00A0242F /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD4221A7F4D300A0242F /* ImageLoaderTests.swift */; };
 		A783DD4F21A7FD2C00A0242F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD4621A7F4E800A0242F /* HelperTests.swift */; };
-		A783DD5021A7FD2C00A0242F /* ImageExtractSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A14318219F0075003FB96A /* ImageExtractSyncTests.swift */; };
-		A783DD5121A7FD2C00A0242F /* ImageFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3E21A7F4C200A0242F /* ImageFormatTests.swift */; };
-		A783DD5221A7FD2C00A0242F /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD4221A7F4D300A0242F /* ImageLoaderTests.swift */; };
-		A783DD5321A7FD2C00A0242F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD4621A7F4E800A0242F /* HelperTests.swift */; };
 		A783DD5421A7FD2D00A0242F /* ImageExtractSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A14318219F0075003FB96A /* ImageExtractSyncTests.swift */; };
 		A783DD5521A7FD2D00A0242F /* ImageFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD3E21A7F4C200A0242F /* ImageFormatTests.swift */; };
 		A783DD5621A7FD2D00A0242F /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD4221A7F4D300A0242F /* ImageLoaderTests.swift */; };
 		A783DD5721A7FD2D00A0242F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783DD4621A7F4E800A0242F /* HelperTests.swift */; };
 		A7A0ECE7219EB279004FBE05 /* ImageExtract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A0ECDD219EB279004FBE05 /* ImageExtract.framework */; };
 		A7A0ED3A219EC0FD004FBE05 /* ImageExtract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A0ED14219EB6C8004FBE05 /* ImageExtract.framework */; };
-		A7A0ED65219EC8D1004FBE05 /* ImageExtract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A0ED42219EC3E3004FBE05 /* ImageExtract.framework */; };
 		DFABE0131D3EDC406AFC41C9 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
-		DFABE09C016245135824DB0E /* ImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE0ED9775FA71C1D52165 /* ImageDecoder.swift */; };
-		DFABE30DE6D4A793F3928571 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
-		DFABE52A7E92CD6A2E58C1E3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4DADA6ABA704FFD410E /* Helper.swift */; };
 		DFABE6754A400F7716CC6BEA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4DADA6ABA704FFD410E /* Helper.swift */; };
 		DFABE79E579880ADCB48E943 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4DADA6ABA704FFD410E /* Helper.swift */; };
 		DFABE86001BE59BC5F698232 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE01751D657DB101ACC51 /* DataSet.swift */; };
 		DFABE8644E678D22E892F10C /* ImageExtractAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE16C5215C19F49BD305D /* ImageExtractAsyncTests.swift */; };
-		DFABE9450D9FD1115FC0D3D7 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4DADA6ABA704FFD410E /* Helper.swift */; };
-		DFABE9989AA3AEB67AC64E88 /* ImageExtractAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE16C5215C19F49BD305D /* ImageExtractAsyncTests.swift */; };
-		DFABEAB25A51197E70BF3486 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
-		DFABEB51F0584E3C66B8D23A /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE01751D657DB101ACC51 /* DataSet.swift */; };
 		DFABEBDED7B1A20CD0F513F1 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE4457BBAAF6A1FA6454A /* ImageFormat.swift */; };
-		DFABEC538951831DCABEA324 /* ImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE0ED9775FA71C1D52165 /* ImageDecoder.swift */; };
 		DFABEE0B1420F394ADE749ED /* ImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE0ED9775FA71C1D52165 /* ImageDecoder.swift */; };
 		DFABEE2A9EE69AC68D6A0DC2 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE01751D657DB101ACC51 /* DataSet.swift */; };
 		DFABEE56A3C6DE1833395591 /* ImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABE0ED9775FA71C1D52165 /* ImageDecoder.swift */; };
@@ -91,32 +61,17 @@
 			remoteGlobalIDString = A7A0ED13219EB6C8004FBE05;
 			remoteInfo = "ImageExtract-macOS";
 		};
-		A7A0ED4C219EC3E3004FBE05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A7A0ECD4219EB279004FBE05 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A7A0ED41219EC3E3004FBE05;
-			remoteInfo = "ImageExtract-tvOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A72140C521ABA68C0019C38B /* TestImage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestImage.json; sourceTree = "<group>"; };
 		A77887CE21AD35F200CD553E /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = Carthage/Build/iOS/WebP.framework; sourceTree = "<group>"; };
-		A77887D021AD360300CD553E /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = Carthage/Build/watchOS/WebP.framework; sourceTree = "<group>"; };
-		A77887D221AD361500CD553E /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = Carthage/Build/tvOS/WebP.framework; sourceTree = "<group>"; };
 		A77887D421AD362B00CD553E /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = Carthage/Build/Mac/WebP.framework; sourceTree = "<group>"; };
 		A77CE44B21A29F90009AFD9B /* ImageExtract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageExtract.swift; sourceTree = "<group>"; };
-		A783D85821A542B300A0242F /* ImageExtract.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageExtract.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A783D86421A5480600A0242F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A783D86621A5481B00A0242F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		A783D86821A5482100A0242F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		A783D86A21A54A7400A0242F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		A783D86C21A54CA800A0242F /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		A783DD2421A782EE00A0242F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		A783DD2621A782FE00A0242F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A783DD2921A7831A00A0242F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A783DD2E21A7833F00A0242F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A783DD3521A7B8DC00A0242F /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		A783DD3A21A7F4A400A0242F /* ImageDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDecoderTests.swift; sourceTree = "<group>"; };
 		A783DD3E21A7F4C200A0242F /* ImageFormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFormatTests.swift; sourceTree = "<group>"; };
@@ -126,8 +81,6 @@
 		A7A0ECE6219EB279004FBE05 /* ImageExtract-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ImageExtract-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A0ED14219EB6C8004FBE05 /* ImageExtract.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageExtract.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A0ED1C219EB6C9004FBE05 /* ImageExtract-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ImageExtract-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7A0ED42219EC3E3004FBE05 /* ImageExtract.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageExtract.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7A0ED4A219EC3E3004FBE05 /* ImageExtract-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ImageExtract-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A14318219F0075003FB96A /* ImageExtractSyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtractSyncTests.swift; sourceTree = "<group>"; };
 		A7A14319219F0075003FB96A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7A14326219F00CA003FB96A /* ImageExtract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageExtract.h; sourceTree = "<group>"; };
@@ -141,16 +94,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A783D85521A542B300A0242F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A77887D121AD360300CD553E /* WebP.framework in Frameworks */,
-				A783DD2A21A7831A00A0242F /* Foundation.framework in Frameworks */,
-				A783D86921A5482100A0242F /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A7A0ECDA219EB279004FBE05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,7 +117,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A77887D521AD362B00CD553E /* WebP.framework in Frameworks */,
-				A783DD2F21A7833F00A0242F /* Foundation.framework in Frameworks */,
 				A783D86B21A54A7400A0242F /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,24 +126,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7A0ED3A219EC0FD004FBE05 /* ImageExtract.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A7A0ED3F219EC3E3004FBE05 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A77887D321AD361500CD553E /* WebP.framework in Frameworks */,
-				A783DD2721A782FE00A0242F /* Foundation.framework in Frameworks */,
-				A783D86721A5481B00A0242F /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A7A0ED47219EC3E3004FBE05 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A7A0ED65219EC8D1004FBE05 /* ImageExtract.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,16 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				A77887CE21AD35F200CD553E /* WebP.framework */,
-				A77887D021AD360300CD553E /* WebP.framework */,
-				A77887D221AD361500CD553E /* WebP.framework */,
 				A77887D421AD362B00CD553E /* WebP.framework */,
 				A783DD2421A782EE00A0242F /* Foundation.framework */,
-				A783DD2621A782FE00A0242F /* Foundation.framework */,
-				A783DD2921A7831A00A0242F /* Foundation.framework */,
-				A783DD2E21A7833F00A0242F /* Foundation.framework */,
 				A783D86A21A54A7400A0242F /* AppKit.framework */,
-				A783D86821A5482100A0242F /* UIKit.framework */,
-				A783D86621A5481B00A0242F /* UIKit.framework */,
 				A783D86421A5480600A0242F /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -253,9 +170,6 @@
 				A7A0ECE6219EB279004FBE05 /* ImageExtract-iOSTests.xctest */,
 				A7A0ED14219EB6C8004FBE05 /* ImageExtract.framework */,
 				A7A0ED1C219EB6C9004FBE05 /* ImageExtract-macOSTests.xctest */,
-				A7A0ED42219EC3E3004FBE05 /* ImageExtract.framework */,
-				A7A0ED4A219EC3E3004FBE05 /* ImageExtract-tvOSTests.xctest */,
-				A783D85821A542B300A0242F /* ImageExtract.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -294,13 +208,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A783D85321A542B300A0242F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A7A0ECD8219EB279004FBE05 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -315,35 +222,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A7A0ED3D219EC3E3004FBE05 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A783D85721A542B300A0242F /* ImageExtract-watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A783D85F21A542B300A0242F /* Build configuration list for PBXNativeTarget "ImageExtract-watchOS" */;
-			buildPhases = (
-				A783D85421A542B300A0242F /* Sources */,
-				A783D85521A542B300A0242F /* Frameworks */,
-				A783D85621A542B300A0242F /* Resources */,
-				A783D85321A542B300A0242F /* Headers */,
-				A788B83E21AD2B9D000E22AC /* Carthage */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ImageExtract-watchOS";
-			productName = "ImageExtract-watchOS";
-			productReference = A783D85821A542B300A0242F /* ImageExtract.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		A7A0ECDC219EB279004FBE05 /* ImageExtract-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7A0ECF1219EB279004FBE05 /* Build configuration list for PBXNativeTarget "ImageExtract-iOS" */;
@@ -418,43 +299,6 @@
 			productReference = A7A0ED1C219EB6C9004FBE05 /* ImageExtract-macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A7A0ED41219EC3E3004FBE05 /* ImageExtract-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A7A0ED53219EC3E3004FBE05 /* Build configuration list for PBXNativeTarget "ImageExtract-tvOS" */;
-			buildPhases = (
-				A7A0ED3E219EC3E3004FBE05 /* Sources */,
-				A7A0ED3F219EC3E3004FBE05 /* Frameworks */,
-				A7A0ED40219EC3E3004FBE05 /* Resources */,
-				A7A0ED3D219EC3E3004FBE05 /* Headers */,
-				A788B83F21AD2BB9000E22AC /* Carthage */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ImageExtract-tvOS";
-			productName = "ImageExtract-tvOS";
-			productReference = A7A0ED42219EC3E3004FBE05 /* ImageExtract.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		A7A0ED49219EC3E3004FBE05 /* ImageExtract-tvOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A7A0ED56219EC3E3004FBE05 /* Build configuration list for PBXNativeTarget "ImageExtract-tvOSTests" */;
-			buildPhases = (
-				A7A0ED46219EC3E3004FBE05 /* Sources */,
-				A7A0ED47219EC3E3004FBE05 /* Frameworks */,
-				A7A0ED48219EC3E3004FBE05 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A7A0ED4D219EC3E3004FBE05 /* PBXTargetDependency */,
-			);
-			name = "ImageExtract-tvOSTests";
-			productName = "ImageExtract-tvOSTests";
-			productReference = A7A0ED4A219EC3E3004FBE05 /* ImageExtract-tvOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -465,9 +309,6 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Gumob;
 				TargetAttributes = {
-					A783D85721A542B300A0242F = {
-						CreatedOnToolsVersion = 10.1;
-					};
 					A7A0ECDC219EB279004FBE05 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
@@ -481,13 +322,6 @@
 						LastSwiftMigration = 1010;
 					};
 					A7A0ED1B219EB6C9004FBE05 = {
-						CreatedOnToolsVersion = 10.1;
-					};
-					A7A0ED41219EC3E3004FBE05 = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
-					};
-					A7A0ED49219EC3E3004FBE05 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -506,24 +340,14 @@
 			projectRoot = "";
 			targets = (
 				A7A0ECDC219EB279004FBE05 /* ImageExtract-iOS */,
-				A783D85721A542B300A0242F /* ImageExtract-watchOS */,
-				A7A0ED41219EC3E3004FBE05 /* ImageExtract-tvOS */,
 				A7A0ED13219EB6C8004FBE05 /* ImageExtract-macOS */,
 				A7A0ECE5219EB279004FBE05 /* ImageExtract-iOSTests */,
-				A7A0ED49219EC3E3004FBE05 /* ImageExtract-tvOSTests */,
 				A7A0ED1B219EB6C9004FBE05 /* ImageExtract-macOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A783D85621A542B300A0242F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A7A0ECDB219EB279004FBE05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -554,21 +378,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A7A0ED40219EC3E3004FBE05 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A7A0ED48219EC3E3004FBE05 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A72140C721ABA68C0019C38B /* TestImage.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -581,46 +390,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/WebP.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/WebP.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		A788B83E21AD2B9D000E22AC /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/watchOS/WebP.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/WebP.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		A788B83F21AD2BB9000E22AC /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/tvOS/WebP.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -655,20 +424,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A783D85421A542B300A0242F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A783DD3821A7B8DC00A0242F /* Error.swift in Sources */,
-				A712B87421AA5FCA00C77612 /* Extension.swift in Sources */,
-				DFABE9450D9FD1115FC0D3D7 /* Helper.swift in Sources */,
-				DFABE09C016245135824DB0E /* ImageDecoder.swift in Sources */,
-				A783D86121A5432300A0242F /* ImageExtract.swift in Sources */,
-				DFABE30DE6D4A793F3928571 /* ImageFormat.swift in Sources */,
-				A783D87021A54CA800A0242F /* ImageLoader.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A7A0ECD9219EB279004FBE05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -725,34 +480,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A7A0ED3E219EC3E3004FBE05 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A783DD3721A7B8DC00A0242F /* Error.swift in Sources */,
-				A712B87321AA5FCA00C77612 /* Extension.swift in Sources */,
-				DFABE52A7E92CD6A2E58C1E3 /* Helper.swift in Sources */,
-				DFABEC538951831DCABEA324 /* ImageDecoder.swift in Sources */,
-				A77CE44E21A29F90009AFD9B /* ImageExtract.swift in Sources */,
-				DFABEAB25A51197E70BF3486 /* ImageFormat.swift in Sources */,
-				A783D86F21A54CA800A0242F /* ImageLoader.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A7A0ED46219EC3E3004FBE05 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DFABEB51F0584E3C66B8D23A /* DataSet.swift in Sources */,
-				A783DD5321A7FD2C00A0242F /* HelperTests.swift in Sources */,
-				A783DD3C21A7F4A400A0242F /* ImageDecoderTests.swift in Sources */,
-				DFABE9989AA3AEB67AC64E88 /* ImageExtractAsyncTests.swift in Sources */,
-				A783DD5021A7FD2C00A0242F /* ImageExtractSyncTests.swift in Sources */,
-				A783DD5121A7FD2C00A0242F /* ImageFormatTests.swift in Sources */,
-				A783DD5221A7FD2C00A0242F /* ImageLoaderTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -766,84 +493,9 @@
 			target = A7A0ED13219EB6C8004FBE05 /* ImageExtract-macOS */;
 			targetProxy = A7A0ED1E219EB6C9004FBE05 /* PBXContainerItemProxy */;
 		};
-		A7A0ED4D219EC3E3004FBE05 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A7A0ED41219EC3E3004FBE05 /* ImageExtract-tvOS */;
-			targetProxy = A7A0ED4C219EC3E3004FBE05 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		A783D85D21A542B300A0242F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-				);
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gumob.ImageExtract;
-				PRODUCT_NAME = "$(PROJECT_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 4;
-				USER_HEADER_SEARCH_PATHS = "";
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
-			};
-			name = Debug;
-		};
-		A783D85E21A542B300A0242F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-				);
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gumob.ImageExtract;
-				PRODUCT_NAME = "$(PROJECT_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 4;
-				USER_HEADER_SEARCH_PATHS = "";
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
-			};
-			name = Release;
-		};
 		A7A0ECEF219EB279004FBE05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1197,136 +849,9 @@
 			};
 			name = Release;
 		};
-		A7A0ED54219EC3E3004FBE05 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gumob.ImageExtract;
-				PRODUCT_NAME = "$(PROJECT_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				USER_HEADER_SEARCH_PATHS = "";
-			};
-			name = Debug;
-		};
-		A7A0ED55219EC3E3004FBE05 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gumob.ImageExtract;
-				PRODUCT_NAME = "$(PROJECT_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.0;
-				USER_HEADER_SEARCH_PATHS = "";
-			};
-			name = Release;
-		};
-		A7A0ED57219EC3E3004FBE05 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gumob.ImageExtract-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-			};
-			name = Debug;
-		};
-		A7A0ED58219EC3E3004FBE05 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gumob.ImageExtract-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A783D85F21A542B300A0242F /* Build configuration list for PBXNativeTarget "ImageExtract-watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A783D85D21A542B300A0242F /* Debug */,
-				A783D85E21A542B300A0242F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A7A0ECD7219EB279004FBE05 /* Build configuration list for PBXProject "ImageExtract" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1368,24 +893,6 @@
 			buildConfigurations = (
 				A7A0ED29219EB6C9004FBE05 /* Debug */,
 				A7A0ED2A219EB6C9004FBE05 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A7A0ED53219EC3E3004FBE05 /* Build configuration list for PBXNativeTarget "ImageExtract-tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A7A0ED54219EC3E3004FBE05 /* Debug */,
-				A7A0ED55219EC3E3004FBE05 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A7A0ED56219EC3E3004FBE05 /* Build configuration list for PBXNativeTarget "ImageExtract-tvOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A7A0ED57219EC3E3004FBE05 /* Debug */,
-				A7A0ED58219EC3E3004FBE05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
