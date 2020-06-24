@@ -194,9 +194,13 @@ internal class WEBPDecoder {
      * https://github.com/golang/image/blob/master/vp8l/decode.go
      */
     func getSize(_ data: Data) -> CGSize {
-        guard data.count > ImageFormat.webp.minimumLength,
-              let size: CGSize = try? WebPDecoder.decode(data, checkStatus: false) else { return .zero }
-        return size
+//        guard data.count > ImageFormat.webp.minimumLength,
+//              let size: CGSize = try? WebPDecoder.decode(data, checkStatus: false) else { return .zero }
+        guard data.count > ImageFormat.webp.minimumLength else { return .zero }
+        let options = WebPDecoderOptions()
+        let decoder = WebPDecoder()
+        guard let image: CGImage = try? decoder.decode(data, options: options) else { return .zero }
+        return CGSize(width: image.width, height: image.height)
 
         /* The current version uses libwebp static library. */
 //        switch ImageWebPFormat(data: data) {
