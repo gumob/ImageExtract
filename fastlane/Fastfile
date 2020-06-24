@@ -21,13 +21,10 @@ default_xcodeproj = ENV["DEFAULT_XCODEPROJ"]
 default_podspec = ENV["DEFAULT_PODSPEC"]
 
 scheme_iOS = ENV["SCHEME_IOS"]
-scheme_watchOS = ENV["SCHEME_WATCHOS"]
 scheme_macOS = ENV["SCHEME_MACOS"]
-scheme_tvOS = ENV["SCHEME_TVOS"]
 
 scheme_iOSTests = ENV["SCHEME_TEST_IOS"]
 scheme_macOSTests = ENV["SCHEME_TEST_MACOS"]
-scheme_tvOSTests = ENV["SCHEME_TEST_TVOS"]
 
 info_plist_framework = ENV["INFO_PLIST_FRAMEWORK"]
 info_plist_test = ENV["INFO_PLIST_TEST"]
@@ -105,7 +102,6 @@ platform :ios do
     desc "Run All Tests"
     lane :test_all do |options|
         test_macos
-        test_tvos
         test_ios
     end
 
@@ -123,16 +119,6 @@ platform :ios do
         coverage
         lint
         create_doc
-    end
-
-    desc "Run tvOS Tests"
-    lane :test_tvos do |options|
-        xcclean
-        scan(
-            scheme: scheme_tvOS,
-            devices: ["Apple TV"],
-            code_coverage: true
-        )
     end
 
     desc "Run macOS Tests"

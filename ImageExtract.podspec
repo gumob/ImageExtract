@@ -25,13 +25,13 @@ Pod::Spec.new do |s|
     osx_deployment_target       = "10.11"
 
     s.ios.deployment_target     = ios_deployment_target
-    s.tvos.deployment_target    = tvos_deployment_target
-    s.watchos.deployment_target = watchos_deployment_target
+    # s.tvos.deployment_target    = tvos_deployment_target
+    # s.watchos.deployment_target = watchos_deployment_target
     s.osx.deployment_target     = osx_deployment_target
 
     s.ios.framework             = "Foundation", "UIKit"
-    s.tvos.framework            = "Foundation", "UIKit"
-    s.watchos.framework         = "Foundation", "UIKit"
+    # s.tvos.framework            = "Foundation", "UIKit"
+    # s.watchos.framework         = "Foundation", "UIKit"
     s.osx.framework             = "Foundation", "AppKit"
 
     s.libraries                 = "webp"

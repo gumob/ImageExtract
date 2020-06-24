@@ -46,11 +46,6 @@ Run All Tests
 fastlane ios test_ios
 ```
 Run iOS Tests
-### ios test_tvos
-```
-fastlane ios test_tvos
-```
-Run tvOS Tests
 ### ios test_macos
 ```
 fastlane ios test_macos
