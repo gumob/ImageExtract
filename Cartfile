@@ -1,1 +1,2 @@
-github "gumob/Swift-WebP" "feature/image-extract"
+#github "gumob/Swift-WebP" "feature/image-extract"
+github "ainame/Swift-WebP"
