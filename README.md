@@ -14,7 +14,7 @@ A Swift library to allows you to extract the size of an image without downloadin
 ImageExtract supports multiple platforms
 - iOS 10.0 or later
 - macOS 10.11 or later
-- Swift 5.0 ore later
+- Swift 5.0 or later
 
 ## Supported image format
 
