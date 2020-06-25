@@ -144,7 +144,7 @@ platform :ios do
         swiftlint(
             mode: :lint,
             path: "Source/",
-            config_file: ".swiftlint.yml",
+            config_file: "../.swiftlint.yml",
             ignore_exit_status: true
         )
     end
