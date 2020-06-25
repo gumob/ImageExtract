@@ -1,12 +1,12 @@
 language: objective-c
 os: osx
-osx_image: xcode10.2
+osx_image: xcode11.5
 
-#branches:
-#  only:
-#    - master
-#    - develop
-#    - "/^v?[0-9\\.]+/"
+branches:
+  only:
+    - master
+    - develop
+    - "/^v?[0-9\\.]+/"
 
 cache:
   bundler: true
@@ -25,20 +25,14 @@ env:
 matrix:
   include:
     # iOS Tests
-    - env: SCHEME="$IOS_SCHEME"   DESTINATION="OS=12.1,name=iPhone X"       RUN_TESTS="YES" LINT="NO"  $CARTHAGE_PLATFORM="iOS" COVERAGE="YES" CODECOV_FLAG="ios12"
-    - env: SCHEME="$IOS_SCHEME"   DESTINATION="OS=11.4,name=iPhone 7 Plus"  RUN_TESTS="YES" LINT="YES" $CARTHAGE_PLATFORM="iOS" COVERAGE="NO"  CODECOV_FLAG="ios11"
-    - env: SCHEME="$IOS_SCHEME"   DESTINATION="OS=10.3.1,name=iPhone 6"     RUN_TESTS="YES" LINT="NO"  $CARTHAGE_PLATFORM="iOS" COVERAGE="NO"  CODECOV_FLAG="ios10"
-    - env: SCHEME="$IOS_SCHEME"   DESTINATION="OS=9.3,name=iPhone 5s"       RUN_TESTS="YES" LINT="NO"  $CARTHAGE_PLATFORM="iOS" COVERAGE="NO"  CODECOV_FLAG="ios9"
+    - env: SCHEME="$IOS_SCHEME"   DESTINATION="OS=13.5,name=iPhone 11 Pro"  XCODE_TEST="YES" LINT="YES" CARTHAGE_PLATFORM="iOS" COVERAGE="YES" CODECOV_FLAG="ios13"
+    - env: SCHEME="$IOS_SCHEME"   DESTINATION="OS=12.1,name=iPhone X"       XCODE_TEST="YES" LINT="NO"  CARTHAGE_PLATFORM="iOS" COVERAGE="NO"  CODECOV_FLAG="ios12"
+    - env: SCHEME="$IOS_SCHEME"   DESTINATION="OS=11.4,name=iPhone 7 Plus"  XCODE_TEST="YES" LINT="NO"  CARTHAGE_PLATFORM="iOS" COVERAGE="NO"  CODECOV_FLAG="ios11"
+    - env: SCHEME="$IOS_SCHEME"   DESTINATION="OS=10.3.1,name=iPhone 6"     XCODE_TEST="YES" LINT="NO"  CARTHAGE_PLATFORM="iOS" COVERAGE="NO"  CODECOV_FLAG="ios10"
     # macOS Tests
-    - env: SCHEME="$MACOS_SCHEME" DESTINATION="arch=x86_64"                 RUN_TESTS="YES" LINT="NO"  $CARTHAGE_PLATFORM="Mac"  COVERAGE="NO"  CODECOV_FLAG="macos"
+    - env: SCHEME="$MACOS_SCHEME" DESTINATION="arch=x86_64"                 XCODE_TEST="YES" LINT="NO"  CARTHAGE_PLATFORM="Mac" COVERAGE="NO"  CODECOV_FLAG="macos"
 
 before_install:
-  # Workaround for “Library not loaded: /usr/lib/libauto.dylib”; see:
-  #   https://stackoverflow.com/questions/55389080/xcode-10-2-failed-to-run-app-on-simulator-with-ios-10
-  #   https://developer.apple.com/documentation/xcode_release_notes/xcode_10_2_1_release_notes
-  - if [ "$DESTINATION" == "OS=9.3,name=iPhone 5s" ]; then
-    sudo mkdir '/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 9.3.simruntime/Contents/Resources/RuntimeRoot/usr/lib/swift';
-    fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     gem install cocoapods --no-document --quiet;
     gem install xcpretty --no-document --quiet;
@@ -62,9 +56,9 @@ script:
     xcodebuild -list;
     fi
 
-  - if [ "$RUN_TESTS" == "YES" ]; then
+  - if [ "$XCODE_TEST" == "YES" ]; then
     xcodebuild clean test -project "$XCODE_PROJECT" -scheme "$SCHEME" -destination "$DESTINATION" -enableCodeCoverage $COVERAGE | xcpretty -c;
-    elif [ "$RUN_TESTS" == "NO" ]; then
+    elif [ "$XCODE_TEST" == "NO" ]; then
     xcodebuild clean build -project "$XCODE_PROJECT" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release | xcpretty -c;
     fi
 
