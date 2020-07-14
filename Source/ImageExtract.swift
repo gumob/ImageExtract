@@ -48,7 +48,7 @@ public class ImageExtract {
        - timeout: The timeout interval to use when waiting for additional data.
        - chunkSize: Chunk size limiting buffer size to be downloaded. The default value is [ImageChunkSize](../Enums/ImageChunkSize.html).extraLarge. (50,000 bytes)
      */
-    init(userAgent: String? = nil,
+    public init(userAgent: String? = nil,
                 maxConnectionsPerHost: Int = 0,
                 timeout: TimeInterval = 5,
                 chunkSize: ImageChunkSize = .extraLarge) {
@@ -71,7 +71,7 @@ public class ImageExtract {
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
      - Returns: A tuple value including image size and task result. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
-    func extract(_ request: ImageRequestConvertible) -> (size: CGSize, isFinished: Bool) {
+    public func extract(_ request: ImageRequestConvertible) -> (size: CGSize, isFinished: Bool) {
         /* Validate the request url */
         guard let urlRequest: URLRequest = request.asURLRequest() else { return (.zero, false) }
         /* Load image */
@@ -85,7 +85,7 @@ public class ImageExtract {
        - request: An image url to request. [String](https://developer.apple.com/documentation/swift/string), [URL](https://developer.apple.com/documentation/foundation/url), and [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest) are conform to [ImageRequestConvertible](../Protocols/ImageRequestConvertible.html) protocol.
        - completion: A handler that called when a request is completed. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
-    func extract(_ request: ImageRequestConvertible,
+    public func extract(_ request: ImageRequestConvertible,
                         completion: @escaping (String?, CGSize, Bool) -> Void) {
         /* Validate the request url */
         guard let urlRequest: URLRequest = request.asURLRequest() else {
